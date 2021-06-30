@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset= "utf-8">
+		<link rel="stylesheet" href="css/swiper-slide.css">	
+		<link rel="stylesheet" href="css/stylemovil.css">	
+		<link rel="stylesheet" href="css/detalles_producto.css">	
+	
+		<title>Mojitos cafe-bar</title>
+	</head>
+	<body >
+		
+		<div class="container-fotos ">			
+			<img class="img-foto" src="imgs/foto1.png" >
+		</div>
+
+		<div class="cont-detalles-producto">
+			<!-- Ventana que se despliega hacia arriba mostrando los detalles del producto seleaccionado -->
+			<div class="div-detalles">				
+				<div class="detalles-izquierda">					
+					<img src="imgs/burger.jpg" > 
+					<h5  id="titulo-detalles-producto" class="titulo-producto">Hamburguesa</h5>				
+					<p id="descripcion-detalles-producto" >de carne, con lechuga, patacones o pan y las salsas que prefieras.</p>																			
+					<div class="botones-accion-izquierda">
+						<button class="btn-accion btn-ver"><i class="fas fa-images"></i> ver</button>				
+						<button class="btn-accion btn-propina"><i class="fas fa-coins"></i> propina</button>
+						
+					</div>							
+				</div>				
+				<div class="detalles-derecha">		
+									
+					<div class="contenido-personalizable">										
+						<h7>Pedido actual</h7>
+						<select name="select" class="variantes-producto">
+							<option  value="50000">Hamburguesa de pan</option>
+							<option  value="60000">Hamburguesa de patacones</option>
+							<option  value="40000">Hamburguesa Veguetariana</option>
+						</select>	
+						<h7>Salsas</h7>
+						<select name="select" class="variantes-producto">						
+							<option  value="60000">Tomate y rosada</option>
+							<option  value="60000">Tomate y piña</option>
+							<option  value="40000">Todas las salsas menos piña</option>
+							<option  value="40000">Todas las salsas</option>
+						</select>	
+						  <h7>Descripción</h7>										 
+						  <textarea   type="descripcion" name="descripcion" rows="3" cols="10"class="descripcion-productos" name="descripcion"  placeholder="Escribe aquí tu descripción.."></textarea>									 										  
+						  <h7>Cantidad y precio</h7>
+					<span class="precio-unidades">						
+						<p id="precio-detalles-producto" class="precio-producto">$ 6000</p>
+						<span class="span-cantidad">
+							<button  class="botones-unidades disminuir-productos" >-</button>
+							<input type="text" class="cantidad-producto" value="1">
+							<button  class="botones-unidades aumentar-productos ">+</button>																															
+						</span>		
+					</span>	
+					</div>	
+					<div class="botones-accion-derecha">
+						<button class="btn-accion btn-agregar"><i class="fas fa-cart-plus"></i> agregar</button>				
+						<button class="btn-accion btn-ordenar"><i class="fas fa-utensils"></i> ordenar</button>					
+					</div>								
+				</div>	
+
+									
+			</div>
+		</div>	
+		<main >			
+								
+			<!-- Swiper  contenedor-->
+			<!-- MENU -->
+			<div class="contenedor-todo-swiper">				
+				<!-- FRAPPES -->
+				<h2 class="titulo-swiper-categoria">Cafe</h2>
+				 <!-- Swiper -->
+				 <div >
+					<div id="comidasMojitos" class="swiper-wrapper">
+					  <div productoId="1" id="producto1" class="swiper-slide">							
+						<img  src="imgs/burger.jpg" >  
+						<h5 class="titulo-producto">Hamburguesa $6000</h5>					  
+					  </div>						  
+					  <div class="swiper-slide">							
+						<img src="imgs/hotdog.jpg" >  
+						<h5 class="titulo-producto">Hot Dog $5000</h5>					  
+					  </div>				  					  
+					  <div class="swiper-slide">							
+						<img src="imgs/chirizo-brizas.png.jpg" >  
+						<h5 class="titulo-producto">Chorizito (Jhojitan) $3000</h5>					  
+					  </div>
+					  <div class="swiper-slide">							
+						<img src="imgs/salchipapas.jpg" >  
+						<h5 class="titulo-producto">Salchipapas</h5>					  
+					  </div>					  
+					  <div class="swiper-slide">							
+						<img src="imgs/arepas.jpg" >  
+						<h5 class="titulo-producto">Arepas</h5>					  
+					  </div>		
+					  <div class="swiper-slide">							
+						<img src="imgs/burger.jpg" >  
+						<h5 class="titulo-producto">Hamburguesa</h5>					  
+					  </div>						  
+					  <div class="swiper-slide">							
+						<img src="imgs/hotdog.jpg" >  
+						<h5 class="titulo-producto">Hot Dog</h5>					  
+					  </div>				  					  				
+					  <div class="swiper-slide">							
+						<img src="imgs/salchipapas.jpg" >  
+						<h5 class="titulo-producto">Salchipapas</h5>					  
+					  </div>					
+					  <!--
+					  <div class="swiper-slide swiper-disable"></div>				  
+					  <div class="swiper-slide swiper-disable"></div>				  
+					  <div class="swiper-slide swiper-disable"></div>				  
+					  <div class="swiper-slide swiper-disable"></div>				
+					  -->					    					  					  
+					</div>					
+				</div>				
+			</div>
+ 		
+		  
+
+			<nav class=" nav-barra-inferior animate__animated animate__fadeIn">
+				<a href = "" class="margen-derecha">Productos</a>
+				<a href = "" class="margen-derecha" class="margen-derecha">Contactos</a>
+				<a href = "" class="margen-derecha">Acerca de</a>
+				<a href = "https://www.facebook.com/profile.php?id=100009055449064" class="margen-derecha">Redes Sociales</a>	
+				<a href = "https://www.instagram.com/castelll0009">Instragram</a>		
+				<a style="background-color: rgb(236, 132, 72); border-radius: 5px; padding-left: 8px; padding-right: 8px; color: beige;"  href = "https://drive.google.com/file/d/1NDsNjMkE4laC038JCCZmbtsV9ulMIvaF/view?usp=sharing">CV-Developer</a>	
+			</nav>				
+			
+		</main>	  		
+		<audio id="sonido-logo">	  
+	  		<source src="sounds/brindis2.mp3" type="audio/mpeg">
+	  		Your browser does not support the audio element.
+		</audio>
+		<audio id="sonido-refri">	  
+			<source src="sounds/destapando-bebida.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		<audio id="sonido-cerrar-refri">	  
+		<source src="sounds/cerar-refri.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+		</audio>
+	
+		<!-- Swiper JS -->						
+		<script src="js/detalles_producto.js"></script>			  
+		<script src="js/jquery.js"></script>  						
+	</body>
+</html>

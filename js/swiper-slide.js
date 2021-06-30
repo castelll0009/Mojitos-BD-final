@@ -1,4 +1,3 @@
-
 //autoplay swiper1
 var swiper1 = new Swiper(".swiper1",{
   slidesPerView: 3,
@@ -165,5 +164,4 @@ $(".swiper3").on(' mouseover touched touchmove', function(e){
   swiper2.autoplay.start();  
   swiper3.autoplay.stop();  
 })
-
 

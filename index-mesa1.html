@@ -30,8 +30,8 @@
 			<div class="div-detalles">				
 				<div class="detalles-izquierda">					
 					<img src="imgs/burger.jpg" > 
-					<h5  class="titulo-producto">Hamburguesa</h5>				
-					<p>de carne, con lechuga, patacones o pan y las salsas que prefieras.</p>																			
+					<h5  id="titulo-detalles-producto" class="titulo-producto">Hamburguesa</h5>				
+					<p id="descripcion-detalles-producto" >de carne, con lechuga, patacones o pan y las salsas que prefieras.</p>																			
 					<div class="botones-accion-izquierda">
 						<button class="btn-accion btn-ver"><i class="fas fa-images"></i> ver</button>				
 						<button class="btn-accion btn-propina"><i class="fas fa-coins"></i> propina</button>
@@ -58,7 +58,7 @@
 						  <textarea   type="descripcion" name="descripcion" rows="3" cols="10"class="descripcion-productos" name="descripcion"  placeholder="Escribe aquí tu descripción.."></textarea>									 										  
 						  <h7>Cantidad y precio</h7>
 					<span class="precio-unidades">						
-						<p class="precio-producto">$ 6000</p>
+						<p id="precio-detalles-producto" class="precio-producto">$ 6000</p>
 						<span class="span-cantidad">
 							<button  class="botones-unidades disminuir-productos" >-</button>
 							<input type="text" class="cantidad-producto" value="1">
@@ -175,12 +175,9 @@
 				<!-- FRAPPES -->
 				<h2 class="titulo-swiper-categoria">Cafe</h2>
 				 <!-- Swiper -->
-				 <div class="swiper-container mySwiper swiper1">
-					<div class="swiper-wrapper">
-					  <div id="producto1" class="swiper-slide">							
-						<img  src="imgs/burger.jpg" >  
-						<h5 class="titulo-producto">Hamburguesa $6000</h5>					  
-					  </div>						  
+				<div  class="swiper-container mySwiper swiper1">
+					<div id="comidasMojitos" class="swiper-wrapper">
+											  
 					  <div class="swiper-slide">							
 						<img src="imgs/hotdog.jpg" >  
 						<h5 class="titulo-producto">Hot Dog $5000</h5>					  
@@ -223,7 +220,7 @@
 				<h2 class="titulo-swiper-categoria">Frappes</h2>
 				 <!-- Swiper -->
 				 <div class="swiper-container mySwiper swiper2">
-					<div class="swiper-wrapper">
+					<div id="bebidasMojitos" class="swiper-wrapper">
 					  <div class="swiper-slide">							
 						<img src="imgs/mojito-fresa.jpg" >  
 						<h5 class="titulo-producto">Mojito de fresa</h5>					  
@@ -278,7 +275,7 @@
 				<h2 class="titulo-swiper-categoria">Waffles</h2>
 				 <!-- Swiper -->
 				 <div class="swiper-container mySwiper swiper3">
-					<div class="swiper-wrapper">
+					<div id="postresMojitos" class="swiper-wrapper">
 						<div class="swiper-slide">							
 						<img src="imgs/waffles1.png" >  
 						<h5 class="titulo-producto">Waffle con decoración</h5>					  
@@ -396,9 +393,9 @@
 		<script src="js/request-app.js"></script>
 		<script src="js/detalles_producto.js"></script>
 		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>		  
-		<script src="js/swiper-slide.js"></script>
 		<script src="js/menu.js"></script>	
 		<script src="js/buttom_menu.js"></script>	
-		<script src="js/jquery.js"></script>  						
+		<script src="js/jquery.js"></script>  		
+		<script src="js/swiper-slide.js"></script>				
 	</body>
 </html>
