@@ -1,9 +1,27 @@
 $(document).ready(function() {  
-var contador = 0;
-if(contador <1){
-    fetchTasks();
-    contador++;
-}
+    var contador = 0;
+    if(contador <1){
+        fetchTasks();
+        contador++;        
+    }    
+    $(document).on('click', '.desplegar-detalles',  (e)=>{
+            //desplejar la sinta desde abajo   
+        $(".div-detalles").toggleClass("mostrar-detalles"); 
+        const element = $(this)[0].activeElement;
+        console.log("DSADASDSADSDSADSA  " + element); 
+        const id = $(element).attr('productoId');
+        console.log(element);
+        console.log($(element).attr('productoId'));
+        
+        console.log(id);
+     
+    });
+    $(document).on('click', '.div-detalles', () =>{        
+        $(".div-detalles").toggleClass("mostrar-detalles"); 
+
+    });
+   
+    
 
     console.log('jquery is working!');
     $('#task-result').hide();
@@ -67,6 +85,7 @@ if(contador <1){
             success: function(response) {
                 console.log(response)            
                 const tasks = JSON.parse(response);            
+                console.log(tasks);
                 let template = '';
                 let template_comidas_mojitos = '';
                 let template_bebidas_mojitos = '';
@@ -99,7 +118,7 @@ if(contador <1){
                     if(task.category == "comidas"){
                         //template comidas mojitos
                         template_comidas_mojitos+= `
-                        <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide">							
+                        <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles obtener-detalles desplegar-detalles">							
                             <img  src="imgs/burger.jpg" >   
                             <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
                         </div>
@@ -108,7 +127,7 @@ if(contador <1){
                         if(task.category == "bebidas") {
                             //template bebidas Mojitos
                             template_bebidas_mojitos += `
-                            <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide">							
+                            <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                 <img  src="imgs/burger.jpg" > 
                                 <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
                             </div>
@@ -116,7 +135,7 @@ if(contador <1){
                         } else { // si no es ninguna de loas anteriores sabemos  que es un postre
                             //template Postres Mojitos
                             template_postres_mojitos += `
-                            <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide">							
+                            <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                 <img  src="imgs/burger.jpg" > 
                                 <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
                             </div>
@@ -127,32 +146,18 @@ if(contador <1){
                 $('#tasks').html(template);                 
                 $('#comidasMojitos').html(template_comidas_mojitos);
                 $('#bebidasMojitos').html(template_bebidas_mojitos);
-                $('#postresMojitos').html(template_postres_mojitos);
-                
+                $('#postresMojitos').html(template_postres_mojitos);                
             }
         });        
     }
-    //desplegar detalles 
-    $(document).on('click', '.swiper-slide', (e) => {
-        const element = $(this)[0].activeElement;
+    /*
+    //desplegar detalles     
+    $(document).on('click', '.obtener-detalles', (e) => {
+        const element = $(this)[0];
         console.log("DSADASDSADSDSADSA  " + element);         
         const id = $(element).attr('productoId');
         console.log(id);
         // una vez idetificado el id del elemento clickeado vamos a reemplazar la div-detalles con los elementos del producto clickeado, directamente desde la base de datos
-        /*
-        $.ajax({
-            url: 'tasks-details.php',
-            type: 'GET',
-            success: function(response) {
-              const tasks = JSON.parse(response);              
-              tasks.forEach(task => {
-                $('#titulo-detalles-producto').val(task.name);
-                $('#precio-detalles-producto').val(task.price);
-                $('#descripcion-detalles-producto').val(task.description);
-              });              
-            }
-          });
-          */
          //Modificamos la plantilla que se despliega hacia arriba con los detalles del producto clickeado
           $.post('task-single.php', {id}, (response) => {
             const task = JSON.parse(response);
@@ -161,5 +166,7 @@ if(contador <1){
             $('#descripcion-detalles-producto').val(task.description);                   
           });
           e.preventDefault();
-    });
+    });     
+    */ 
+    
 });

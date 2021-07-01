@@ -5,7 +5,7 @@ var swiper1 = new Swiper(".swiper1",{
   freeMode: true,    
   autoplay: true,
   speed: 3000,
-  stopOnLastSlide : true,
+  stopOnLastSlide : true,  
   breakpoints: {    
     // when window width is >= 320px
     350: {
