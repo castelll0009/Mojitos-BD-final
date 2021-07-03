@@ -4,22 +4,7 @@ $(document).ready(function() {
         fetchTasks();
         contador++;        
     }    
-    $(document).on('click', '.desplegar-detalles',  (e)=>{
-            //desplejar la sinta desde abajo   
-        $(".div-detalles").toggleClass("mostrar-detalles"); 
-        const element = $(this)[0].activeElement;
-        console.log("DSADASDSADSDSADSA  " + element); 
-        const id = $(element).attr('productoId');
-        console.log(element);
-        console.log($(element).attr('productoId'));
-        
-        console.log(id);
-     
-    });
-    $(document).on('click', '.div-detalles', () =>{        
-        $(".div-detalles").toggleClass("mostrar-detalles"); 
 
-    });
    
     
 
@@ -118,9 +103,9 @@ $(document).ready(function() {
                     if(task.category == "comidas"){
                         //template comidas mojitos
                         template_comidas_mojitos+= `
-                        <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles obtener-detalles desplegar-detalles">							
+                        <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles obtener-detalles ">
                             <img  src="imgs/burger.jpg" >   
-                            <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                            <h5  class="titulo-producto ">${task.name} $${task.price}</h5>					  
                         </div>
                         `  
                     }else{
@@ -150,23 +135,35 @@ $(document).ready(function() {
             }
         });        
     }
-    /*
-    //desplegar detalles     
-    $(document).on('click', '.obtener-detalles', (e) => {
-        const element = $(this)[0];
-        console.log("DSADASDSADSDSADSA  " + element);         
-        const id = $(element).attr('productoId');
-        console.log(id);
-        // una vez idetificado el id del elemento clickeado vamos a reemplazar la div-detalles con los elementos del producto clickeado, directamente desde la base de datos
-         //Modificamos la plantilla que se despliega hacia arriba con los detalles del producto clickeado
-          $.post('task-single.php', {id}, (response) => {
-            const task = JSON.parse(response);
-            $('#titulo-detalles-producto').val(task.name);
-            $('#precio-detalles-producto').val("$" + task.price);
-            $('#descripcion-detalles-producto').val(task.description);                   
+    //desplegar detalles
+    $(document).on('click', '.desplegar-detalles' , (e)  =>{
+        //despliegue detalles con toggle          
+        $(".div-detalles").toggleClass("mostrar-detalles");  
+        //desplejar la sinta desde abajo           
+        $('.desplegar-detalles').click(function () {
+            /*var index = $(this).index();
+            console.log(index);
+            $('.desplegar-detalles').eq(index).css({'display': 'none'});
+            */
+            const id =  $(this).attr("productoId");            
+            console.log(id) ;                       
+            // una vez idetificado el id del elemento clickeado vamos a reemplazar la div-detalles con los elementos del producto clickeado, directamente desde la base de datos            
+            //Modificamos la plantilla que se despliega hacia arriba con los detalles del producto clickeado
+            $.post('backend/task-single.php', {id}, (response) => { //hacer la peticion al archivo task-single.php para obtener los elementos del item co Id especifico
+            const task = JSON.parse(response); //obtenemos los items en formato JSON
+            console.log(task);
+            console.log(task.name);
+            $('#titulo-detalles-producto').html(task.name);            
+            $('#precio-detalles-producto').html("$" + task.price);
+            $('#descripcion-detalles-producto').html(task.description);                   
           });
-          e.preventDefault();
-    });     
-    */ 
+            
+        });                 
+        
+    
+    });
+    $(document).on('click', '.div-detalles', () =>{        
+        $(".div-detalles").toggleClass("mostrar-detalles"); 
+    });
     
 });
