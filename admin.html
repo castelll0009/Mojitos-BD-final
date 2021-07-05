@@ -32,11 +32,16 @@
           <div class="card">
             <div class="card-body">
               <!-- FORM TO ADD TASKS -->
-              <form id="task-form" enctype="multipart/form-data">
+              <form action="backend/add-imagen.php" method="POST" enctype="multipart/form-data">
+                <input onchange="obtenerImagen()" type="file" required name="archivo2" placeholder="archivo2" id="archivo" value="" >                
+                   <!-- <input type="submit" name="submit" value="Aceptar"> -->
+              </form>
+              <!-- FORM TO ADD TASKS -->
+              <form action="backend/task-add.php" id="task-form" enctype="multipart/form-data">
                 <div class="form-group subir-imagen">
                   <canvas id="canvas" width="300" height="300"></canvas>
-                  <label for="archivo" id="archivoFile">Seleccionar imagen</label>
-                  <input onchange="obtenerImagen()" name="archivo" type="file" id="archivo">
+                  <label for="archivo" id="archivoFile">Seleccionar imagen</label>                  
+                    <input  name="archivo1" type="file" id="archivo1">                  
                   <div onclick="mostrarResultado()" id="mostrar">Mostrar resultado</div>              
                   <img name="imagenMostrada" type="file"  id="imagenMostrada">
                 </div>

@@ -4,10 +4,7 @@ $(document).ready(function() {
         fetchTasks();
         contador++;        
     }    
-
-   
-    
-
+       
     console.log('jquery is working!');
     $('#task-result').hide();
     ////////BUSCAR PRODUCTOS  MOJITOS///////
@@ -36,7 +33,6 @@ $(document).ready(function() {
         }
     });
     
-
 ////////AGREGAR PRODUCTOS A MOJITOS -ADD///////
     $('#task-form').submit(e => {
     e.preventDefault();
