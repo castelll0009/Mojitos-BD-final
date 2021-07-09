@@ -9,8 +9,8 @@ if(isset($_POST["submit"])){
 
         //Insert image content into database
         $query = "INSERT into productos2 (imagen) VALUES ('$imgContent')";      
-        $result = mysqli_query($connection, $query);
-        //$result = $connection->query($query);
+        //$result = mysqli_query($connection, $query);
+        $result = $connection->query($query);
       
         if (!$result) {
           die('Query Failed.');

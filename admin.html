@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-      <link rel="stylesheet" href="css/subir_imagen.css">	
+    <meta http-equiv="X-UA-Compatible" >
+    <link rel="stylesheet" href="css/subir_imagen.css">	
 
     <title>Mojitos admin app</title>
     <!-- BOOTSTRAP 4  -->
@@ -30,20 +31,19 @@
       <div class="row p-4">
         <div class="col-md-5">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body">                                      
               <!-- FORM TO ADD TASKS -->
-              <form action="backend/add-imagen.php" method="POST" enctype="multipart/form-data">
-                <input onchange="obtenerImagen()" type="file" required name="archivo2" placeholder="archivo2" id="archivo" value="" >                
-                   <!-- <input type="submit" name="submit" value="Aceptar"> -->
-              </form>
-              <!-- FORM TO ADD TASKS -->
-              <form action="backend/task-add.php" id="task-form" enctype="multipart/form-data">
+              <form id="frmSubirImagen" action="backend/subir-img.php" method="POST" enctype="multipart/form-data">                                                  
+                  <input type="file" name="archivo2" id="archivo2">                  
+                  <button type="submit" name="btn-submit">Cargar imagen</button>
+                <!-- FORM TO ADD TASKS -->
+              <form  id="task-form" enctype="multipart/form-data">
                 <div class="form-group subir-imagen">
                   <canvas id="canvas" width="300" height="300"></canvas>
-                  <label for="archivo" id="archivoFile">Seleccionar imagen</label>                  
-                    <input  name="archivo1" type="file" id="archivo1">                  
+                  <label for="archivo" id="archivoFile">Seleccionar imagen</label>
+                  <input onchange="obtenerImagen()" type="file" name="archivo" id="archivo">
                   <div onclick="mostrarResultado()" id="mostrar">Mostrar resultado</div>              
-                  <img name="imagenMostrada" type="file"  id="imagenMostrada">
+                  <img id="imagenMostrada">                          
                 </div>
                 <div class="form-group">
                   <select type="text" id="category" class="form-control" placeholder="Categoria">

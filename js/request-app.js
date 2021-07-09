@@ -32,12 +32,37 @@ $(document).ready(function() {
             })
         }
     });
+    //AGREGAR IMAGEN A MOJITOS
+    //para subir imagen
+    var frm = $("#frmSubirImagen");
+    var btnEnviar = $("button[name=btn-submit]");
+    fmr.bind("submit", function(){ //recupera todos los datos del formulario
+        var fmrData = new FormData; //
+        alert("entro"); 
+        frmData.append("archivo2", $("input[name=archivo2]")[0].files[0]);
+        $.ajax({
+            url: 'backend/subir-img.php',        
+            type: 'POST',
+            data: fmrData,
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (data){
+            // ya se envio el archivo al formulario 
+            console.log(data);
+            }
+            
+        });
+        return false;    // no se envia el formulario proque queremos hacerlo con el click al boton
+    });
     
+  
 ////////AGREGAR PRODUCTOS A MOJITOS -ADD///////
     $('#task-form').submit(e => {
+        alert("entro2"); 
     e.preventDefault();
-    const postData = { //objetos que vamos a enviar al servior usando POST           
-        //imagen: $("#archivo").val(),         
+    const postData = { //objetos que vamos a enviar al servior usando POST             
+        nombre_imagen:  $('#archivo2').val().replace(/C:\\fakepath\\/i, ''),      //enviamos el nombre del archivo sin la ruta
         category: $("#category option:selected").text(),        
         name: $('#name').val(), //sacamos el valor delos campos name price y description, amnd id
         price: $('#price').val(),        
@@ -45,18 +70,19 @@ $(document).ready(function() {
         pedidos_disponibles: $("#pedidos_disponibles option:selected").text(),  
         variantes: $("#variantes option:selected").text(),          
         id: $('#taskId').val()
-    };    
-    console.log("HOLAAAAAAAAAAAAAAAAAAAAAAAAAA sTRING:   ");
+    };   
+    
+    
+//    console.log("ruta imagen " + ruta_imagen);
     //console.log(imagen);
-    console.log(category);
+    console.log("NOMBRE IMAGEN" +  $('#archivo2').val().replace(/C:\\fakepath\\/i, ''));
     console.log("MOSTRAR ARREGLO A SUBIR POR CONSOLA: ");
     console.log(postData);  //Mostramos el arreglo a subir por  consola
     $.post('backend/task-add.php', postData, (response) => {
-      console.log(response);
+      console.log(response); //mostramos el nuevo Json a subir a la base de datos
       $('#task-form').trigger('reset');     
       fetchTasks(); 
-    });
-     
+    });         
 });
 ////////ENLISTAR PRODUCTOS A MOJITOS -Fetching Tasks///////
     function fetchTasks() {
