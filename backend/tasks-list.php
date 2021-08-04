@@ -11,6 +11,7 @@
   $json = array(); // creamos un arreglo y lo llenamos con los datos de la Base de datos
   while($row = mysqli_fetch_array($result)) { // recoremos cada fila  y de cada fila sacamos: caregoy, name, price, descrition, 
     $json[] = array(
+      'imagen' => $row['imagen'],
       'category' => $row['category'],
       'name' => $row['name'],
       'price' => $row['price'],

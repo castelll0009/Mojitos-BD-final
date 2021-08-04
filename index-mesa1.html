@@ -28,7 +28,7 @@
 			<!-- Ventana que se despliega hacia arriba mostrando los detalles del producto seleaccionado -->
 			<div class="div-detalles ">				
 				<div class="detalles-izquierda">					
-					<img src="imgs/burger.jpg" > 
+					<img id="img-detalles-producto" src="imgs/burger.jpg" > 
 					<h5  id="titulo-detalles-producto" class="titulo-producto">Hamburguesa</h5>				
 					<p id="descripcion-detalles-producto" >de carne, con lechuga, patacones o pan y las salsas que prefieras.</p>																			
 					<div class="botones-accion-izquierda">
@@ -47,14 +47,14 @@
 							<option  value="40000">Hamburguesa Veguetariana</option>
 						</select>	
 						<h7>Salsas</h7>
-						<select name="select" class="variantes-producto">						
+						<select name="select" class="variantes-producto2">						
 							<option  value="60000">Tomate y rosada</option>
 							<option  value="60000">Tomate y piña</option>
 							<option  value="40000">Todas las salsas menos piña</option>
 							<option  value="40000">Todas las salsas</option>
 						</select>	
 						  <h7>Descripción</h7>										 
-						  <textarea   type="descripcion" name="descripcion" rows="3" cols="10"class="descripcion-productos" name="descripcion"  placeholder="Escribe aquí tu descripción.."></textarea>									 										  
+						  <textarea   type="descripcion" name="descripcion" rows="3" cols="10" class="descripcion-productos" name="descripcion"  placeholder="Escribe aquí tu descripción.."></textarea>									 										  
 						  <h7>Cantidad y precio</h7>
 					<span class="precio-unidades">						
 						<p id="precio-detalles-producto" class="precio-producto">$ 6000</p>
@@ -388,13 +388,14 @@
 		src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		crossorigin="anonymous"></script>
-		<!-- Swiper JS -->				
+		<!-- Swiper JS -->		
+		<script src="js/detalles_producto.js"></script>				
 		<script src="js/request-app.js"></script>		
 		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>		  
 		<script src="js/menu.js"></script>	
 		<script src="js/buttom_menu.js"></script>	
 		<script src="js/jquery.js"></script>  		
 		<script src="js/swiper-slide.js"></script>		
-		<script src="js/detalles_producto.js"></script>		
+		
 	</body>
 </html>

@@ -3,10 +3,10 @@ var context
 var imagen;
 var archivo
 
-window.onload = (event)=>{
+window.onload = (event)=>{ // para asegurarse que los recursos esten completamente cargados
     canvas = document.getElementById('canvas');
     context = canvas.getContext('2d');
-    archivo = document.getElementById('archivo');
+    archivo = document.getElementById('archivo');    
 }
 
 function obtenerImagen(){
@@ -18,6 +18,8 @@ function obtenerImagen(){
         dibujarImagenes();
     }
     imagen.src = URL.createObjectURL(archivo.files[0]);
+    console.log("archivo.file[0]" + archivo.files[0]);
+    
     /******************************************************* */
 }
 
@@ -164,8 +166,14 @@ function dibujarImagenes(){
 
 function mostrarResultado(){
     var imagenAMostrar = document.getElementById('imagenMostrada');
+    var dataURL = canvas.toDataURL();
     canvas.toBlob((blob)=>{
-        imagenAMostrar.setAttribute('src', URL.createObjectURL(blob));
+        //imagenAMostrar.setAttribute('src', URL.createObjectURL(blob));
+        imagenAMostrar.setAttribute('src', dataURL);
+        console.log("imagen a mostrar" + dataURL);        
+        console.log("imagen a mostrar" + canvas); 
+               
         imagenAMostrar.style.display = 'block';
     })
+    
 }

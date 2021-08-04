@@ -32,19 +32,29 @@
         <div class="col-md-5">
           <div class="card">
             <div class="card-body">                                      
-              <!-- FORM TO ADD TASKS -->
-              <form id="frmSubirImagen" action="backend/subir-img.php" method="POST" enctype="multipart/form-data">                                                  
-                  <input type="file" name="archivo2" id="archivo2">                  
-                  <button type="submit" name="btn-submit">Cargar imagen</button>
-                <!-- FORM TO ADD TASKS -->
+          
+                  
+              <form id="task-up-img" action="backend/subir-img.php" method="POST" enctype="multipart/form-data">                                                  
+                <input type="file"name="archivo2" id="archivo2">                  
+                <button type="submit" name="btn-submit">Cargar imagen</button> 
+              </form>
+
+              <form id="task-form"  enctype="multipart/form-data">                                                                                                              
+              <!-- 
+                <form id="task-form" action="backend/subir-img.php" method="POST" enctype="multipart/form-data">                                                  
+                <input type="file" name="archivo" id="archivo">                  
+              -->              
+                <!-- <button type="submit" name="btn-submit">Cargar imagen</button> -->            
+                <!-- FORM TO ADD TASKS 
               <form  id="task-form" enctype="multipart/form-data">
                 <div class="form-group subir-imagen">
                   <canvas id="canvas" width="300" height="300"></canvas>
                   <label for="archivo" id="archivoFile">Seleccionar imagen</label>
                   <input onchange="obtenerImagen()" type="file" name="archivo" id="archivo">
                   <div onclick="mostrarResultado()" id="mostrar">Mostrar resultado</div>              
-                  <img id="imagenMostrada">                          
+                  <img id="imagenMostrada" name="imagenMostrada">                          
                 </div>
+              -->
                 <div class="form-group">
                   <select type="text" id="category" class="form-control" placeholder="Categoria">
                     <option  value="comidas">comidas</option>

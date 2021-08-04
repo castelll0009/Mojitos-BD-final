@@ -3,18 +3,31 @@
   include('database.php');
 
 if(isset($_POST['name'])) {
-   # echo $_POST['name'] . ', ' . $_POST['description'];  
-  
+   # echo $_POST['name'] . ', ' . $_POST['description'];    
+   $ruta_carpeta =  "../imgs/";
+   $ruta_guardar_archivo = $ruta_carpeta . basename($_FILES["archivo2"]["name"]);
+   $nombre_archivo =basename($_FILES["archivo2"]["name"]);  
+   
+   if(move_uploaded_file($_FILES["archivo2"]["tmp_name"], $ruta_guardar_archivo)){   
+     print "Imagen cargada en la ruta $ruta_guardar_archivo";
+   }else{
+     print "No se pudo cargar el archivo $ruta_guardar_archivo";
+   }   
+      
+  //$ruta_guardar_archivo = $ruta_carpeta . basename($_FILES["archivo"]["name"]);  
+  /*
   $ruta_carpeta =  "../imgs/";
-  $ruta_guardar_archivo = $ruta_carpeta . basename($_FILES["archivo2"]["name"]);
-  $nombre_archivo = basename($_FILES["archivo2"]["name"]);  
-
-  if(move_uploaded_file($_FILES["archivo2"]["tmp_name"], $ruta_guardar_archivo)){
-    print "Imagen cargada en la ruta $ruta_guardar_archivo";
+  $nombre_archivo = "archivo" .date("dHis") .".". pathinfo($_FILES["archivo"]["name"],PATHINFO_EXTENSION);
+  $ruta_guardar_archivo = $ruta_carpeta . $nombre_archivo;
+  $nombre_archivo =basename($_FILES["archivo"]["name"]);  
+  
+  if(move_uploaded_file($_FILES["archivo"]["tmp_name"], $ruta_guardar_archivo)){
+  
+    echo "Imagen cargada en la ruta $ruta_guardar_archivo";
   }else{
-    print "no se pudo cargar el archivo $ruta_guardar_archivo";
+    echo "no se pudo cargar el archivo $ruta_guardar_archivo";
   }
-    
+  */
   //$ruta_imagen_string = strval($ruta_guardar_archivo);
 
 //otros datos

@@ -34,6 +34,7 @@ $(document).ready(function() {
     });
     //AGREGAR IMAGEN A MOJITOS
     //para subir imagen
+    /*
     var frm = $("#frmSubirImagen");
     var btnEnviar = $("button[name=btn-submit]");
     fmr.bind("submit", function(){ //recupera todos los datos del formulario
@@ -50,17 +51,18 @@ $(document).ready(function() {
             success: function (data){
             // ya se envio el archivo al formulario 
             console.log(data);
-            }
-            
+            }            
         });
         return false;    // no se envia el formulario proque queremos hacerlo con el click al boton
     });
-    
+    */
   
-////////AGREGAR PRODUCTOS A MOJITOS -ADD///////
+////////AGREGAR IMAGEN DE LOS PRIDUCTOS //// para guardar la ruta de la imagen///
+
+////////AGREGAR PRODUCTOS A MOJITOS -ADD//// para guardar la ruta de la imagen///
     $('#task-form').submit(e => {
         alert("entro2"); 
-    e.preventDefault();
+    e.preventDefault();    
     const postData = { //objetos que vamos a enviar al servior usando POST             
         nombre_imagen:  $('#archivo2').val().replace(/C:\\fakepath\\/i, ''),      //enviamos el nombre del archivo sin la ruta
         category: $("#category option:selected").text(),        
@@ -71,8 +73,8 @@ $(document).ready(function() {
         variantes: $("#variantes option:selected").text(),          
         id: $('#taskId').val()
     };   
-    
-    
+
+      
 //    console.log("ruta imagen " + ruta_imagen);
     //console.log(imagen);
     console.log("NOMBRE IMAGEN" +  $('#archivo2').val().replace(/C:\\fakepath\\/i, ''));
@@ -82,7 +84,8 @@ $(document).ready(function() {
       console.log(response); //mostramos el nuevo Json a subir a la base de datos
       $('#task-form').trigger('reset');     
       fetchTasks(); 
-    });         
+    });     
+        
 });
 ////////ENLISTAR PRODUCTOS A MOJITOS -Fetching Tasks///////
     function fetchTasks() {
@@ -126,7 +129,7 @@ $(document).ready(function() {
                         //template comidas mojitos
                         template_comidas_mojitos+= `
                         <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles obtener-detalles ">
-                            <img  src="imgs/burger.jpg" >   
+                            <img  src="${task.imagen}" >   
                             <h5  class="titulo-producto ">${task.name} $${task.price}</h5>					  
                         </div>
                         `  
@@ -135,7 +138,7 @@ $(document).ready(function() {
                             //template bebidas Mojitos
                             template_bebidas_mojitos += `
                             <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
-                                <img  src="imgs/burger.jpg" > 
+                                <img  src="${task.imagen}" > 
                                 <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
                             </div>
                             `  
@@ -143,7 +146,7 @@ $(document).ready(function() {
                             //template Postres Mojitos
                             template_postres_mojitos += `
                             <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
-                                <img  src="imgs/burger.jpg" > 
+                                <img  src="${task.imagen}" > 
                                 <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
                             </div>
                             `     
@@ -175,10 +178,20 @@ $(document).ready(function() {
             const task = JSON.parse(response); //obtenemos los items en formato JSON
             console.log(task);
             console.log(task.name);
+            //salvamos las variables para detalles de producots y calcular constos de compra            
+            titulo_prodcuto_vender = task.name;
+            titulo_producto_vender.toUpperCase(); 
+            console.log("asdasd"+ task.name);
+            precio_producto_vender = task.price;       
+            descripcion_producto_vender = task.description;                  
+            TOTAL_PAGAR_producto_vender = (cantidad_productos * precio_producto_vender );    
+            //entregamos los datos a las etiquetas
+            $("#img-detalles-producto").attr("src",task.imagen);            
             $('#titulo-detalles-producto').html(task.name);            
             $('#precio-detalles-producto').html("$" + task.price);
             $('#descripcion-detalles-producto').html(task.description);                   
           });
+          //calculamos 
             
         });                 
         
