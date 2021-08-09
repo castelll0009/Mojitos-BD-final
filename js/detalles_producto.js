@@ -1,9 +1,11 @@
 $(document).ready(function() {  
-    /* Seleccionar descripciones  de productos detener propagacion*/        
+    /* Seleccionar descripciones  de productos detener propagacion*/  
+          
     var descripcion_productos = document.querySelector(".descripcion-productos");
-    descripcion_productos.addEventListener("click", function(){          
-        event.stopPropagation();   
+    descripcion_productos.addEventListener("click", function(){                
+      event.stopPropagation();           
     });
+    
     
 /* Seleccionar variantes de producto detener propagacion*/
 var variantes_productos = document.querySelector(".variantes-producto");
@@ -19,7 +21,7 @@ var variantes_productos = document.querySelector(".variantes-producto");
 /* Seleccionar input cantidad  de productos detener propagacion*/
 var cantidad_productos = document.querySelector(".cantidad-producto");
   cantidad_productos.addEventListener("click", function(){      
-    event.stopPropagation();   
+    event.stopPropagation();       
 });
 /**/ 
 var var_cantidad_productos = 1;//se inicializa una variables en 1
@@ -44,20 +46,15 @@ var boton_agregar = document.querySelector(".btn-agregar");
 var titulos_productos = document.querySelector(".titulo-detalles-producto");
 var precios_productos = document.querySelector(".precio-detalles-producto");
   var descripcion_productos = document.querySelector("descripcion-detalles-producto");
-var titulo_producto_vender;
-var variante_selecionada_producto_vender;
-var variante_selecionada_producto_vender2;
-var precio_producto_vender;
-var descripcion_producto_vender;
-var TOTAL_PAGAR_producto_vender;
+
 //variables para crear URL y enviar pedido a Whatsapp
 var numero_telefono = 573202486769;
 var URL_orden = window.location;
 var cadenaURL = "";
 
+
 boton_comprar.addEventListener("click", function(){  
-   //enviamos el pedido a whatsap
-  
+   //enviamos el pedido a whatsap   
    if(confirm("¿Esta seguro de realizar esta compra?") ){
     //el usuario acepto hacer la compra, recuperamos los datos de su pedido
     alert("Su pedido sera enviado al Whatsapp del vendedor");       
@@ -69,8 +66,10 @@ boton_comprar.addEventListener("click", function(){
       descripcion_producto_vender = descripcion_productos.value;      
       cantidad_producto_vender = cantidad_productos;
       TOTAL_PAGAR_producto_vender = (cantidad_productos * precio_producto_vender );        
-      */                  
-      cantidad_producto_vender = cantidad_productos;
+      */                                         
+      descripcion_producto_vender = document.getElementById("id-detalles-pedido").value;
+      cantidad_producto_vender = cantidad_productos.value;            
+      TOTAL_PAGAR_producto_vender = (cantidad_productos.value * precio_producto_vender );  
    
     ///se crea el enlace y se envia al numero designado 
     /*
@@ -87,8 +86,8 @@ boton_comprar.addEventListener("click", function(){
     descripcion_producto_vender+"%0ACANTIDAD: "+cantidad_producto_vender+"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender+"%0A%0A->>Pendiente de envio comprobante de pago<<-";
     URL_orden =  window.location= cadenaURL;    
     */
-    cadenaURL = "https://wa.me/"+numero_telefono+"?text=💝💝💝🦄🦄🦄%0AUNI-STORE (PEDIDO ONLINE)%0A🦄🦄🦄💝💝💝%0A%0A"+titulo_producto_vender+"%0APRECIO:$ "+precio_producto_vender+"%0ADESCRIPCIÓN:"+
-    descripcion_producto_vender+"%0ACANTIDAD: "+cantidad_producto_vender+"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender+"%0A%0A->>Pendiente de envio comprobante de pago<<-";
+    cadenaURL = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A🍺🍸🍨%0A%0A"+titulo_producto_vender+"%0APRECIO:$ "+precio_producto_vender+"%0ADESCRIPCIÓN:"+
+    descripcion_producto_vender+"%0ACANTIDAD: "+cantidad_producto_vender+"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender+"%0A%0A->>Pango pendiente<<-";
     URL_orden =  window.location= cadenaURL;  
   }else{
     //el usuario no quiere hacer aun  la compra

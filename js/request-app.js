@@ -1,3 +1,11 @@
+var titulo_producto_vender;
+var variante_selecionada_producto_vender;
+var variante_selecionada_producto_vender2;
+var cantidad_producto_vender;
+var precio_producto_vender;
+var descripcion_producto_vender;
+var TOTAL_PAGAR_producto_vender;
+
 $(document).ready(function() {  
     var contador = 0;
     if(contador <1){
@@ -160,12 +168,12 @@ $(document).ready(function() {
             }
         });        
     }
+//    var descripcion_productos = document.querySelector("#id-detalles-pedido");
     //desplegar detalles
-    $(document).on('click', '.desplegar-detalles' , (e)  =>{
+    $(document).on('click', '.desplegar-detalles' , function(){
         //despliegue detalles con toggle          
         $(".div-detalles").toggleClass("mostrar-detalles");  
-        //desplejar la sinta desde abajo           
-        $('.desplegar-detalles').click(function () {
+        //desplejar la sinta desde abajo                   
             /*var index = $(this).index();
             console.log(index);
             $('.desplegar-detalles').eq(index).css({'display': 'none'});
@@ -178,25 +186,25 @@ $(document).ready(function() {
             const task = JSON.parse(response); //obtenemos los items en formato JSON
             console.log(task);
             console.log(task.name);
-            //salvamos las variables para detalles de producots y calcular constos de compra            
-            titulo_prodcuto_vender = task.name;
-            titulo_producto_vender.toUpperCase(); 
-            console.log("asdasd"+ task.name);
-            precio_producto_vender = task.price;       
-            descripcion_producto_vender = task.description;                  
-            TOTAL_PAGAR_producto_vender = (cantidad_productos * precio_producto_vender );    
+           
             //entregamos los datos a las etiquetas
             $("#img-detalles-producto").attr("src",task.imagen);            
             $('#titulo-detalles-producto').html(task.name);            
             $('#precio-detalles-producto').html("$" + task.price);
             $('#descripcion-detalles-producto').html(task.description);                   
-          });
+             //salvamos las variables para detalles de producots y calcular constos de compra  pedido
+
+             titulo_producto_vender = task.name;
+             titulo_producto_vender = titulo_producto_vender.toUpperCase();                                   
+             precio_producto_vender = task.price;       
+            //descripcion_producto_vender = task.description;                               
+                                               
+            });
           //calculamos 
             
         });                 
         
-    
-    });
+        
     $(document).on('click', '.div-detalles', () =>{        
         $(".div-detalles").toggleClass("mostrar-detalles"); 
     });
