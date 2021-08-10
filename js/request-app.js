@@ -39,41 +39,16 @@ $(document).ready(function() {
                 }
             })
         }
-    });
-    //AGREGAR IMAGEN A MOJITOS
-    //para subir imagen
-    /*
-    var frm = $("#frmSubirImagen");
-    var btnEnviar = $("button[name=btn-submit]");
-    fmr.bind("submit", function(){ //recupera todos los datos del formulario
-        var fmrData = new FormData; //
-        alert("entro"); 
-        frmData.append("archivo2", $("input[name=archivo2]")[0].files[0]);
-        $.ajax({
-            url: 'backend/subir-img.php',        
-            type: 'POST',
-            data: fmrData,
-            processData: false,
-            contentType: false,
-            cache: false,
-            success: function (data){
-            // ya se envio el archivo al formulario 
-            console.log(data);
-            }            
-        });
-        return false;    // no se envia el formulario proque queremos hacerlo con el click al boton
-    });
-    */
+    });       
   
 ////////AGREGAR IMAGEN DE LOS PRIDUCTOS //// para guardar la ruta de la imagen///
 
 ////////AGREGAR PRODUCTOS A MOJITOS -ADD//// para guardar la ruta de la imagen///
-    $('#task-form').submit(e => {
-        alert("entro2"); 
+    $('#task-form').submit(e => {        
     e.preventDefault();    
     const postData = { //objetos que vamos a enviar al servior usando POST             
         nombre_imagen:  $('#archivo2').val().replace(/C:\\fakepath\\/i, ''),      //enviamos el nombre del archivo sin la ruta
-        category: $("#category option:selected").text(),        
+        category: $("#category option:selected").val(),        
         name: $('#name').val(), //sacamos el valor delos campos name price y description, amnd id
         price: $('#price').val(),        
         description: $('#description').val(),
@@ -85,6 +60,7 @@ $(document).ready(function() {
       
 //    console.log("ruta imagen " + ruta_imagen);
     //console.log(imagen);
+    alert($("#category option:selected").val());
     console.log("NOMBRE IMAGEN" +  $('#archivo2').val().replace(/C:\\fakepath\\/i, ''));
     console.log("MOSTRAR ARREGLO A SUBIR POR CONSOLA: ");
     console.log(postData);  //Mostramos el arreglo a subir por  consola
@@ -105,9 +81,16 @@ $(document).ready(function() {
                 const tasks = JSON.parse(response);            
                 console.log(tasks);
                 let template = '';
-                let template_comidas_mojitos = '';
-                let template_bebidas_mojitos = '';
-                let template_postres_mojitos = '';
+                let template_cafes_mojitos = '';
+                let template_frappes_mojitos = '';
+                let template_bebidasCalientes_mojitos = '';
+                let template_bebidasFrias_mojitos = '';
+                let template_malteadas_mojitos = '';
+                let template_megaMalteadas_mojitos = '';
+                let template_wafflesDeSal_mojitos = '';
+                let template_wafflesDulces_mojitos = '';
+                let template_antojos_mojitos = '';                
+                let template_cocteles_mojitos = '';
                 tasks.forEach(task => {
                         //template   for admin , elemntos de la tabla
                     template += `
@@ -130,43 +113,122 @@ $(document).ready(function() {
                         </td>
                     </tr>
                     `        
-                    //templates   for appi mojitos     , priodcutos del menu 
-                    // <img  src="imgs/${task.imagen}" >  
+                    //templates   for appi mojitos     , priodcutos del menu                     
                     //Identificar la categoria del elemento a introducir en cada template                    
-                    if(task.category == "comidas"){
+                    if(task.category == "cafes"){
                         //template comidas mojitos
-                        template_comidas_mojitos+= `
+                        template_cafes_mojitos+= `
                         <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles obtener-detalles ">
                             <img  src="${task.imagen}" >   
                             <h5  class="titulo-producto ">${task.name} $${task.price}</h5>					  
                         </div>
                         `  
                     }else{
-                        if(task.category == "bebidas") {
-                            //template bebidas Mojitos
-                            template_bebidas_mojitos += `
+                        if(task.category == "frappes") {
+                            //template frappes Mojitos
+                            template_frappes_mojitos += `
                             <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                 <img  src="${task.imagen}" > 
                                 <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
                             </div>
                             `  
-                        } else { // si no es ninguna de loas anteriores sabemos  que es un postre
-                            //template Postres Mojitos
-                            template_postres_mojitos += `
-                            <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
-                                <img  src="${task.imagen}" > 
-                                <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
-                            </div>
-                            `     
+                        } else {
+                            //bebidas calientes
+                            if(task.category == "bebidasCalientes"){
+                                template_bebidasCalientes_mojitos += `
+                                <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
+                                    <img  src="${task.imagen}" > 
+                                    <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                </div>
+                                `  
+                            }else{
+                                //bebidas frias
+                                if(task.category == "bebidasFrias"){
+                                    template_bebidasFrias_mojitos += `
+                                    <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
+                                        <img  src="${task.imagen}" > 
+                                        <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                    </div>
+                                    `  
+                                }else{
+                                    //malteadas
+                                    if(task.category == "malteadas"){
+                                        template_malteadas_mojitos += `
+                                        <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
+                                            <img  src="${task.imagen}" > 
+                                            <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                        </div>
+                                        `  
+                                    }else{
+                                        //mega malteadas
+                                        if(task.category == "megaMalteadas"){
+                                            template_megaMalteadas_mojitos += `
+                                            <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
+                                                <img  src="${task.imagen}" > 
+                                                <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                            </div>
+                                        `  
+                                        }else{
+                                            //wafles de sal
+                                            if(task.category == "wafflesdeSal"){
+                                                template_wafflesDeSal_mojitos += `
+                                                <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
+                                                    <img  src="${task.imagen}" > 
+                                                    <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                                </div>
+                                                `  
+                                            }else{
+                                                //waffles dulces
+                                                if(task.category == "wafflesDulces"){
+                                                    template_wafflesDulces_mojitos += `
+                                                    <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
+                                                        <img  src="${task.imagen}" > 
+                                                        <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                                    </div>
+                                                    `  
+                                                }else{
+                                                    //antojos
+                                                    if(task.category == "antojos"){
+                                                        template_antojos_mojitos += `
+                                                        <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
+                                                            <img  src="${task.imagen}" > 
+                                                            <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                                        </div>
+                                                        `  
+                                                    }else{
+                                                       //cocteles
+                                                        // si no es ninguna de loas anteriores sabemos  que es un coctel                                                        
+                                                        template_cocteles_mojitos += `
+                                                        <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
+                                                            <img  src="${task.imagen}" > 
+                                                            <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                                        </div>
+                                                        ` 
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                             
                         }      
                     }                                                                                                                                                           
                 });
+                //remplazamos el contenido de cada template en el html
                 $('#tasks').html(template);                 
-                $('#comidasMojitos').html(template_comidas_mojitos);
-                $('#bebidasMojitos').html(template_bebidas_mojitos);
-                $('#postresMojitos').html(template_postres_mojitos);                
+                $('#cafes').html(template_cafes_mojitos);
+                $('#frappes').html(template_frappes_mojitos);
+                $('#bebidasCalientes').html(template_bebidasCalientes_mojitos);
+                $('#bebidasFrias').html(template_bebidasFrias_mojitos);                
+                $('#malteadas').html(template_malteadas_mojitos);                
+                $('#megaMalteadas').html(template_megaMalteadas_mojitos);                
+                $('#wafflesdeSal').html(template_wafflesDeSal_mojitos);                
+                $('#wafflesDulces').html(template_wafflesDulces_mojitos);                
+                $('#antojos').html(template_antojos_mojitos);                
+                $('#cocteles').html(template_cocteles_mojitos);                
             }
-        });        
+        });                
     }
 //    var descripcion_productos = document.querySelector("#id-detalles-pedido");
     //desplegar detalles

@@ -1,6 +1,5 @@
 $(document).ready(function() {  
-    /* Seleccionar descripciones  de productos detener propagacion*/  
-          
+    /* Seleccionar descripciones  de productos detener propagacion*/            
     var descripcion_productos = document.querySelector(".descripcion-productos");
     descripcion_productos.addEventListener("click", function(){                
       event.stopPropagation();           
