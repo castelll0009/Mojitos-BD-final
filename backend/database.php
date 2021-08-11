@@ -5,11 +5,12 @@
         'blzwwwafrtnoulyompah-mysql.services.clever-cloud.com', 'uflmxyisjbdu7w7l', 'k5ulb9EJWmdqIgYLjNHF', 'blzwwwafrtnoulyompah'
     );
 
-    
+    /*
     if($connection){
         echo "database is connected";
     }   else{
         echo "no se pudo conectar a la BD";
     }
+    */
 
 ?>

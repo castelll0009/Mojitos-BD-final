@@ -1,7 +1,6 @@
 <?php
 
-  include('database.php');
-
+  include('database.php');  
 if(isset($_POST['name'])) {
    # echo $_POST['name'] . ', ' . $_POST['description'];    
    $ruta_carpeta =  "../imgs/";

@@ -1,3 +1,4 @@
+/*
 var canvas = document.getElementById('canvas')
 var context
 var imagen;
@@ -20,7 +21,7 @@ function obtenerImagen(){
     imagen.src = URL.createObjectURL(archivo.files[0]);
     console.log("archivo.file[0]" + archivo.files[0]);
     
-    /******************************************************* */
+    
 }
 
 function dibujarImagenes(){
@@ -57,7 +58,7 @@ function dibujarImagenes(){
     context.fillStyle = 'darkgray';
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.drawImage(imagen, px, py, sx, sy);
-    //****************************************************** */
+    //
 
     //Mover imagen:****************************************************
     var presionando = false
@@ -91,7 +92,7 @@ function dibujarImagenes(){
         intervalo = setInterval(()=>{moviendo = false;}, 1000/60)
     }
 
-    /************************************************************* */
+    ///////////////////////////
 
     window.mainLoop = setInterval(()=>{
         
@@ -123,7 +124,7 @@ function dibujarImagenes(){
             contador++;
         }
     }, 1000/60)//60 = 60FPS
-    /************************************************************** */
+    //
 
     //Resizar imagen
     var porcentajeResizado = 0.1;//Se usa para scalar la imagen sin perder el aspect ratio
@@ -139,7 +140,7 @@ function dibujarImagenes(){
                 sy -= sy * porcentajeResizado;
                 px = (canvas.width - sx) / 2;
                 py = (canvas.height - sy) / 2;
-                /******************************************************** */
+                //
                 context.fillStyle = 'darkgray';
                 context.fillRect(0, 0, canvas.width, canvas.height);
                 context.drawImage(imagen, px, py, sx, sy);
@@ -152,7 +153,7 @@ function dibujarImagenes(){
             sy += sy * porcentajeResizado;
             px = (canvas.width - sx) / 2;
             py = (canvas.height - sy) / 2;
-            /********************************************************** */
+            //
             context.fillStyle = 'darkgray';
             context.fillRect(0, 0, canvas.width, canvas.height);
             context.drawImage(imagen, px, py, sx, sy);
@@ -163,7 +164,8 @@ function dibujarImagenes(){
 
     
 }
-
+*/
+/*
 function mostrarResultado(){
     var imagenAMostrar = document.getElementById('imagenMostrada');
     var dataURL = canvas.toDataURL();
@@ -177,3 +179,4 @@ function mostrarResultado(){
     })
     
 }
+*/

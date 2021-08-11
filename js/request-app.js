@@ -76,11 +76,14 @@ $(document).ready(function() {
     function fetchTasks() {        
         $.ajax({
             url: 'backend/tasks-list.php',
-            type: 'GET',
+            type: 'GET',       
+//            dataType: 'json',
             success: function(response) {
-                console.log(response)            
-                const tasks = JSON.parse(response);            
-                console.log(tasks);
+                console.log("RESPUESTAA tank-list :   " + response);         
+                const tasks = JSON.parse(response);                             
+                //const tasks = response;      
+                console.log("AAAAAAAAAAQUI NO LLEGO NUNCA");
+                //console.log(tasks);
                 let template = '';
                 let template_cafes_mojitos = '';
                 let template_frappes_mojitos = '';
