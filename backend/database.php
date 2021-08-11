@@ -8,6 +8,8 @@
     
     if($connection){
         echo "database is connected";
-    }   
+    }   else{
+        echo "no se pudo conectar a la BD";
+    }
 
 ?>
