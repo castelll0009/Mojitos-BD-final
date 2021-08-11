@@ -97,5 +97,10 @@ boton_comprar.addEventListener("click", function(){
 
 });
 //activamos el swiper slide despues de enlistar los productos, evitamos error de funcionalidad
-setTimeout(function(){activarSwiper()},1000);
+var contSwiper = 0;
+if(contSwiper < 5){
+  setTimeout(function(){activarSwiper()},5000);
+  contSwiper++;
+}
+
 });
