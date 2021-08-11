@@ -102,5 +102,5 @@ if(contSwiper < 5){
   setTimeout(function(){activarSwiper()},5000);
   contSwiper++;
 }
-
+//comentario para probar 
 });
