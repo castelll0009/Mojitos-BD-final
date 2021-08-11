@@ -1,12 +1,14 @@
 <?php //gestina las peticiones que se hacen desde el request-app.js 
     //No conectamos a la base de datos
     $connection = mysqli_connect(
-        'localhost', 'root', 'castillo1997177', 'mojitos-db'
+        'bey7jfoaqc2cukiettfo-mysql.services.clever-cloud.com', 'uivq6qdjzpey0dej', 'dnfpmdT4NimRywJikAl', 'bey7jfoaqc2cukiettfo'
     );
 
-    /*
+    
     if($connection){
         echo "database is connected";
-    }   
-    */ 
+    }   else{
+        echo "No pudismo conectarnos a la  base de datos";
+    }
+    
 ?>
