@@ -20,12 +20,13 @@ function vistaEscritorio(){
 	if(zoom == false){
 		document.body.style = "zoom: 50%";		
 		beepc.style ="font-size : 3em";		
-		zoom = true;
+		zoom = true;		
 	}else{
 		document.body.style = "zoom: 100%";		
 		beepc.style ="font-size : 1.5em";
 		zoom = false;
-	}		
+	}	
+	activarSwiper();	
 }
 /*///////////FUNCIONES///////////////////////////////////////*/
 /*///////////FUNCIONES///////////////////////////////////////*/

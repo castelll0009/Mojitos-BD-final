@@ -6,11 +6,12 @@ var precio_producto_vender;
 var descripcion_producto_vender;
 var TOTAL_PAGAR_producto_vender;
 
-$(document).ready(function() {  
+$(document).ready(function() {      
     var contador = 0;
     if(contador <1){
         fetchTasks();
-        contador++;        
+        contador++;    
+                    
     }    
        
     console.log('jquery is working!');
@@ -72,7 +73,7 @@ $(document).ready(function() {
         
 });
 ////////ENLISTAR PRODUCTOS A MOJITOS -Fetching Tasks///////
-    function fetchTasks() {
+    function fetchTasks() {        
         $.ajax({
             url: 'backend/tasks-list.php',
             type: 'GET',
@@ -118,7 +119,7 @@ $(document).ready(function() {
                     if(task.category == "cafes"){
                         //template comidas mojitos
                         template_cafes_mojitos+= `
-                        <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles obtener-detalles ">
+                        <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles  ">
                             <img  src="${task.imagen}" >   
                             <h5  class="titulo-producto ">${task.name} $${task.price}</h5>					  
                         </div>
@@ -228,11 +229,15 @@ $(document).ready(function() {
                 $('#antojos').html(template_antojos_mojitos);                
                 $('#cocteles').html(template_cocteles_mojitos);                
             }
-        });                
+        });            
+
     }
 //    var descripcion_productos = document.querySelector("#id-detalles-pedido");
-    //desplegar detalles
+    //DESPLEGAR DETALLES
     $(document).on('click', '.desplegar-detalles' , function(){
+        //reiniciamos la variable cantidad-productos y la descripcion
+        cantidad_productos.value = 1;
+        document.getElementById("id-detalles-pedido").value = "";
         //despliegue detalles con toggle          
         $(".div-detalles").toggleClass("mostrar-detalles");  
         //desplejar la sinta desde abajo                   
@@ -270,5 +275,6 @@ $(document).ready(function() {
     $(document).on('click', '.div-detalles', () =>{        
         $(".div-detalles").toggleClass("mostrar-detalles"); 
     });
+    
     
 });

@@ -1,14 +1,16 @@
-$(document).ready(function() {  
+//definimos antidad productos como global
+var cantidad_productos = document.querySelector(".cantidad-producto");
+$(document).ready(function() {        
     /* Seleccionar descripciones  de productos detener propagacion*/            
     var descripcion_productos = document.querySelector(".descripcion-productos");
-    descripcion_productos.addEventListener("click", function(){                
-      event.stopPropagation();           
+    descripcion_productos.addEventListener("click", function(){          
+      event.stopPropagation();        
+         
     });
-    
-    
+           
 /* Seleccionar variantes de producto detener propagacion*/
 var variantes_productos = document.querySelector(".variantes-producto");
-  variantes_productos.addEventListener("click", function(){      
+  variantes_productos.addEventListener("click", function(){        
     event.stopPropagation();  
   });
 
@@ -18,7 +20,7 @@ var variantes_productos = document.querySelector(".variantes-producto");
   });
 
 /* Seleccionar input cantidad  de productos detener propagacion*/
-var cantidad_productos = document.querySelector(".cantidad-producto");
+
   cantidad_productos.addEventListener("click", function(){      
     event.stopPropagation();       
 });
@@ -27,16 +29,16 @@ var var_cantidad_productos = 1;//se inicializa una variables en 1
 var disminuir_productos = document.querySelector(".disminuir-productos");
   disminuir_productos.addEventListener("click", function(){  
     event.stopPropagation(); 
-    if(var_cantidad_productos > 1){
-      var_cantidad_productos= cantidad_productos.value = --var_cantidad_productos; //se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
-    }      
+    if(cantidad_productos.value > 1){
+      cantidad_productos.value--; //se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
+    }        
 });
 // variable aumentar productos
 
 var aumentar_productos = document.querySelector(".aumentar-productos");
   aumentar_productos.addEventListener("click", function(){  
     event.stopPropagation();     
-      var_cantidad_productos= cantidad_productos.value = ++var_cantidad_productos; //se obtiene el valor del input, y se decrementa en 1 el valor que tenga.    
+      cantidad_productos.value++; //se obtiene el valor del input, y se decrementa en 1 el valor que tenga.    
 });
 
 /* comprar para los diferentes productos*/
@@ -65,7 +67,8 @@ boton_comprar.addEventListener("click", function(){
       descripcion_producto_vender = descripcion_productos.value;      
       cantidad_producto_vender = cantidad_productos;
       TOTAL_PAGAR_producto_vender = (cantidad_productos * precio_producto_vender );        
-      */                                         
+      */       
+      var_cantidad_productos = cantidad_productos.value;                                    
       descripcion_producto_vender = document.getElementById("id-detalles-pedido").value;
       cantidad_producto_vender = cantidad_productos.value;            
       TOTAL_PAGAR_producto_vender = (cantidad_productos.value * precio_producto_vender );  
@@ -93,4 +96,6 @@ boton_comprar.addEventListener("click", function(){
   }    
 
 });
+//activamos el swiper slide despues de enlistar los productos, evitamos error de funcionalidad
+setTimeout(function(){activarSwiper()},1000);
 });

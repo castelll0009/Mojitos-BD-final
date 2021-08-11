@@ -1,3 +1,4 @@
+function activarSwiper() {    
 //autoplay swiper1
 const swiper1 = new Swiper(".swiper1",{  
   slidesPerView: 3,
@@ -9,22 +10,22 @@ const swiper1 = new Swiper(".swiper1",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -58,22 +59,22 @@ var swiper2 = new Swiper(".swiper2",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -109,22 +110,22 @@ var swiper3 = new Swiper(".swiper3",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -158,22 +159,22 @@ var swiper4 = new Swiper(".swiper4",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15,     
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -207,22 +208,22 @@ var swiper5 = new Swiper(".swiper5",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -256,22 +257,22 @@ var swiper6 = new Swiper(".swiper6",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -305,22 +306,22 @@ var swiper7 = new Swiper(".swiper7",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -354,22 +355,22 @@ var swiper8 = new Swiper(".swiper8",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -403,22 +404,22 @@ var swiper9 = new Swiper(".swiper9",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -452,22 +453,22 @@ var swiper10 = new Swiper(".swiper10",{
     // when window width is >= 320px
     350: {
      slidesPerView: 2,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
    // when window width is >= 320px
    360: {
      slidesPerView: 2.3,
-     spaceBetween: 10      
+     spaceBetween: 15      
    },
     // when window width is >= 411px
    411: {
      slidesPerView: 2.2,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    // when window width is >= 480px
    467: {
      slidesPerView: 2.5,
-     spaceBetween: 10
+     spaceBetween: 15
    },
    500: {
      slidesPerView: 2.6,
@@ -489,7 +490,7 @@ var swiper10 = new Swiper(".swiper10",{
    }
  }, 
 })
-
+/*
 $(".swiper1").on(" mouseover touched touchmove", function(e){  
   swiper1.autoplay.stop();   
   swiper2.autoplay.start();  
@@ -505,4 +506,61 @@ $(".swiper3").on(' mouseover touched touchmove', function(e){
   swiper2.autoplay.start();  
   swiper3.autoplay.stop();  
 })
+*/
+//funcion que hace que el swiper clickeado se quede quieto y  mientras los otros se  mueven
+var swiper_wrappers = document.querySelectorAll(".swiper-wrapper");
+swiper_wrappers.forEach( (wrapper,index) => {  
+  wrapper.addEventListener("click", function(){         
+    switch (index) {
+      case 0:
+        moverSwipersExcepto(swiper1);  
+        break;
+        case 1:        
+        moverSwipersExcepto(swiper2);        
+        break;
+        case 2:
+          moverSwipersExcepto(swiper3);  
+        break;
+        case 3:
+          moverSwipersExcepto(swiper4);  
+        break;
+        case 4:
+          moverSwipersExcepto(swiper5);  
+        break;
+        case 5:
+          moverSwipersExcepto(swiper6);  
+        break;
+        case 6:
+          moverSwipersExcepto(swiper7);  
+        break;
+        case 7:
+          moverSwipersExcepto(swiper8);  
+        break;
+        case 8:
+          moverSwipersExcepto(swiper9);  
+        break;
+        case 9:
+          moverSwipersExcepto(swiper10);  
+        break;
+    
+      default:
+        break;
+    }    
+  });
+});
 
+function moverSwipersExcepto(pSwiper){
+  swiper1.autoplay.start();   
+  swiper2.autoplay.start();  
+  swiper3.autoplay.start();  
+  swiper4.autoplay.start();  
+  swiper5.autoplay.start();  
+  swiper6.autoplay.start();  
+  swiper7.autoplay.start();  
+  swiper8.autoplay.start();  
+  swiper9.autoplay.start();  
+  swiper10.autoplay.start(); 
+  pSwiper.autoplay.stop(); 
+}   
+ 
+}
