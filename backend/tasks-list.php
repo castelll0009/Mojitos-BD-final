@@ -24,6 +24,6 @@ include('database.php');
   //header("Content-Type: application/json");  
   echo $jsonstring = json_encode($json);    
   //echo $jsonstring;  
-  return $jsonstring;
+  //return $jsonstring;
   
 ?>
