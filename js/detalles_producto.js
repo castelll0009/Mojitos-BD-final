@@ -54,9 +54,14 @@ var numero_telefono = 573202486769;
 var URL_orden = window.location;
 var cadenaURL = "";
 
+//fucnion para  concretar orden
 
+
+//CUANDO PRESIOAMOS EN ORDENAR
 boton_comprar.addEventListener("click", function(){  
    //enviamos el pedido a whatsap   
+   //al hacer el pedido se despliega la factura o carrito con el pedido del cliente
+   $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito");     
    if(confirm("¿Esta seguro de realizar esta compra?") ){
     //el usuario acepto hacer la compra, recuperamos los datos de su pedido
     alert("Su pedido sera enviado al Whatsapp del vendedor");       
