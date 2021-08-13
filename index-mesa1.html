@@ -5,6 +5,8 @@
 		<link rel="stylesheet" href="css/swiper-slide.css">	
 		<link rel="stylesheet" href="css/stylemovil.css">	
 		<link rel="stylesheet" href="css/detalles_producto.css">			
+		<link rel="stylesheet" href="css/detalles_carrito.css">					
+		
 		<meta name="viewport"  content="width=device-width initial-scale=1.0">
 		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">  
@@ -23,7 +25,102 @@
 		<div class="container-fotos ">			
 			<img class="img-foto" src="imgs/foto1.png" >
 		</div>
+		<!-- CARRITO  desplegable , contenedor de los productos agregados al carrito -->
+		<div  class="cont-detalles-carrito">			
+			<div class="div-detalles-carrito">
+				<br>
+				<div class="contenedor-tabla-factura" >
+				  <h1>Carrito de Compras</h1>
+				  <br>
+				  <div class="panel panel-default">
+					<div class="panel-body">
+					  <table class="table cut-off" >
+						<thead>
+						  <tr>
+							<th class="th-numero">#</th>
+							<th class="th-producto">Productos</th>
+							<th>Cantidad</span> </th>
+							<th>Precio</th>
+							<th class="th-acction"></th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <!-- nombre=Produtos apellido= cantidad Precio=email-->
+						  <tr ng-repeat="item in lista">
+							<td  style="cursor: not-allowed;">
+							  <!--{{$index + 1}}-->
+							  10
+							</td>
+							<td style="cursor: not-allowed;" row="{{$index}}" field="productosCarrito">
+								 <!--{{item.productosCarrito}}-->
+								 Hamburguesa Veguetariana con Pastell
+							</td>
+							<td class="cantidadEditable" editable-td row="{{$index}}" field="cantidadCarrito">
+							  <!--{{item.cantidadCarrito}}-->
+							  20								
+							</td>
+							<td style="cursor: not-allowed;" row="{{$index}}" field="precioCarrito">
+								 <!--{{item.precioCarrito}}-->
+							  100000
+							</td>
+							<td>
+								<span style="cursor: pointer;"><i class="fas fa-pencil-alt"></i></span>
+							</td>
+						  </tr>
+						</tbody>
+						
+						 <tbody class="tbody-total">
+						  <tr>
+							<td style="cursor: not-allowed;">
+							  $
+							</td>
+							<td style="cursor: not-allowed;" row="{{$index}}" field="nombres">
+							  TOTAL
+							</td>
+							<td style="cursor: not-allowed;" row="{{$index}}" field="apellidos">
+							    <!--{{item.cantidadCarrito}}-->
+								100
+							</td>
+							<td style="cursor: not-allowed;" row="{{$index}}" field="email">
+							 	 <!--{{item.precioCarrito}}-->
+								  100000
+							</td>
+							<td>
+								<span style="cursor: pointer;"><i class="fas fa-pencil-alt"></i></span>
+							</td>
+						  </tr>
+						</tbody>
+						
+					  </table>
+					  
+					  <div class="btn-group">
+								  
+						<button class="btn btn-default" ng-click='agregar()'>
+						  <span class="glyphicon glyphicon-plus"></span>
+						</button>
+						<button type="button" class="btn btn-default" ng-click='recuperarValores()'>Recuperar Valores</button>
+					  </div>
+					  <br>
+					  <br>
+					  
+					  <div id='JSON' />
+					</div>
+					
+				  </div>
+				</div>
+			  
+			   
+				  <p>Indicaciones:</p>
+				  <ul>
+					<li>Haga click en la columna y fila que desea modificar (el texto a modificar será seleccionado)</li>
+					<li>Modifique los valores que desea, puede utilizar la tecla <code>tab</code> para navegar entre los campos</li>
+					<li>Puede agregar más elementos presionando <span class="glyphicon glyphicon-plus"></span></li>
+					<li>Puede eliminar líneas presionando <span class="glyphicon glyphicon-trash"></span></li>
+					<li>La opción <strong>'Recuperar Valores'</strong> mostrará en la parte inferior el contenido del arreglo <code>$scope.lista</code></li>
+				  </ul>	
 
+			</div>
+		</div>
 		<div class="cont-detalles-producto">
 			<!-- Ventana que se despliega hacia arriba mostrando los detalles del producto seleaccionado -->
 			<div class="div-detalles ">				
@@ -354,15 +451,18 @@
 		<script
 		src="https://code.jquery.com/jquery-3.3.1.min.js"
 		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-		crossorigin="anonymous"></script>
+		crossorigin="anonymous"></script>		
 		<!-- Swiper JS -->		
 		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>		  
 		<script src="js/detalles_producto.js"></script>				
+		<script src="js/detalles_carrito.js"></script>	
 		<script src="js/request-app.js"></script>				
 		<script src="js/menu.js"></script>	
 		<script src="js/buttom_menu.js"></script>	
 		<script src="js/jquery.js"></script>  		
 		<script src="js/swiper-slide.js"></script>		
+		<!--Angular module-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 		
 	</body>
 </html>

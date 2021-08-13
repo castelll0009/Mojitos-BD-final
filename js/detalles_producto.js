@@ -1,12 +1,12 @@
-//definimos antidad productos como global
-var cantidad_productos = document.querySelector(".cantidad-producto");
-$(document).ready(function() {        
+  //definimos antidad productos como global
+  var cantidad_productos = document.querySelector(".cantidad-producto");
+  $(document).ready(function() {        
     /* Seleccionar descripciones  de productos detener propagacion*/            
     var descripcion_productos = document.querySelector(".descripcion-productos");
     descripcion_productos.addEventListener("click", function(){          
       event.stopPropagation();        
          
-    });
+  });
            
 /* Seleccionar variantes de producto detener propagacion*/
 var variantes_productos = document.querySelector(".variantes-producto");
@@ -24,6 +24,7 @@ var variantes_productos = document.querySelector(".variantes-producto");
   cantidad_productos.addEventListener("click", function(){      
     event.stopPropagation();       
 });
+
 /**/ 
 var var_cantidad_productos = 1;//se inicializa una variables en 1
 var disminuir_productos = document.querySelector(".disminuir-productos");
