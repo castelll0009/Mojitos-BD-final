@@ -25,17 +25,16 @@
 		<div class="container-fotos ">			
 			<img class="img-foto" src="imgs/foto1.png" >
 		</div>
-		<!-- CARRITO  desplegable , contenedor de los productos agregados al carrito -->
+		<!-- CONTENEDOR DETALLES CARRITO FACTURA  desplegable , contenedor de los productos agregados al carrito -->
 		<div  class="cont-detalles-carrito">			
 			<div class="div-detalles-carrito">
 				<br>
 				<div class="contenedor-tabla-factura" >
-				  <h1>Carrito de Compras</h1>
-				  <br>
+				  <h1>PEDIDO</h1>				  
 				  <div class="panel panel-default">
 					<div class="panel-body">
 					  <table class="table cut-off" >
-						<thead>
+						<thead >
 						  <tr>
 							<th class="th-numero">#</th>
 							<th class="th-producto">Productos</th>
@@ -46,7 +45,7 @@
 						</thead>
 						<tbody>
 						  <!-- nombre=Produtos apellido= cantidad Precio=email-->
-						  <tr ng-repeat="item in lista">
+						  <tr class="celdas-tabla">
 							<td  style="cursor: not-allowed;">
 							  <!--{{$index + 1}}-->
 							  10
@@ -64,7 +63,7 @@
 							  100000
 							</td>
 							<td>
-								<span style="cursor: pointer;"><i class="fas fa-pencil-alt"></i></span>
+								<span style="cursor: pointer;"><i class="fas fa-trash-alt"></i></span>
 							</td>
 						  </tr>
 						</tbody>
@@ -86,7 +85,7 @@
 								  100000
 							</td>
 							<td>
-								<span style="cursor: pointer;"><i class="fas fa-pencil-alt"></i></span>
+								<span style="cursor: pointer;"><i class="fas fa-trash-alt"></i></span>
 							</td>
 						  </tr>
 						</tbody>
@@ -103,7 +102,7 @@
 					  <br>
 					  <br>
 					  
-					  <div id='JSON' ></div>>
+					  <div id='JSON' ></div>
 					</div>
 					
 				  </div>
@@ -111,16 +110,15 @@
 			  
 			   
 				  <p>Indicaciones:</p>
-				  <ul>
-					<li>Haga click en la columna y fila que desea modificar (el texto a modificar será seleccionado)</li>
-					<li>Modifique los valores que desea, puede utilizar la tecla <code>tab</code> para navegar entre los campos</li>
-					<li>Puede agregar más elementos presionando <span class="glyphicon glyphicon-plus"></span></li>
-					<li>Puede eliminar líneas presionando <span class="glyphicon glyphicon-trash"></span></li>
+				  <ol class="lista-indicaciones">
+					<li>Haciendo click en la columna cantidad puede modificar el numero de productos</li>					
+					<li>Puedes agregar más elementos al carrito</li>
+					<li>Puedes eliminar elementos presionando <span style="color: white;"><i class="fas fa-trash-alt"></i></span></li>
 					<li>La opción <strong>'Recuperar Valores'</strong> mostrará en la parte inferior el contenido del arreglo <code>$scope.lista</code></li>
-				  </ul>	
-
-			</div>
+				  </ol>	
+			</div>			
 		</div>
+		<!-- CONTENEDOR DETALLES PRODUCTOS-->
 		<div class="cont-detalles-producto">
 			<!-- Ventana que se despliega hacia arriba mostrando los detalles del producto seleaccionado -->
 			<div class="div-detalles ">				
