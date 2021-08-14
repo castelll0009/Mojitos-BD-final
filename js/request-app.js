@@ -5,7 +5,8 @@ var variante_selecionada_producto_vender2;
 var cantidad_producto_vender;
 var precio_producto_vender;
 var descripcion_producto_vender;
-var cantidad_total_productos_vender;
+var auxCantidad = 0;
+var cantidad_total_productos_vender = 0;
 var total_pagar_pedido;
 var TOTAL_PAGAR_producto_vender;
 
