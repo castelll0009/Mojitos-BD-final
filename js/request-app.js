@@ -1,9 +1,12 @@
 var titulo_producto_vender;
+var titulo_producto_vender_original;
 var variante_selecionada_producto_vender;
 var variante_selecionada_producto_vender2;
 var cantidad_producto_vender;
 var precio_producto_vender;
 var descripcion_producto_vender;
+var cantidad_total_productos_vender;
+var total_pagar_pedido;
 var TOTAL_PAGAR_producto_vender;
 
 $(document).ready(function() {      
@@ -264,7 +267,7 @@ $(document).ready(function() {
             $('#descripcion-detalles-producto').html(task.description);                   
              //salvamos las variables para detalles de producots y calcular constos de compra  pedido
 
-             titulo_producto_vender = task.name;
+             titulo_producto_vender =  titulo_producto_vender_original=task.name;                        
              titulo_producto_vender = titulo_producto_vender.toUpperCase();                                   
              precio_producto_vender = task.price;       
             //descripcion_producto_vender = task.description;                               
@@ -273,8 +276,7 @@ $(document).ready(function() {
           //calculamos 
             
         });                 
-        
-        
+                
     $(document).on('click', '.div-detalles', () =>{        
         $(".div-detalles").toggleClass("mostrar-detalles"); 
     });

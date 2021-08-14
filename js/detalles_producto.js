@@ -1,4 +1,6 @@
-  //definimos antidad productos como global
+  //definimos antidad productos como global, variables auxiliares para calcular toal cantida y pagar en facturacion carrito
+  var  auxCantidad = 0;
+  var auxTotal= 0;
   var cantidad_productos = document.querySelector(".cantidad-producto");
   $(document).ready(function() {        
     /* Seleccionar descripciones  de productos detener propagacion*/            
@@ -54,8 +56,56 @@ var numero_telefono = 573202486769;
 var URL_orden = window.location;
 var cadenaURL = "";
 
-//fucnion para  concretar orden
+//FUNCION PARA AGREGAR PRODUCTO AL CARRITO DE PEDIDOS
 
+/*var nombre_pedido = document.querySelector(".titulo-producto").innerHTML;*/
+var nombre_pedido;
+var cantidad_pedido;
+var precio_pedido;
+var counter = 0; // para el index del producto
+boton_agregar.addEventListener("click", function(){
+  event.stopPropagation(); 
+  //recuperamos el Nombre,Cantidad y el precio del producto agregar al  pedidoo carrito
+  nombre_pedido = titulo_producto_vender_original; 
+  cantidad_pedido= cantidad_productos.value;
+  precio_pedido = precio_producto_vender; 
+  //creamos un nuevo template  tr que contendra los 3  valores    
+  
+  //AGREGAR FILA CARRITO CALCULAR TOTALES  , agregar un elemento al carrito
+  counter = addNewRow();  
+ 
+  function addNewRow(){
+   if(nombre_pedido != undefined && cantidad_pedido  != undefined &&  precio_pedido != undefined){
+      counter++;
+      if(counter < 7){
+        $('.table').append('<tr><td>' + (counter) + 
+        '</td><td>' +(nombre_pedido)+
+        '</td><td class="cantidadEditable" contenteditable>' +(cantidad_pedido)+
+        '</td><td>' +(precio_pedido)+
+        '</td><td><i class="fas fa-trash-alt"></i></td></tr>');      
+        auxCantidad +=  parseInt(cantidad_pedido);        
+        auxTotal += parseInt(cantidad_pedido) * parseInt(precio_pedido);
+      }else{      
+        alert('Limite de productos por factura alcanzado!, puedes crear otro pedido'); 
+      }
+        //calculamos los valores cantidad total y total pagar 
+        cantidad_total_productos_vender  = auxCantidad;
+        total_pagar_pedido = auxTotal;
+        document.getElementById("cantidad-total-pedido").innerHTML = cantidad_total_productos_vender;
+        document.getElementById("total-pagar-pedido").innerHTML = total_pagar_pedido;
+   }else{
+     alert("Su producto no ha sido agregado al carrito, Porfavor intentelo de nuevo ;)")
+   }    
+      return counter;      
+  }   
+  //funcion para 
+});
+//DETECTAR EL CAMBIO DE CANTIDAD PRODUCTOS celda td
+$(document).ready(function(){
+  $('.cantidadEditable').on('click', function(){
+   alert("");
+  })
+})
 
 //CUANDO PRESIOAMOS EN ORDENAR
 boton_comprar.addEventListener("click", function(){  

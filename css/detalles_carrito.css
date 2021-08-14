@@ -1,6 +1,7 @@
 
 .cont-detalles-producto{  
   width: 100%;
+  position: relative;
 }
 .div-detalles-carrito{   
   transition: all 500ms;    
@@ -16,8 +17,8 @@
   box-shadow: 0px 0px 3px 0px #fbfbfa, 0px 0px 0px 0px rgb(245, 246, 245);	 
   display: block;
   flex-direction: row;
-  padding: 10px;     
-  z-index: 31;  
+  padding: 10px;   
+  z-index: 101;  
 }
 .div-detalles-carrito ul{
   color: white;
@@ -25,6 +26,10 @@
 
 .contenedor-tabla-factura{  
   width: 100%;
+  position: absolute;
+  top: 0;
+  z-index :1;
+  margin-left: -10px;
 }
 .contenedor-tabla-factura h1{   
   margin-top: 20px;
@@ -44,6 +49,7 @@
   position: relative; 
 }
 .table{
+  
   table-layout: fixed;
   width: 100%;    
   border-collapse:collapse;      
@@ -110,7 +116,24 @@ tr{
     margin-top: -20px;    
 }
 
-.table > tbody > tr:hover {
-  background-color: #797878;
+.table > tbody > tr > td:hover {
+  background-color: #000000;
   cursor: pointer;
+}
+.panel-body{
+  position: relative;
+}
+.botones-factura{
+  position: absolute;  
+  right: 0;
+  padding-right: 20px;
+}
+.btn-concretar-orden{       
+  color: black;
+  background-color: white;  
+}
+/*Contenedor INDICACIONES FACTURA*/
+.contenedor-indicaciones-factura{
+  position: absolute;
+  bottom: 0;  
 }

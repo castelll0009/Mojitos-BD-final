@@ -48,15 +48,10 @@ app.directive('editableTd', [function() {
 }]);
 */
 
-var cantidad_editable= document.querySelector(".cantidadEditable");
-cantidad_editable.addEventListener("click", function(){          
-  event.stopPropagation();             
-});
-
 //FUNCION para desplegar los detalles del carrito
 $(document).on('click', '.btn-ver' , function(){                
     //despliegue detalles con toggle          
-    $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito");  
+    $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito");      
     //desplejar la sinta desde abajo                   
         /*var index = $(this).index();
         console.log(index);
