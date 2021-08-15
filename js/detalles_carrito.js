@@ -12,6 +12,7 @@ $(document).on('click', '.div-detalles-carrito', () =>{
 
 //DETECTAR EL CAMBIO DE CANTIDAD PRODUCTOS celda td
 function cambiosCantidadPedido(){
+  //TODO
   var elem;
   var antCantidad;
   var nuevaCantidad;  
@@ -32,11 +33,19 @@ function cambiosCantidadPedido(){
       cantidad_total_productos_vender  +=  parseInt(nuevaCantidad);    
       document.getElementById("cantidad-total-pedido").innerHTML = parseInt(cantidad_total_productos_vender);    
   }); 
-  */
-  
+  */  
   }
   function eliminarFilaPedido(index) {     
+    var cantidad_elemento_eliminar = $(`#fila${index} td:nth-child(3)`).text();
+    var precio_elemento_eliminar = $(`#fila${index} td:nth-child(4)`).text(); 
+    /*var auxTotalEliminar =   parseInt( parseInt(cantidad_elemento_eliminar) * parseInt(precio_elemento_eliminar));   */
+    cantidad_total_productos_vender -= cantidad_elemento_eliminar ;
+    total_pagar_pedido -= (precio_elemento_eliminar * cantidad_elemento_eliminar);
+    document.getElementById("cantidad-total-pedido").innerHTML = parseInt(cantidad_total_productos_vender);
+    document.getElementById("total-pagar-pedido").innerHTML = total_pagar_pedido;
     $("#fila" + index).remove();     
+    //contenedor de elemetos pedidos debe diminuir -1 y ademas se debe desontar el total del
+    //productoi eliminado del total a pagar
     contElementosPedido--;       
   }
   

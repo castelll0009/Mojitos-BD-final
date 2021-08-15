@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset= "utf-8">
+		<link rel="stylesheet" href="css/swiper-slide.css">	
+		<link rel="stylesheet" href="css/stylemovil.css">							
+		<meta name="viewport"  content="width=device-width initial-scale=1.0">
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">  
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/main.css">		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@300;400;700&family=Zilla+Slab:wght@500&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<title>Mojitos cafe-bar</title>
+	</head>
+	<body >
+		
+		<div class="container-fotos ">			
+			<img class="img-foto" src="imgs/foto1.png" >
+		</div>
+		
+		<main >									
+			<i id="beepc" onclick="vistaEscritorio()" class="fas fa-laptop"></i>			
+			<header>		
+				<!-- cabecera menu y demas -->				
+				<div class="container-header">
+					<nav id="main-movil" class="main-movil">
+						<div class="container-menu-movil">
+							<!--  <input id="responsive-menu" type="checkbox">
+							<label id="label-menu" for="responsive-menu"><span id="menu-icon"></span></label>--> 														
+							<ul  > 
+								<a href = "" >
+									<li href= "index.html" ><label class="fa fa-home" style="color: #E0A023; margin-left: -40px;" ></label></li>
+								</a>
+								<a href = "" >
+									<li  >PRODUCTOS</li>
+								</a>
+								<a href = "" >
+									<li >CONTACTOS </li>
+								</a>
+								<a href = "">
+									<li >ACERCA DE </li>
+								</a>																
+								<li style="color: #E0A023; font-weight: bold;">INICIAR SESION</li>
+							</ul>
+				 
+				   
+							<ul id="social-media">
+								<li>
+									<a href="">
+										<i class="fab fa-facebook"></i>                        
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="fab fa-whatsapp"></i>                        
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="fab fa-twitter"></i>                        
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="fab fa-linkedin"></i>									  
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="fab fa-instagram"></i>									
+									</a>
+								</li>
+							</ul>                            
+						</div>
+					</nav>	
+					
+					<div  class="container-logo-title">				
+						<img id="zumbido" src="../imgs/logo.png" onClick="sonidoLogo()" class=" zumbido animate__animated animate__flash animate__fast"   >
+						<h1>Mojitos</h1>
+						<h2 >MESA 1</h2>
+					</div>
+	
+					<div class="container-menu">
+						<nav class="menu"></nav>
+							<ul  class="menu-ul">
+							<a href = "" >
+								<li href= "" ><label class="fa fa-home" style="color: #E0A023" ></label></li>
+							</a>
+							<a href = "" >
+								<li  >Productos</li>
+							</a>
+							<a href = "" >
+								<li >CONTACTOS </li>
+							</a>
+							<a href = "" >
+								<li >ACERCA DE </li>
+							</a>																
+							<li style="color: #E0A023; font-weight: bold;">INICIAR SESION</li>
+						</ul>
+					</div>					
+				</div>
+			</header>	
+			<div class="info-container" >		
+				<!--
+					<img id="img-home" src= "imgs/fondo-portada.jpg" class="animate__animated animate__fadeIn">	
+				-->				
+				<h1 id="info-title" class="fuente-kaushan fuente-tam color-verde animate__animated animate__fadeIn"> 
+					<img class="img-logo" src="" alt="">Menu</h1>		
+				<div id="div-index" class="animate__animated animate__flipInX">
+					<h2 class="fuente-lato" style="font-size: 1.5em; margin-top:-15px;" >El sitio mas agradable para compartir.</h2>
+					<p style="margin-top: 30px;">Aqui podras ver nuestro menu y elegir lo que desees ,  brinda la oportunidad de deleitarte en cualquier lugar de la forma mas natural.</p>				
+				</div>				
+			</div>		
+			<!-- Swiper  contenedor-->
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Comidas</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper1">
+					<div id="cafes" class="swiper-wrapper">
+					  <div class="swiper-slide">							
+						<img  src="imgs/burger.jpg" >  
+						<h5 class="titulo-producto">Hamburguesa</h5>					  
+					  </div>						  
+					  <div class="swiper-slide">							
+						<img src="imgs/hotdog.jpg" >  
+						<h5 class="titulo-producto">Hot Dog</h5>					  
+					  </div>				  					  
+					  <div class="swiper-slide">							
+						<img src="imgs/chirizo-brizas.png.jpg" >  
+						<h5 class="titulo-producto">Chorizito (Jhojitan)</h5>					  
+					  </div>
+					  <div class="swiper-slide">							
+						<img src="imgs/salchipapas.jpg" >  
+						<h5 class="titulo-producto">Salchipapas</h5>					  
+					  </div>					  
+					  <div class="swiper-slide">							
+						<img src="imgs/arepas.jpg" >  
+						<h5 class="titulo-producto">Arepas</h5>					  
+					  </div>		
+					  <div class="swiper-slide">							
+						<img src="imgs/burger.jpg" >  
+						<h5 class="titulo-producto">Hamburguesa</h5>					  
+					  </div>						  
+					  <div class="swiper-slide">							
+						<img src="imgs/hotdog.jpg" >  
+						<h5 class="titulo-producto">Hot Dog</h5>					  
+					  </div>				  					  				
+					  <div class="swiper-slide">							
+						<img src="imgs/salchipapas.jpg" >  
+						<h5 class="titulo-producto">Salchipapas</h5>					  
+					  </div>					
+					  <!--
+					  <div class="swiper-slide swiper-disable"></div>				  
+					  <div class="swiper-slide swiper-disable"></div>				  
+					  <div class="swiper-slide swiper-disable"></div>				  
+					  <div class="swiper-slide swiper-disable"></div>				
+					  -->					    					  					  
+					</div>					
+				</div>				
+			</div>
+ 			<!-- Swiper  contenedor-->
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Bebidas</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper2">
+					<div class="swiper-wrapper">
+					  <div class="swiper-slide">							
+						<img src="imgs/mojito-fresa.jpg" >  
+						<h5 class="titulo-producto">Mojito de fresa</h5>					  
+					  </div>						  
+					  <div class="swiper-slide">							
+						<img src="imgs/mojito-limon.jpg" >  
+						<h5 class="titulo-producto">Mojito sabor limon</h5>					  
+					  </div>		
+					  <div class="swiper-slide">							
+						<img src="imgs/capuchino.jpg" >  
+						<h5 class="titulo-producto">Capuchino</h5>					  
+					  </div>		  					  
+					  <div class="swiper-slide">							
+						<img src="imgs/bebida3.jpg" >  
+						<h5 class="titulo-producto">bebida3</h5>					  
+					  </div>
+					  <div class="swiper-slide">							
+						<img src="imgs/bebida4.jpg" >  
+						<h5 class="titulo-producto">Cerveza fria</h5>					  
+					  </div>				
+					  <div class="swiper-slide">							
+						<img src="imgs/jugo-mora.jpg" >  
+						<h5 class="titulo-producto">Jugo-mora</h5>					  
+					  </div>
+					  <div class="swiper-slide">							
+						<img src="imgs/cocter-maracuya.jpg" >  
+						<h5 class="titulo-producto">Coctel maracuya</h5>					  
+					  </div>
+					  <div class="swiper-slide">							
+						<img src="imgs/mojito-fresa.jpg" >  
+						<h5 class="titulo-producto">Mojito de fresa</h5>					  
+					  </div>						  
+					  <div class="swiper-slide">							
+						<img src="imgs/mojito-limon.jpg" >  
+						<h5 class="titulo-producto">Mojito sabor limon</h5>					  
+					  </div>		
+					  <div class="swiper-slide">							
+						<img src="imgs/capuchino.jpg" >  
+						<h5 class="titulo-producto">Capuchino</h5>					  
+					  </div>		  					  
+									    					  					  
+					</div>					
+				</div>				
+			</div>			
+			
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Postres</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper3">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">							
+						<img src="imgs/bolas-helado.jpg" >  
+						<h5 class="titulo-producto">Bolitas de helado</h5>					  
+						</div>
+					  <div class="swiper-slide">							
+						<img src="imgs/postre-fresa.jpg" >  
+						<h5 class="titulo-producto">Postre fresa</h5>					  
+					  </div>						  
+					  <div class="swiper-slide">							
+						<img src="imgs/wafle-chocolate.jpg" >  
+						<h5 class="titulo-producto">Wafle Chocolate</h5>					  
+					  </div>
+					  <div class="swiper-slide">							
+						<img src="imgs/pudin-uva.jpg" >  
+						<h5 class="titulo-producto">pudin-uva</h5>					  
+					  </div>						  					  				
+					  <div class="swiper-slide">							
+						<img src="imgs/Wafle con helado.jpg" >  
+						<h5 class="titulo-producto">Wafle con helado</h5>					  
+					  </div>					  
+					  <div class="swiper-slide">							
+						<img src="imgs/gelatina-mango.jpg" >  
+						<h5 class="titulo-producto">Gelatina mango</h5>					  
+					  </div>		
+					  <!--
+					  <div class="swiper-slide swiper-disable"></div>				  
+					  <div class="swiper-slide swiper-disable"></div>				  
+					  <div class="swiper-slide swiper-disable"></div>				  
+					  <div class="swiper-slide swiper-disable"></div>				
+					  -->					    					  					  
+					</div>					
+				</div>				
+			</div>
+				<!-- Swiper  contenedor-->
+				<div class="contenedor-todo-swiper">
+					<h2 class="titulo-swiper-categoria">Frappes</h2>
+					 <!-- Swiper -->
+					 <div class="swiper-container mySwiper swiper4">
+						<div id="cafes" class="swiper-wrapper">
+						  <div class="swiper-slide">							
+							<img  src="imgs/burger.jpg" >  
+							<h5 class="titulo-producto">Hamburguesa</h5>					  
+						  </div>						  
+						  <div class="swiper-slide">							
+							<img src="imgs/hotdog.jpg" >  
+							<h5 class="titulo-producto">Hot Dog</h5>					  
+						  </div>				  					  
+						  <div class="swiper-slide">							
+							<img src="imgs/chirizo-brizas.png.jpg" >  
+							<h5 class="titulo-producto">Chorizito (Jhojitan)</h5>					  
+						  </div>
+						  <div class="swiper-slide">							
+							<img src="imgs/salchipapas.jpg" >  
+							<h5 class="titulo-producto">Salchipapas</h5>					  
+						  </div>					  
+						  <div class="swiper-slide">							
+							<img src="imgs/arepas.jpg" >  
+							<h5 class="titulo-producto">Arepas</h5>					  
+						  </div>		
+						  <div class="swiper-slide">							
+							<img src="imgs/burger.jpg" >  
+							<h5 class="titulo-producto">Hamburguesa</h5>					  
+						  </div>						  
+						  <div class="swiper-slide">							
+							<img src="imgs/hotdog.jpg" >  
+							<h5 class="titulo-producto">Hot Dog</h5>					  
+						  </div>				  					  				
+						  <div class="swiper-slide">							
+							<img src="imgs/salchipapas.jpg" >  
+							<h5 class="titulo-producto">Salchipapas</h5>					  
+						  </div>															    					  					  
+						</div>					
+					</div>				
+				</div>
+		  			
+			<div class="cards-container" >
+				<figure class="figure-container refrigerador-class" onclick="abrirCerrarRefri();" >
+					<div class="sona0  div-figure " >						
+							<img src="imgs/refri-cerrado.png" class="refri1">
+							<img src="imgs/refri-abierto.png" class="refri2">						
+						<h1>Refrigerador</h1>
+						<p>Si deseas puedes tomar una cerveza o alguna otra bebida de nuestro 
+							<span class="puntos0  puntos" style="color:rgb(167, 158, 158)">...Leer Más</span>
+							<span class="text0" id="text">
+							refrigerador, estara disponible siempre que quieras tomar o servirte algo,
+							no hay ningun problema, solo recuerda pagarlo ;D .												
+							<span style="color:rgb(163, 161, 161)"><br> <br>Leer Menos</span></p>										
+					</div>
+					
+				</figure>	
+
+				<figure class="figure-container">
+					<div class="sona0 entretenimiento-class div-figure" >
+						<img src="imgs/uno-circle.png" >
+						<img src="imgs/youtube-circle.png" >
+						<h1>Entretenimiento</h1>
+						<p>¿Te aburres esperando? no te preocupes tenemos algunas cosas							
+							<span class="puntos0  puntos2" style="color:rgb(126, 126, 126)">...Leer Más</span>	
+							<span  class="text0" id="text2">
+							que puedes hacer mientras.													
+							Desde nuestro aplicativo web puedes solicitar:<br><br>							
+							UNO:<br>Juego de cartas para divertirse con tus amigos.<br>
+							<br>YouTube Music Premium :<br> Puedes poner 2 canciones por ordenar, crear tu propia listas de reproducción, es genial.
+							<span style="color:rgb(163, 161, 161)"><br> <br>Leer Menos</span></p>														
+											
+					</div>
+				</figure>	
+				
+				<figure class="figure-container">
+					<div   class="sona0 sona3 div-figure"  >
+						<img src="imgs/trucos.png" >
+					<h1>Curiosidades Appiweb Mojitos</h1>
+					<p>Aqui encontraras algunas de las funciones que tiene
+						<span class="puntos0 puntos3" style="color:rgb(126, 126, 126)">...Leer Más</span>	
+						<span class="text0" id="text3">	
+						nuestro sitio web que te facilitaran mas las cosas y tendras una mejor experiencia.
+						<br>
+						<i id="beepc2" style="position: static;" onclick="vistaEscritorio()" class="fas fa-laptop"></i>
+						<br>	
+						si usas este icono que aoarece en la esquina inferir derecha, tendras una vista de escritorio, te ayudara
+						a ver todo desde una perpectiva mas general.		
+						<span style="color:rgb(163, 161, 161)"><br> <br>Leer Menos</span></p>
+					</div>					
+				</figure>																						
+			</div>
+
+			<nav class=" nav-barra-inferior animate__animated animate__fadeIn">
+				<a href = "index-mesa1.html" class="margen-derecha">Productos</a>
+				<a href = "" class="margen-derecha" class="margen-derecha">Contactos</a>
+				<a href = "" class="margen-derecha">Acerca de</a>
+				<a href = "https://www.facebook.com/profile.php?id=100009055449064" class="margen-derecha">Redes Sociales</a>	
+				<a href = "https://www.instagram.com/castelll0009">Instragram</a>		
+				<a style="background-color: rgb(236, 132, 72); border-radius: 5px; padding-left: 8px; padding-right: 8px; color: beige;"  href = "https://drive.google.com/file/d/1NDsNjMkE4laC038JCCZmbtsV9ulMIvaF/view?usp=sharing">CV-Developer</a>	
+			</nav>				
+			
+		</main>	  		
+		<audio id="sonido-logo">	  
+	  		<source src="sounds/brindis2.mp3" type="audio/mpeg">
+	  		Your browser does not support the audio element.
+		</audio>
+		<audio id="sonido-refri">	  
+			<source src="sounds/destapando-bebida.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		<audio id="sonido-cerrar-refri">	  
+		<source src="sounds/cerar-refri.mp3" type="audio/mpeg">
+		Your browser does not support the audio element.
+		</audio>
+
+		<!-- Swiper JS -->		
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>		  
+		<script src="js/swiper-slide.js"></script>
+		<script src="js/menu.js"></script>	
+		<script src="js/buttom_menu.js"></script>	
+		<script src="js/jquery.js"></script>  						
+	</body>
+</html>

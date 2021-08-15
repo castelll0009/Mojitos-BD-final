@@ -1,6 +1,7 @@
   //definimos antidad productos como global, variables auxiliares para calcular toal cantida y pagar en facturacion carrito
   var auxTotal= 0;
   var contElementosPedido = 0;
+  var total_pagar_pedido = 0;
   var cantidad_productos = document.querySelector(".cantidad-producto");
   $(document).ready(function() {        
     /* Seleccionar descripciones  de productos detener propagacion*/            
@@ -73,28 +74,32 @@ boton_agregar.addEventListener("click", function(){
   precio_pedido = precio_producto_vender; 
   //creamos un nuevo template  tr que contendra los 3  valores        
   //AGREGAR FILA CARRITO CALCULAR TOTALES  , agregar un elemento al carrito  
-auxCantidad = cantidad_total_productos_vender;
+  auxCantidad = cantidad_total_productos_vender;
+  auxTotal = parseInt(total_pagar_pedido);  
   counter = addNewRow();    
   function addNewRow(){
    if(nombre_pedido != undefined && cantidad_pedido  != undefined &&  precio_pedido != undefined){
       counter++;     
       contElementosPedido++; 
       if(contElementosPedido < 7){
+        //por ahora quitamos la propiedad contenteitable de la t cantiodadeditable contenteditable
         $('.table').append(`<tr id="fila${counter}"><td> ${counter} 
         </td><td> ${nombre_pedido}
-        </td><td  class="cantidadEditable" contenteditable onclick="cambiosCantidadPedido()" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">${cantidad_pedido}
+        </td><td  class="cantidadEditable"  onclick="cambiosCantidadPedido()" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">${cantidad_pedido}
         </td><td> ${precio_pedido}
         </td><td><i onclick="eliminarFilaPedido(${counter})" class="fas fa-trash-alt"></i></td></tr>`);      
         auxCantidad +=  parseInt(cantidad_pedido);        
         auxTotal += parseInt(cantidad_pedido) * parseInt(precio_pedido);
-      }else{      
-        alert('Limite de productos por factura alcanzado!, puedes crear otro pedido'); 
-      }
         //calculamos los valores cantidad total y total pagar 
         cantidad_total_productos_vender  = parseInt(auxCantidad);
-        total_pagar_pedido = auxTotal;
+        total_pagar_pedido = auxTotal;      
         document.getElementById("cantidad-total-pedido").innerHTML = parseInt(cantidad_total_productos_vender);
         document.getElementById("total-pagar-pedido").innerHTML = total_pagar_pedido;
+      }else{      
+        contElementosPedido--;//producia un error que iba agotando el pedido  
+        alert('Limite de productos por factura alcanzado!, puedes crear otro pedido'); 
+      }
+        
    }else{
      alert("Su producto no ha sido agregado al carrito, Porfavor intentelo de nuevo ;)")
    }    
