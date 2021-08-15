@@ -114,44 +114,46 @@ boton_comprar.addEventListener("click", function(){
    //enviamos el pedido a whatsap   
    //al hacer el pedido se despliega la factura o carrito con el pedido del cliente
    $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito");     
-   if(confirm("¿Esta seguro de realizar esta compra?") ){
-    //el usuario acepto hacer la compra, recuperamos los datos de su pedido
-    alert("Su pedido sera enviado al Whatsapp del vendedor");       
-      /*
-      titulo_producto_vender = titulos_productos.innerHTML.toUpperCase();     
-      variante_selecionada_producto_vender = variantes_productos.options[variantes_productos.selectedIndex].text;          
-      variante_selecionada_producto_vender2 = variantes_productos2.options[variantes_productos.selectedIndex].text;          
-      precio_producto_vender = precios_productos.value;           
-      descripcion_producto_vender = descripcion_productos.value;      
-      cantidad_producto_vender = cantidad_productos;
-      TOTAL_PAGAR_producto_vender = (cantidad_productos * precio_producto_vender );        
-      */       
-      var_cantidad_productos = cantidad_productos.value;                                    
-      descripcion_producto_vender = document.getElementById("id-detalles-pedido").value;
-      cantidad_producto_vender = cantidad_productos.value;            
-      TOTAL_PAGAR_producto_vender = (cantidad_productos.value * precio_producto_vender );  
-   
-    ///se crea el enlace y se envia al numero designado 
-    /*
-    alert(titulo_producto_vender);
-    alert(variante_selecionada_producto_vender);
-    alert(precio_producto_vender);
-    alert(descripcion_producto_vender);
-    alert(cantidad_producto_vender);
-    alert(TOTAL_PAGAR_producto_vender);
-    */
-    /*ANCHETAS:dulce y licor PRECIO:$60000 DESCRIPCION:quiero que diga te amo ma CANTIDAD:2 TOTAL A PAGAR:$120000    ->>Pendiente de envio comprobante de pago<<- */
-    /*
-    cadenaURL = "https://wa.me/"+numero_telefono+"?text=💝💝💝🦄🦄🦄%0AUNI-STORE (PEDIDO ONLINE)%0A🦄🦄🦄💝💝💝%0A%0A"+titulo_producto_vender+": "+variante_selecionada_producto_vender+", "+variante_selecionada_producto_vender2 +"%0APRECIO:$ "+precio_producto_vender+"%0ADESCRIPCIÓN:"+
-    descripcion_producto_vender+"%0ACANTIDAD: "+cantidad_producto_vender+"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender+"%0A%0A->>Pendiente de envio comprobante de pago<<-";
-    URL_orden =  window.location= cadenaURL;    
-    */
-    cadenaURL = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A🍺🍸🍨%0A%0A"+titulo_producto_vender+"%0APRECIO:$ "+precio_producto_vender+"%0ADESCRIPCIÓN:"+
-    descripcion_producto_vender+"%0ACANTIDAD: "+cantidad_producto_vender+"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender+"%0A%0A->>Pango pendiente<<-";
-    URL_orden =  window.location= cadenaURL;  
-  }else{
-    //el usuario no quiere hacer aun  la compra
-  }    
+    alert("Observa el carrito de compras antes de confirmar tu orden");
+      //boton Confirmar Orden
+    document.getElementsByClassName("btn-concretar-orden").addEventListener("click", function(){
+      if(confirm("¿Estas seguro que deseas finalizar tu compra?, tu pedido sera enviado al Whatsapp del vendedor.") ){
+        //el usuario acepto hacer la compra, recuperamos los datos de su pedido           
+        /*
+        titulo_producto_vender = titulos_productos.innerHTML.toUpperCase();     
+        variante_selecionada_producto_vender = variantes_productos.options[variantes_productos.selectedIndex].text;          
+        variante_selecionada_producto_vender2 = variantes_productos2.options[variantes_productos.selectedIndex].text;          
+        precio_producto_vender = precios_productos.value;           
+        descripcion_producto_vender = descripcion_productos.value;      
+        cantidad_producto_vender = cantidad_productos;
+        TOTAL_PAGAR_producto_vender = (cantidad_productos * precio_producto_vender );        
+        */       
+        var_cantidad_productos = cantidad_productos.value;                                    
+        descripcion_producto_vender = document.getElementById("id-detalles-pedido").value;
+        cantidad_producto_vender = cantidad_productos.value;            
+        TOTAL_PAGAR_producto_vender = (cantidad_productos.value * precio_producto_vender );  
+    
+        ///se crea el enlace y se envia al numero designado 
+        /*
+        alert(titulo_producto_vender);
+        alert(variante_selecionada_producto_vender);
+        alert(precio_producto_vender);
+        alert(descripcion_producto_vender);
+        alert(cantidad_producto_vender);
+        alert(TOTAL_PAGAR_producto_vender);
+        */
+        /*ANCHETAS:dulce y licor PRECIO:$60000 DESCRIPCION:quiero que diga te amo ma CANTIDAD:2 TOTAL A PAGAR:$120000    ->>Pendiente de envio comprobante de pago<<- */
+        /*
+        cadenaURL = "https://wa.me/"+numero_telefono+"?text=💝💝💝🦄🦄🦄%0AUNI-STORE (PEDIDO ONLINE)%0A🦄🦄🦄💝💝💝%0A%0A"+titulo_producto_vender+": "+variante_selecionada_producto_vender+", "+variante_selecionada_producto_vender2 +"%0APRECIO:$ "+precio_producto_vender+"%0ADESCRIPCIÓN:"+
+        descripcion_producto_vender+"%0ACANTIDAD: "+cantidad_producto_vender+"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender+"%0A%0A->>Pendiente de envio comprobante de pago<<-";
+        URL_orden =  window.location= cadenaURL;    
+        */
+        cadenaURL = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A🍺🍸🍨%0A%0A"+titulo_producto_vender+"%0APRECIO:$ "+precio_producto_vender+"%0ADESCRIPCIÓN:"+
+        descripcion_producto_vender+"%0ACANTIDAD: "+cantidad_producto_vender+"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender+"%0A%0A->>Pango pendiente<<-";
+        URL_orden =  window.location= cadenaURL;   
+      }
+    });
+ 
 
 });
 //activamos el swiper slide despues de enlistar los productos, evitamos error de funcionalidad

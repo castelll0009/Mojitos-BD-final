@@ -139,7 +139,7 @@
   }
   .btn-accion:focus {outline: none;}
   
-  .btn-accion:hover{   
+  .btn-accion:active{   
     color: black;
     background-color: #F5CF91;
     border: none;    
