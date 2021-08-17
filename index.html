@@ -7,11 +7,18 @@
 		<link rel="stylesheet" href="css/detalles_producto.css">			
 		<link rel="stylesheet" href="css/detalles_carrito.css">					
 		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Nanum Brush Script' rel='stylesheet'>
 		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.1/jquery.jgrowl.min.css" /> 
 		<meta name="viewport"  content="width=device-width initial-scale=1.0">
 		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">  
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<!--
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		 -->
+		
 		<link rel="stylesheet" href="css/main.css">		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
@@ -36,10 +43,10 @@
 					<div class="panel-body">
 					  <table class="table cut-off" >
 						<thead >
-						  <tr>
+						  <tr class="tr-tabla-carrito">
 							<th class="th-numero">#</th>
 							<th class="th-producto">Productos</th>
-							<th style="color:#F5CF91;">Cantidad</span> </th>
+							<th  class="th-cantidad" style="color:#F5CF91;">Cantidad</span> </th>
 							<th>Precio</th>
 							<th class="th-acction"></th>
 						  </tr>
@@ -71,7 +78,7 @@
 						</tbody>
 						
 						 <tbody class="tbody-total">
-						  <tr>
+						  <tr class="tr-carrito-total">
 							<td style="cursor: not-allowed;">
 							  $
 							</td>
@@ -87,7 +94,7 @@
 								  0							  
 							</td>
 							<td>
-								<span style="cursor: pointer;"><i class="fas fa-trash-alt"></i></span>
+								<span style="cursor: pointer;"></span>
 							</td>
 						  </tr>
 						</tbody>
@@ -126,7 +133,7 @@
 					<h5  id="titulo-detalles-producto" class="titulo-producto">Hamburguesa</h5>				
 					<p id="descripcion-detalles-producto" >de carne, con lechuga, patacones o pan y las salsas que prefieras.</p>																			
 					<div class="botones-accion-izquierda">
-						<button class="btn-accion btn-ver"><i class="fas fa-images"></i> ver</button>				
+						<button class="btn-accion btn-ver"><i class="fas fa-shopping-cart"></i> ver</button>				
 						<button class="btn-accion btn-propina"><i class="fas fa-coins"></i> propina</button>
 						
 					</div>							
@@ -228,7 +235,7 @@
 					<div  class="container-logo-title">				
 						<img id="zumbido" src="../imgs/logo.png"  onClick="sonidoLogo()" class=" zumbido animate__animated animate__flash animate__fast"   >
 						<h1>Mojitos</h1>
-						<h2 >MESA 1</h2>
+						<h2 class="numero-mesa">MESA 1</h2>
 					</div>
 	
 					<div class="container-menu">
@@ -255,13 +262,14 @@
 				<!--
 					<img id="img-home" src= "imgs/fondo-portada.jpg" class="animate__animated animate__fadeIn">	
 				-->				
-				<h1 id="info-title" class="fuente-kaushan fuente-tam color-verde animate__animated animate__fadeIn"> 
-					<img class="img-logo" src="" alt="">Menu</h1>		
+				<h1 id="info-title" class=" animate__animated animate__fadeIn"> 
+						<img class="img-logo" src="" alt="">Mojitos</h1>		
 				<div id="div-index" class="animate__animated animate__flipInX">
-					<h2 class="fuente-lato" style="font-size: 1.5em; margin-top:-15px;" >El sitio mas agradable para compartir.</h2>
-					<p style="margin-top: 30px;">Aqui podras ver nuestro menu y elegir lo que desees ,  brinda la oportunidad de deleitarte en cualquier lugar de la forma mas natural.</p>				
-				</div>				
+					<h2 class="fuente-subtitulos" >Sabemos lo que te gusta</h2>
+					<p class="text-introduccion" style="margin-top: 30px;">Aqui podras ver nuestro menu y elegir lo que desees ,  brinda la oportunidad de deleitarte en cualquier lugar.</p>				
+				</div>					
 			</div>		
+			<h1 class="title-menu" class=" animate__animated animate__fadeIn">Menu</h1> 			
 			<!-- Swiper  contenedor-->
 			<!-- MENU -->
 			<div class="contenedor-todo-swiper">				

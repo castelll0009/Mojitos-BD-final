@@ -52,29 +52,50 @@
   
   table-layout: fixed;
   width: 100%;    
-  border-collapse:collapse;      
+  border-collapse:collapse;         
+}
+.table td, th{
+  padding: 8px;  
+}
+.table td{  
+  border-bottom: 0.5px solid rgb(66, 66, 66); 
+}
+.tr-carrito-total td{
+  border-bottom: none; 
 }
 thead{
   color: white;
 }
 tr{
-  color: white;
+  color: white;  
 }
-.th-numero{  
+.tr-tabla-carrito{
+  background-color: rgb(31, 30, 30);
+}
+.th-numero{    
   table-layout: fixed;
   width: 8%;        
 }
-.th-producto{  
-  table-layout: fixed;
+.th-producto{    
+  table-layout: fixed;  
   width: 20%;        
 }
 .th-acction{
   table-layout: fixed;
   width: 1%;        
 }
+.th-cantidad{
 
+}
+/*#*/
+.cut-off th:nth-child(1) {
+  width: 6%;
+  text-align: left;
+}
+/*nombre producto de la tabla*/
 .cut-off th:nth-child(2) {
-  width: 20%;
+  text-align: left;
+  width: 30%;
 }
 .cut-off td:nth-child(2) {
   overflow: hidden;
@@ -82,16 +103,19 @@ tr{
   text-overflow: ellipsis;
 }
 .cut-off th:nth-child(3) {
-  width: 20%;
+  width: 15%;  
+  font-size: 1em;
   text-align: center;
 }
 .cut-off td:nth-child(3) {
   overflow: hidden;
-  text-align: center;
+  text-align: center;  
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+/*Precio*/
 .cut-off th:nth-child(4) {
+  text-align: left;
   width: 20%;
 }
 .cut-off td:nth-child(4) {
@@ -100,7 +124,7 @@ tr{
   text-overflow: ellipsis;
 }
 .cut-off th:nth-child(5) {
-  width: 10%;
+  width: 8%;
 }
 .cut-off td:nth-child(5) {
   overflow: hidden;
@@ -136,6 +160,7 @@ tr{
 .contenedor-indicaciones-factura{
   position: absolute;
   bottom: 0;  
+  padding-bottom: 5px;
 }
 /*notificacionesjgrowl*/
 div.jGrowl {

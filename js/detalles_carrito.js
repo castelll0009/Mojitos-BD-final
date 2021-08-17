@@ -49,6 +49,34 @@ function cambiosCantidadPedido(){
     contElementosPedido--;       
   }
   
+  //CONFIRMAR ORDEN
+  //variables para crear URL y enviar pedido a Whatsapp
+  var numero_telefono = 573202486769;
+  var URL_orden = window.location;
+  var cadenaURL = "";
+  var boton_confirmar_orden = document.querySelector(".btn-confirmar-orden");
+  boton_confirmar_orden.addEventListener("click", function(){  
+    event.stopPropagation();    
+    if(document.getElementById("total-pagar-pedido").innerText  != 0 ){
+      if(confirm("¿Estas seguro que deseas finalizar tu compra?, tu pedido sera enviado al Whatsapp del vendedor.") ){
+        //el usuario acepto hacer la compra, recuperamos los datos de su pedido                    
+        var_cantidad_productos = cantidad_productos.value;                                    
+        descripcion_producto_vender = document.getElementById("id-detalles-pedido").value;
+        cantidad_producto_vender = cantidad_productos.value;            
+        TOTAL_PAGAR_producto_vender = (cantidad_productos.value * precio_producto_vender );  
+    
+        //enlistamos productos desde el carrito 
+
+        cadenaURL = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A🍺🍸🍨%0A%0A"+titulo_producto_vender+"%0APRECIO:$ "+precio_producto_vender+"%0ADESCRIPCIÓN:"+
+        descripcion_producto_vender+"%0ACANTIDAD: "+cantidad_producto_vender+"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender+"%0A%0A->>Pango pendiente<<-";
+        URL_orden =  window.location= cadenaURL;   
+      }    
+    }else{
+      $.jGrowl(`¿Vas a comer viento?, Agrega productos al carrito porfavor`);
+    }
+    
+  });
+  
 
   
 

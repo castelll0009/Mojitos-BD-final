@@ -1,4 +1,6 @@
+var stop_swipers = false;
 function activarSwiper() {    
+ 
 //autoplay swiper1
 const swiper1 = new Swiper(".swiper1",{  
   slidesPerView: 3,
@@ -507,6 +509,11 @@ $(".swiper3").on(' mouseover touched touchmove', function(e){
   swiper3.autoplay.stop();  
 })
 */
+//funcion que detiene lo swiper
+if(stop_swipers)  {
+  alert("detenidos");
+  stopSwipers();
+}
 //funcion que hace que el swiper clickeado se quede quieto y  mientras los otros se  mueven
 var swiper_wrappers = document.querySelectorAll(".swiper-wrapper");
 swiper_wrappers.forEach( (wrapper,index) => {  
@@ -550,17 +557,35 @@ swiper_wrappers.forEach( (wrapper,index) => {
 });
 
 function moverSwipersExcepto(pSwiper){
-  swiper1.autoplay.start();   
-  swiper2.autoplay.start();  
-  swiper3.autoplay.start();  
-  swiper4.autoplay.start();  
-  swiper5.autoplay.start();  
-  swiper6.autoplay.start();  
-  swiper7.autoplay.start();  
-  swiper8.autoplay.start();  
-  swiper9.autoplay.start();  
-  swiper10.autoplay.start(); 
-  pSwiper.autoplay.stop(); 
+  if(!stop_swipers){
+    swiper1.autoplay.start();   
+    swiper2.autoplay.start();  
+    swiper3.autoplay.start();  
+    swiper4.autoplay.start();  
+    swiper5.autoplay.start();  
+    swiper6.autoplay.start();  
+    swiper7.autoplay.start();  
+    swiper8.autoplay.start();  
+    swiper9.autoplay.start();  
+    swiper10.autoplay.start(); 
+    pSwiper.autoplay.stop(); 
+  }else{
+    stopSwipers();
+  }
+
 }   
+
+function stopSwipers(){
+  swiper1.autoplay.stop();   
+  swiper2.autoplay.stop();  
+  swiper3.autoplay.stop();  
+  swiper4.autoplay.stop();  
+  swiper5.autoplay.stop();  
+  swiper6.autoplay.stop();  
+  swiper7.autoplay.stop();  
+  swiper8.autoplay.stop();  
+  swiper9.autoplay.stop();  
+  swiper10.autoplay.stop();   
+} 
  
 }

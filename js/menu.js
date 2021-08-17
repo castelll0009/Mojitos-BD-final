@@ -18,10 +18,14 @@ function sonidoCerrarRefri(){
 var zoom = false;
 function vistaEscritorio(){	
 	if(zoom == false){
+		//vista de escritorio de pedido
 		document.body.style = "zoom: 50%";		
 		beepc.style ="font-size : 3em";		
 		zoom = true;		
+		stop_swipers = true;
+		activarSwiper();
 	}else{
+		//vista normal
 		document.body.style = "zoom: 100%";		
 		beepc.style ="font-size : 1.5em";
 		zoom = false;

@@ -4,8 +4,8 @@
 if(isset($_POST['name'])) {
    # echo $_POST['name'] . ', ' . $_POST['description'];    
    $ruta_carpeta =  "../imgs/";
-   $ruta_guardar_archivo = $ruta_carpeta . basename($_FILES["archivo2"]["name"]);
-   $nombre_archivo =basename($_FILES["archivo2"]["name"]);  
+   $ruta_guardar_archivo = $ruta_carpeta . basename($_FILES["image"]["name"]);
+   $nombre_archivo =basename($_FILES["image"]["name"]);  
    
    if(move_uploaded_file($_FILES["archivo2"]["tmp_name"], $ruta_guardar_archivo)){   
      print "Imagen cargada en la ruta $ruta_guardar_archivo";

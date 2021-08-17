@@ -50,32 +50,35 @@ $(document).ready(function() {
 
 ////////AGREGAR PRODUCTOS A MOJITOS -ADD//// para guardar la ruta de la imagen///
     $('#task-form').submit(e => {        
-    e.preventDefault();    
-    const postData = { //objetos que vamos a enviar al servior usando POST             
-        nombre_imagen:  $('#archivo2').val().replace(/C:\\fakepath\\/i, ''),      //enviamos el nombre del archivo sin la ruta
-        category: $("#category option:selected").val(),        
-        name: $('#name').val(), //sacamos el valor delos campos name price y description, amnd id
-        price: $('#price').val(),        
-        description: $('#description').val(),
-        pedidos_disponibles: $("#pedidos_disponibles option:selected").text(),  
-        variantes: $("#variantes option:selected").text(),          
-        id: $('#taskId').val()
-    };   
+        e.preventDefault();    
+        const postData = { //objetos que vamos a enviar al servior usando POST             
+            nombre_imagen:  $('#image').val().replace(/C:\\fakepath\\/i, ''),      //enviamos el nombre del archivo sin la ruta
+            category: $("#category option:selected").val(),        
+            name: $('#name').val(), //sacamos el valor delos campos name price y description, amnd id
+            price: $('#price').val(),        
+            description: $('#description').val(),
+            pedidos_disponibles: $("#pedidos_disponibles option:selected").text(),  
+            variantes: $("#variantes option:selected").text(),          
+            id: $('#taskId').val()
+        };   
 
-      
-//    console.log("ruta imagen " + ruta_imagen);
-    //console.log(imagen);
-    alert($("#category option:selected").val());
-    console.log("NOMBRE IMAGEN" +  $('#archivo2').val().replace(/C:\\fakepath\\/i, ''));
-    console.log("MOSTRAR ARREGLO A SUBIR POR CONSOLA: ");
-    console.log(postData);  //Mostramos el arreglo a subir por  consola
-    $.post('backend/task-add.php', postData, (response) => {
-      console.log(response); //mostramos el nuevo Json a subir a la base de datos
-      $('#task-form').trigger('reset');     
-      fetchTasks(); 
-    });     
         
-});
+    //    console.log("ruta imagen " + ruta_imagen);
+        //console.log(imagen);
+        alert($("#category option:selected").val());
+        console.log("NOMBRE IMAGEN" +  $('#image').val().replace(/C:\\fakepath\\/i, ''));
+        console.log("MOSTRAR ARREGLO A SUBIR POR CONSOLA: ");
+        console.log(postData);  //Mostramos el arreglo a subir por  consola
+        $.post('backend/task-add.php', postData, (response) => {
+        console.log(response); //mostramos el nuevo Json a subir a la base de datos
+        $('#task-form').trigger('reset');     
+        fetchTasks(); 
+        });     
+        
+    });
+
+    //agregar variantes y adiciones
+    
 ////////ENLISTAR PRODUCTOS A MOJITOS -Fetching Tasks///////
     function fetchTasks() {        
         $.ajax({
@@ -245,15 +248,13 @@ $(document).ready(function() {
         //reiniciamos la variable cantidad-productos y la descripcion
         cantidad_productos.value = 1;
         document.getElementById("id-detalles-pedido").value = "";
-        //despliegue detalles con toggle          
-        $(".div-detalles").toggleClass("mostrar-detalles");  
+        //despliegue detalles con toggle                
         //desplejar la sinta desde abajo                   
             /*var index = $(this).index();
             console.log(index);
             $('.desplegar-detalles').eq(index).css({'display': 'none'});
             */
-            const id =  $(this).attr("productoId");            
-            console.log(id) ;                       
+            const id =  $(this).attr("productoId");                                           
             // una vez idetificado el id del elemento clickeado vamos a reemplazar la div-detalles con los elementos del producto clickeado, directamente desde la base de datos            
             //Modificamos la plantilla que se despliega hacia arriba con los detalles del producto clickeado
             $.post('backend/task-single.php', {id}, (response) => { //hacer la peticion al archivo task-single.php para obtener los elementos del item co Id especifico
@@ -271,9 +272,11 @@ $(document).ready(function() {
              titulo_producto_vender =  titulo_producto_vender_original=task.name;                        
              titulo_producto_vender = titulo_producto_vender.toUpperCase();                                   
              precio_producto_vender = task.price;       
-            //descripcion_producto_vender = task.description;                               
-                                               
+            //descripcion_producto_vender = task.description;      
+            //una vez cargados los nuevos datos desplegamos la plantilla de detalles                         
+            $(".div-detalles").toggleClass("mostrar-detalles");                           
             });
+           
           //calculamos 
             
         });                 

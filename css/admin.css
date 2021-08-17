@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;    
+}
+body{
+width: 100%;
+min-width: max-content;
+}
+.row{
+    width: 100%;
+}
+.container{    
+    width: 100%;
+    min-width: 1000px;
+}
+.nav-bar{
+width: 100%;
+}
+.card{
+    width: max-content;
+}
+.card-body{
+ 
+}

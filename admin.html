@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" >
     <link rel="stylesheet" href="css/subir_imagen.css">	
+    <link rel="stylesheet" href="css/admin.css">	
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">  
 
+    <meta name="viewport"  content="width=device-width initial-scale=1.0">
     <title>Mojitos admin app</title>
     <!-- BOOTSTRAP 4  -->
     <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
@@ -33,11 +37,21 @@
           <div class="card">
             <div class="card-body">                                      
           
-                  
-              <form id="task-up-img" action="backend/subir-img.php" method="POST" enctype="multipart/form-data">                                                  
-                <input type="file"name="archivo2" id="archivo2">                  
-                <button type="submit" name="btn-submit">Cargar imagen</button> 
-              </form>
+ 
+              <form method="post" action="#" enctype="multipart/form-data">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="imgs/default-placeholder.png">
+                  <div class="card-body">
+                    <h5 class="card-title">Sube una foto</h5>
+                    <p class="card-text">Sube una imagen para tu nuevo producto. La imagen puede ser en formato .jpg, o .png.</p>                    
+                    <div class="form-group">
+                      <label for="image">Nueva imagen</label>
+                      <input type="file" class="form-control-file" name="image" id="image">
+                    </div>
+                    <input type="button" class="btn btn-primary upload" value="Subir">
+                  </div>
+                </div>
+                </form>		
 
               <form id="task-form"  enctype="multipart/form-data">                                                                                                              
               <!-- 
@@ -78,15 +92,17 @@
                 <div class="form-group">
                   <textarea id="description" cols="30" rows="10" class="form-control" placeholder="Descripción del producto"></textarea>
                 </div>
+
+              <!-- variantes de pedidos-->
                 <div class="form-group">
-                  <select type="text" id="pedidos_disponibles" class="form-control" placeholder="pedidos_disponibles">
-                    <option  value="Hamburguesa de pan">Hamburguesa de pan</option>
-							      <option  value="hamburguesa de patacones">hamburguesa de patacones</option>
-							      <option  value="hamburguesa Vegetariana">hamburguesa Vegetariana</option>
+                  <input type="text" name="title-disponibles" id="variantes-disponibles" placeholder="Variantes disponibles del producto" class="form-control">                  
+                  <select type="text" id="variantes_disponibles" class="form-control" placeholder="disponibles">
+                    <option  value="" placeholder="1ra Variante"></option>							      
                   </select>
+                  <button type="button" class="btn btn-primary btn-block text-center">agregar variante</button>
                 </div>
                 <div class="form-group">
-                  <select type="text" id="variantes" class="form-control" placeholder="variantes del pedido">
+                  <select type="text" id="adiciones-disponibles" class="form-control" placeholder="Adiciones disponibles de tu producto">
                     <option  value="con todas las salsas">con todas las salsas</option>
 							      <option  value="con todas las salsas menos piña">con todas las salsas menos piña</option>							      
                   </select>
@@ -117,8 +133,8 @@
                 <td>Nombre</td>
                 <td>Precio</td>
                 <td>Description</td> 
-                <td>Pedidos disponibles</td>
-                <td>Variantes </td>                                                             
+                <td>Variantes disponibles</td>
+                <td>Adiciónes</td>                                                             
               </tr>
             </thead>
             <tbody id="tasks"></tbody>
@@ -134,6 +150,7 @@
     <!-- Frontend Logic -->
     <script src="js/request-app.js"></script>
     <script src="js/subir_imagen.js"></script>
+    <script src="js/subir.js"></script>
   </body>
 
 </html>
