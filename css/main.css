@@ -40,14 +40,16 @@ p{
 .title-menu{			
 	text-align: left;
 	color: #f8c74a;	
-	margin-top: 0px;
-	font-size: 1.5em;	
+	margin-top: 25px;
+	font-size: 1.8em;	
 	/*font-family: 'Nanum Brush Script', cursive;	*/
 	font-family: 'Lato', sans-serif;
 	/*font-family: 'Kaushan Script', cursive;*/
 }
 .text-introduccion{
-	letter-spacing :  1.7px;
+	letter-spacing :  1.4px;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 #titulo-detalles-producto{
 	font-weight: bolder;
@@ -135,7 +137,7 @@ article{
 	font-family: 'Nunito Sans', sans-serif;
 	font-family: 'Lato', sans-serif;
 	*/
-	margin-top: -8px;
+	margin-top: -2px;
 	font-size: 1.6em;
 	font-family: 'Lato', sans-serif;
 	/*font-family: 'Nanum Brush Script', cursive;*/
