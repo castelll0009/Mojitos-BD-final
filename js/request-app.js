@@ -46,6 +46,7 @@ $(document).ready(function() {
         }
     });       
     //agregamos variantes disponibles y adiciones disponibles al selector
+    //VARIANTES
     var sel_variantes = document.getElementById("sel-variantes-disponibles");
     var sel_adiciones = document.getElementById("sel-adiciones-disponibles");
     var input_variantes =  document.getElementById("input-variantes-disponibles");
@@ -69,6 +70,7 @@ $(document).ready(function() {
         x = sel_variantes;
         x.remove(x.selectedIndex);
       });
+      //ADICIONES
     document.querySelector(".btn-add-adiciones").addEventListener("click", function(){        
         if(!input_adiciones.value == ""){
             //primero eliminarmos la option que decia "Ninguna"   
