@@ -141,27 +141,32 @@
 				<div class="detalles-derecha">		
 									
 					<div class="contenido-personalizable">										
-						<h7>Pedido actual</h7>
-						<select name="select" class="variantes-producto">
+						<h7>Variantes disponibles</h7>
+						<select name="select" id="variantes-detalles-producto" class="variantes-producto">
+							<!-- 
 							<option  value="50000">Hamburguesa de pan</option>
 							<option  value="60000">Hamburguesa de patacones</option>
 							<option  value="40000">Hamburguesa Veguetariana</option>
-						</select>	
-						<h7>Salsas</h7>
-						<select name="select" class="variantes-producto2">						
+							-->
+						</select>								
+							
+						<h7>Adiciones</h7>
+						<select name="select" id="adiciones-detalles-producto" class="variantes-producto2">						
+							<!-- 
 							<option  value="60000">Tomate y rosada</option>
 							<option  value="60000">Tomate y piña</option>
 							<option  value="40000">Todas las salsas menos piña</option>
 							<option  value="40000">Todas las salsas</option>
+							-->							
 						</select>	
-						  <h7>Descripción</h7>										 
+						  <h7>¿Como lo quieres?</h7>										 
 						  <textarea   type="descripcion" name="descripcion" rows="3" cols="10" id="id-detalles-pedido" class="descripcion-productos" name="descripcion"  placeholder="Escribe aquí tu descripción.."></textarea>									 										  
 						  <h7>Cantidad y precio</h7>
 					<span class="precio-unidades">						
 						<p id="precio-detalles-producto" class="precio-producto">$ 6000</p>
 						<span class="span-cantidad">
 							<button  class="botones-unidades disminuir-productos" >-</button>
-							<input type="text"  class="cantidad-producto" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" value="1">
+							<input type="number"  class="cantidad-producto" value="1">
 							<button  class="botones-unidades aumentar-productos ">+</button>																															
 						</span>		
 					</span>	

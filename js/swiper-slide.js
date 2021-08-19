@@ -1,6 +1,7 @@
 var stop_swipers = false;
+
 function activarSwiper() {    
- 
+  
 //autoplay swiper1
 const swiper1 = new Swiper(".swiper1",{  
   slidesPerView: 3,
@@ -509,12 +510,15 @@ $(".swiper3").on(' mouseover touched touchmove', function(e){
   swiper3.autoplay.stop();  
 })
 */
-//funcion que detiene lo swiper
-if(stop_swipers)  {
-  alert("detenidos");
-  stopSwipers();
-}
+
 //funcion que hace que el swiper clickeado se quede quieto y  mientras los otros se  mueven
+var cont = 0;
+if(stop_swipers){
+  if(cont < 5)
+  setTimeout(function(){stopSwipers()},1000);  
+  cont++;
+}
+ 
 var swiper_wrappers = document.querySelectorAll(".swiper-wrapper");
 swiper_wrappers.forEach( (wrapper,index) => {  
   wrapper.addEventListener("click", function(){         
@@ -557,7 +561,7 @@ swiper_wrappers.forEach( (wrapper,index) => {
 });
 
 function moverSwipersExcepto(pSwiper){
-  if(!stop_swipers){
+  if(!stop_swipers){    
     swiper1.autoplay.start();   
     swiper2.autoplay.start();  
     swiper3.autoplay.start();  
@@ -569,13 +573,14 @@ function moverSwipersExcepto(pSwiper){
     swiper9.autoplay.start();  
     swiper10.autoplay.start(); 
     pSwiper.autoplay.stop(); 
-  }else{
+  }else{    
     stopSwipers();
   }
 
 }   
 
 function stopSwipers(){
+  alert("stoppppp");
   swiper1.autoplay.stop();   
   swiper2.autoplay.stop();  
   swiper3.autoplay.stop();  

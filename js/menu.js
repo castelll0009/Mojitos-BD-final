@@ -21,14 +21,15 @@ function vistaEscritorio(){
 		//vista de escritorio de pedido
 		document.body.style = "zoom: 50%";		
 		beepc.style ="font-size : 3em";		
-		zoom = true;		
-		stop_swipers = true;
-		activarSwiper();
+		zoom = true;			
+		stop_swipers = true;				
+		
 	}else{
-		//vista normal
+		//vista normal		
 		document.body.style = "zoom: 100%";		
 		beepc.style ="font-size : 1.5em";
-		zoom = false;
+		stop_swipers = false;
+		zoom = false;		
 	}	
 	activarSwiper();	
 }

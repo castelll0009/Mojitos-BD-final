@@ -45,64 +45,43 @@ $(document).ready(function() {
             })
         }
     });       
-    //agregamos variantes disponibles y adiciones disponibles al selector
-    //VARIANTES
-    var sel_variantes = document.getElementById("sel-variantes-disponibles");
-    var sel_adiciones = document.getElementById("sel-adiciones-disponibles");
-    var input_variantes =  document.getElementById("input-variantes-disponibles");
-    var input_adiciones = document.getElementById("input-adiciones-disponibles");
-    //validar que el campo del imput  este lleno   al presionar el boton de agregar      
-    document.querySelector(".btn-add-variantes").addEventListener("click", function(){        
-        if(!input_variantes.value == ""){              
-            //primero eliminarmos la option que decia "Ninguna"   
-            if (sel_variantes[0].value == "Ninguna" )                             {
-                sel_variantes.remove(sel_variantes[0]);
-            }
-            const option = document.createElement('option');
-            const valor = input_variantes.value; //le pasamos al option creado el valor escrito en el input
-            option.value = valor;
-            option.text = valor;
-            sel_variantes.appendChild(option); //agregamos la n ueva option creada con el valor del input al selector            
-        }
-    });
-    //eliminar elementos del select variantes 
-    document.querySelector("#btn-del-variantes").addEventListener("click", function () {
-        x = sel_variantes;
-        x.remove(x.selectedIndex);
-      });
-      //ADICIONES
-    document.querySelector(".btn-add-adiciones").addEventListener("click", function(){        
-        if(!input_adiciones.value == ""){
-            //primero eliminarmos la option que decia "Ninguna"   
-            if (sel_adiciones[0].value == "Ninguna" ){
-                sel_adiciones.remove(sel_adiciones[0]);
-            }
-            //primero eliminarmos la option que decia "Ninguna"                             
-            const option = document.createElement('option');
-            const valor = input_adiciones.value; //le pasamos al option creado el valor escrito en el input
-            option.value = valor;
-            option.text = valor;
-            sel_adiciones.appendChild(option); //agregamos la n ueva option creada con el valor del input al selector            
-        }
-    });
-    //eliminar elementos del select adiciones
-    document.querySelector("#btn-del-adiciones").addEventListener("click", function () {
-        x = sel_adiciones;
-        x.remove(x.selectedIndex);
-      });
-
-
+    
 ////////AGREGAR PRODUCTOS A MOJITOS -ADD//// para guardar la ruta de la imagen///
-    $('#task-form').submit(e => {        
-        e.preventDefault();    
+    //reamos las variables que ocntendran las variantes en texo separadas por coma
+    var text_variantes ="" ;
+    var text_adiciones ="";
+    var sel_variantes_text = document.querySelector("#sel-variantes-disponibles");
+    var sel_adiciones_text = document.querySelector("#sel-variantes-disponibles");
+    $('#task-form').submit(e => {    
+        e.preventDefault();                   
+        var contadorSelect = 0;
+        var optionLength = $("#sel-variantes-disponibles option").length; //longuitud de  el select        
+        while(contadorSelect < optionLength){            
+            text_variantes   = text_variantes + sel_variantes_text.options[contadorSelect].text + ",";               
+            contadorSelect++;         
+        }
+        text_variantes = text_variantes.substring(0, text_variantes.length - 1);
+        alert(text_variantes);
+
+        contadorSelect = 0;
+        optionLength = $("#sel-adiciones-disponibles option").length; //longuitud de  el select        
+        while(contadorSelect < optionLength){
+            text_adiciones   = text_adiciones + sel_adiciones.options[contadorSelect].text + ",";                
+            contadorSelect++;
+        }
+        text_adiciones = text_adiciones.substring(0, text_adiciones.length - 1);
+        alert(text_adiciones);
+
+      
         const postData = { //objetos que vamos a enviar al servior usando POST             
             nombre_imagen:  $('#image').val().replace(/C:\\fakepath\\/i, ''),      //enviamos el nombre del archivo sin la ruta
             category: $("#category option:selected").val(),        
             name: $('#name').val(), //sacamos el valor delos campos name price y description, amnd id
             price: $('#price').val(),        
             description: $('#description').val(),
-            pedidos_disponibles: $("#pedidos_disponibles option:selected").text(),  
-            variantes: $("#variantes option:selected").text(),          
+            //variantes disponibles los agregamnos a un text separado por comas            
+            pedidos_disponibles: text_variantes,  
+            variantes: text_adiciones,          
             id: $('#taskId').val()
         };   
 
@@ -175,7 +154,7 @@ $(document).ready(function() {
                         template_cafes_mojitos+= `
                         <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles  ">
                             <img  src="${task.imagen}" >   
-                            <h5  class="titulo-producto ">${task.name} $${task.price}</h5>					  
+                            <h5  class="titulo-producto ">${task.name}<br>$${task.price}</h5>					  
                         </div>
                         `  
                     }else{
@@ -184,7 +163,7 @@ $(document).ready(function() {
                             template_frappes_mojitos += `
                             <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                 <img  src="${task.imagen}" > 
-                                <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                             </div>
                             `  
                         } else {
@@ -193,7 +172,7 @@ $(document).ready(function() {
                                 template_bebidasCalientes_mojitos += `
                                 <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                     <img  src="${task.imagen}" > 
-                                    <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                    <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                                 </div>
                                 `  
                             }else{
@@ -202,7 +181,7 @@ $(document).ready(function() {
                                     template_bebidasFrias_mojitos += `
                                     <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                         <img  src="${task.imagen}" > 
-                                        <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                        <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                                     </div>
                                     `  
                                 }else{
@@ -211,7 +190,7 @@ $(document).ready(function() {
                                         template_malteadas_mojitos += `
                                         <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                             <img  src="${task.imagen}" > 
-                                            <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                            <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                                         </div>
                                         `  
                                     }else{
@@ -220,7 +199,7 @@ $(document).ready(function() {
                                             template_megaMalteadas_mojitos += `
                                             <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                                 <img  src="${task.imagen}" > 
-                                                <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                                <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                                             </div>
                                         `  
                                         }else{
@@ -229,7 +208,7 @@ $(document).ready(function() {
                                                 template_wafflesDeSal_mojitos += `
                                                 <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                                     <img  src="${task.imagen}" > 
-                                                    <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                                    <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                                                 </div>
                                                 `  
                                             }else{
@@ -238,7 +217,7 @@ $(document).ready(function() {
                                                     template_wafflesDulces_mojitos += `
                                                     <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                                         <img  src="${task.imagen}" > 
-                                                        <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                                        <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                                                     </div>
                                                     `  
                                                 }else{
@@ -247,7 +226,7 @@ $(document).ready(function() {
                                                         template_antojos_mojitos += `
                                                         <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                                             <img  src="${task.imagen}" > 
-                                                            <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                                            <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                                                         </div>
                                                         `  
                                                     }else{
@@ -256,7 +235,7 @@ $(document).ready(function() {
                                                         template_cocteles_mojitos += `
                                                         <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                                             <img  src="${task.imagen}" > 
-                                                            <h5 class="titulo-producto">${task.name} $${task.price}</h5>					  
+                                                            <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                                                         </div>
                                                         ` 
                                                     }
@@ -310,7 +289,38 @@ $(document).ready(function() {
             $("#img-detalles-producto").attr("src",task.imagen);            
             $('#titulo-detalles-producto').html(task.name);            
             $('#precio-detalles-producto').html("$" + task.price);
-            $('#descripcion-detalles-producto').html(task.description);                   
+            $('#descripcion-detalles-producto').html(task.description);    
+            //tenemos que llenar el select  con los datos del mysqul   , recuperamos la cadena en una string         
+            var string_aux_variantes =  task.pedidos_disponibles;
+            //introduciomos los datos de la cadena en el select
+            var array_variantes = string_aux_variantes.split(','); //creamos un arreglo [ , , ]  de la cedena separada por comas
+            //introduciomos cada posiciones del arreglo a cada select    
+            array_variantes.forEach(element => console.log(element));
+            
+             //creamos seleccionamos el select y  le creamos options que seran llenadas con los datos del arreglo, siempre que contador sea menor al tamaño del arreglo                        
+             var contadorAux = 0;             
+             while(contadorAux <  array_variantes.length){                 
+                const option = document.createElement('option');
+                const valor = array_variantes[contadorAux]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
+                option.value = valor;
+                option.text = valor;
+                document.querySelector("#variantes-detalles-producto").appendChild(option); //agregamos la n ueva option creada con el valor  al selector                
+                contadorAux++;
+             }
+             
+             var string_aux_adiciones =  task.variantes;             
+             var array_adiciones = string_aux_adiciones.split(','); //creamos un arreglo [ , , ]  de la cedena separada por comas             
+             array_adiciones.forEach(element => console.log(element));             
+              var contadorAux = 0;             
+              while(contadorAux <  array_adiciones.length){
+                 const option = document.createElement('option');
+                 const valor = array_adiciones[contadorAux]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
+                 option.value = valor;
+                 option.text = valor;
+                 contadorAux++;
+                 document.querySelector("#adiciones-detalles-producto").appendChild(option); //agregamos la n ueva option creada con el valor  al selector                
+              }    
+                   
              //salvamos las variables para detalles de producots y calcular constos de compra  pedido
 
              titulo_producto_vender =  titulo_producto_vender_original=task.name;                        
