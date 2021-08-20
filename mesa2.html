@@ -4,25 +4,136 @@
 		<meta charset= "utf-8">
 		<link rel="stylesheet" href="css/swiper-slide.css">	
 		<link rel="stylesheet" href="css/stylemovil.css">	
-		<link rel="stylesheet" href="css/detalles_producto.css">	
-	
+		<link rel="stylesheet" href="css/detalles_producto.css">			
+		<link rel="stylesheet" href="css/detalles_carrito.css">					
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+		<link href='https://fonts.googleapis.com/css?family=Nanum Brush Script' rel='stylesheet'>
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.1/jquery.jgrowl.min.css" /> 
+		<meta name="viewport"  content="width=device-width initial-scale=1.0">
+		<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">  
+		<!--
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		 -->
+		
+		<link rel="stylesheet" href="css/main.css">		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Lato:wght@300;400;700&family=Zilla+Slab:wght@500&display=swap" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<title>Mojitos cafe-bar</title>
 	</head>
 	<body >
 		
 		<div class="container-fotos ">			
-			<img class="img-foto" src="imgs/foto1.png" >
+			<img class="img-foto" src="imgs/fondo-mojitos.png" >
 		</div>
-
+		<!-- CONTENEDOR DETALLES CARRITO FACTURA  desplegable , contenedor de los productos agregados al carrito -->
+		<div  class="cont-detalles-carrito">			
+			<div class="div-detalles-carrito">
+				<br>
+				<div class="contenedor-tabla-factura" >
+				  <h1>CARRITO</h1>				  
+				  <div class="panel panel-default">
+					<div class="panel-body">
+					  <table class="table cut-off" >
+						<thead >
+						  <tr class="tr-tabla-carrito">
+							<th class="th-numero">#</th>
+							<th class="th-producto">Productos</th>
+							<th  class="th-cantidad" style="color:#F5CF91;">Cantidad</span> </th>
+							<th>Precio</th>
+							<th class="th-acction"></th>
+						  </tr>
+						</thead>
+						<tbody class="tbody-lista-productos-carrito">
+						  <!-- nombre=Produtos apellido= cantidad Precio=email
+						  <tr class="celdas-tabla">
+							<td  style="cursor: not-allowed;">
+							 {{$index + 1}}
+							  10
+							</td>
+							<td style="cursor: not-allowed;" row="{{$index}}" field="productosCarrito">
+								 {{item.productosCarrito}}
+								 Hamburguesa Veguetariana con Pastel
+							</td>
+							<td class="cantidadEditable" editable-td row="{{$index}}" field="cantidadCarrito">
+							 {{item.cantidadCarrito}}
+							  20								
+							</td>
+							<td style="cursor: not-allowed;" row="{{$index}}" field="precioCarrito">
+								{{item.precioCarrito}}
+							  100000
+							</td>
+							<td>
+								<span style="cursor: pointer;"><i class="fas fa-trash-alt"></i></span>
+							</td>
+						  </tr>
+						-->
+						</tbody>
+						
+						 <tbody class="tbody-total">
+						  <tr class="tr-carrito-total">
+							<td style="cursor: not-allowed;">
+							  $
+							</td>
+							<td style="cursor: not-allowed;" row="{{$index}}">
+							  TOTAL
+							</td>
+							<td style="cursor: not-allowed;" id="cantidad-total-pedido" row="{{$index}}">
+							    <!--cantidad de productos total {{item.cantidadCarrito}}-->
+								0								
+							</td>
+							<td style="cursor: not-allowed;" id="total-pagar-pedido" row="{{$index}}">
+							 	 <!--{{item.precioCarrito}}-->	
+								  0							  
+							</td>
+							<td>
+								<span style="cursor: pointer;"></span>
+							</td>
+						  </tr>
+						</tbody>
+						
+					  </table>
+					  
+					  <div class="botones-factura">								  
+						<button class="btn-concretar-orden btn-default" ng-click='agregar()'>
+						  <span><i class="fas fa-cart-plus"></i></span>
+						</button>
+						<button type="button" class="btn-confirmar-orden btn-default" >Confirmar Orden <span><i class="fas fa-receipt"></i></span></button>
+					  </div>
+					  <br>					  
+					  					  
+					</div>
+					
+				  </div>
+				</div>
+				<div class="contenedor-indicaciones-factura" >
+					<p>Indicaciones:</p>
+					<ol class="lista-indicaciones">
+					  <li>Haciendo click en la columna cantidad puede modificar el numero de productos(pronto)</li>					
+					  <li>Puedes agregar más elementos al carrito</li>
+					  <li>Puedes eliminar elementos presionando <span style="color: white;"><i class="fas fa-trash-alt"></i></span></li>					
+					</ol>	
+				</div>	   
+				 
+			</div>			
+		</div>
+		<!-- CONTENEDOR DETALLES PRODUCTOS-->
 		<div class="cont-detalles-producto">
 			<!-- Ventana que se despliega hacia arriba mostrando los detalles del producto seleaccionado -->
-			<div class="div-detalles">				
+			<div class="div-detalles ">				
 				<div class="detalles-izquierda">					
-					<img src="imgs/burger.jpg" > 
+					<img id="img-detalles-producto" src="imgs/burger.jpg" > 
 					<h5  id="titulo-detalles-producto" class="titulo-producto">Hamburguesa</h5>				
 					<p id="descripcion-detalles-producto" >de carne, con lechuga, patacones o pan y las salsas que prefieras.</p>																			
 					<div class="botones-accion-izquierda">
-						<button class="btn-accion btn-ver"><i class="fas fa-images"></i> ver</button>				
+						<button class="btn-accion btn-ver"><i class="fas fa-shopping-cart"></i> ver</button>				
 						<button class="btn-accion btn-propina"><i class="fas fa-coins"></i> propina</button>
 						
 					</div>							
@@ -30,27 +141,32 @@
 				<div class="detalles-derecha">		
 									
 					<div class="contenido-personalizable">										
-						<h7>Pedido actual</h7>
-						<select name="select" class="variantes-producto">
+						<h7>Variantes disponibles</h7>
+						<select name="select" id="variantes-detalles-producto" class="variantes-producto">
+							<!-- 
 							<option  value="50000">Hamburguesa de pan</option>
 							<option  value="60000">Hamburguesa de patacones</option>
 							<option  value="40000">Hamburguesa Veguetariana</option>
-						</select>	
-						<h7>Salsas</h7>
-						<select name="select" class="variantes-producto">						
+							-->
+						</select>								
+							
+						<h7>Adiciones</h7>
+						<select name="select" id="adiciones-detalles-producto" class="variantes-producto2">						
+							<!-- 
 							<option  value="60000">Tomate y rosada</option>
 							<option  value="60000">Tomate y piña</option>
 							<option  value="40000">Todas las salsas menos piña</option>
 							<option  value="40000">Todas las salsas</option>
+							-->							
 						</select>	
-						  <h7>Descripción</h7>										 
-						  <textarea   type="descripcion" name="descripcion" rows="3" cols="10"class="descripcion-productos" name="descripcion"  placeholder="Escribe aquí tu descripción.."></textarea>									 										  
+						  <h7>¿Como lo quieres?</h7>										 
+						  <textarea   type="descripcion" name="descripcion" rows="3" cols="10" id="id-detalles-pedido" class="descripcion-productos" name="descripcion"  placeholder="Escribe aquí tu descripción.."></textarea>									 										  
 						  <h7>Cantidad y precio</h7>
 					<span class="precio-unidades">						
 						<p id="precio-detalles-producto" class="precio-producto">$ 6000</p>
 						<span class="span-cantidad">
 							<button  class="botones-unidades disminuir-productos" >-</button>
-							<input type="text" class="cantidad-producto" value="1">
+							<input type="number"  class="cantidad-producto" value="1">
 							<button  class="botones-unidades aumentar-productos ">+</button>																															
 						</span>		
 					</span>	
@@ -65,58 +181,259 @@
 			</div>
 		</div>	
 		<main >			
-								
+				
+			<i id="beepc" onclick="vistaEscritorio()" class="fas fa-laptop"></i>			
+			<header>		
+				<!-- cabecera menu y demas -->				
+				<div class="container-header">
+					<span id="icono-carrito-compras-main" class="icono-carrito-compras"><i class="fas fa-cart-arrow-down"></i></span>
+					<nav id="main-movil" class="main-movil">
+						<div class="container-menu-movil">
+							<!--  <input id="responsive-menu" type="checkbox">
+							<label id="label-menu" for="responsive-menu"><span id="menu-icon"></span></label>--> 														
+							<ul  > 
+								<a href = "" >
+									<li href= "index.html" ><label class="fa fa-home" style="color: #E0A023; margin-left: -40px;" ></label></li>
+								</a>
+								<a href = "" >
+									<li  >PRODUCTOS</li>
+								</a>
+								<a href = "" >
+									<li >CONTACTOS </li>
+								</a>
+								<a href = "">
+									<li >ACERCA DE </li>
+								</a>																
+								<li style="color: #E0A023; font-weight: bold;">INICIAR SESION</li>
+							</ul>
+				 
+				   
+							<ul id="social-media">
+								<li>
+									<a href="">
+										<i class="fab fa-facebook"></i>                        
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="fab fa-whatsapp"></i>                        
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="fab fa-twitter"></i>                        
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="fab fa-linkedin"></i>									  
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<i class="fab fa-instagram"></i>									
+									</a>
+								</li>
+							</ul>                            
+						</div>
+					</nav>	
+					
+					<div  class="container-logo-title">				
+						<img id="zumbido" src="../imgs/logo.png"  onClick="sonidoLogo()" class=" zumbido animate__animated animate__flash animate__fast"   >
+						<h1>Mojitos</h1>
+						<h2 class="numero-mesa">MESA 2</h2>
+					</div>
+	
+					<div class="container-menu">
+						<nav class="menu"></nav>
+							<ul  class="menu-ul">
+							<a href = "" >
+								<li href= "" ><label class="fa fa-home" style="color: #E0A023" ></label></li>
+							</a>
+							<a href = "" >
+								<li  >Productos</li>
+							</a>
+							<a href = "" >
+								<li >CONTACTOS </li>
+							</a>
+							<a href = "" >
+								<li >ACERCA DE </li>
+							</a>																
+							<li style="color: #E0A023; font-weight: bold;">INICIAR SESION</li>
+						</ul>
+					</div>					
+				</div>
+			</header>	
+			<div class="info-container" >		
+				<!--
+					<img id="img-home" src= "imgs/fondo-portada.jpg" class="animate__animated animate__fadeIn">	
+				-->				
+				<h1 id="info-title" class=" animate__animated animate__fadeIn"> 
+						<img class="img-logo" src="" alt="">Mojitos</h1>		
+				<div id="div-index" class="animate__animated animate__flipInX">
+					<h2 class="fuente-subtitulos" >Sabemos lo que te gusta</h2>
+					<p class="text-introduccion" style="margin-top: 30px;">Acá podrás encontrar nuestro menú, elige lo que desees y date la oportunidad de disfrutar donde quieras.</p>				
+				</div>					
+			</div>		
+			<h1 class="title-menu" class=" animate__animated animate__fadeIn">Menú</h1> 			
 			<!-- Swiper  contenedor-->
 			<!-- MENU -->
 			<div class="contenedor-todo-swiper">				
 				<!-- FRAPPES -->
-				<h2 class="titulo-swiper-categoria">Cafe</h2>
+				<h2 class="titulo-swiper-categoria">Cafés</h2>
 				 <!-- Swiper -->
-				 <div >
-					<div id="comidasMojitos2" class="swiper-wrapper">
-					  <div productoId="1" id="producto1" class="swiper-slide">							
-						<img  src="imgs/burger.jpg" >  
-						<h5 class="titulo-producto">Hamburguesa $6000</h5>					  
-					  </div>						  
-					  <div class="swiper-slide">							
-						<img src="imgs/hotdog.jpg" >  
-						<h5 class="titulo-producto">Hot Dog $5000</h5>					  
-					  </div>				  					  
-					  <div class="swiper-slide">							
-						<img src="imgs/chirizo-brizas.png.jpg" >  
-						<h5 class="titulo-producto">Chorizito (Jhojitan) $3000</h5>					  
-					  </div>
-					  <div class="swiper-slide">							
-						<img src="imgs/salchipapas.jpg" >  
-						<h5 class="titulo-producto">Salchipapas</h5>					  
-					  </div>					  
-					  <div class="swiper-slide">							
-						<img src="imgs/arepas.jpg" >  
-						<h5 class="titulo-producto">Arepas</h5>					  
-					  </div>		
-					  <div class="swiper-slide">							
-						<img src="imgs/burger.jpg" >  
-						<h5 class="titulo-producto">Hamburguesa</h5>					  
-					  </div>						  
-					  <div class="swiper-slide">							
-						<img src="imgs/hotdog.jpg" >  
-						<h5 class="titulo-producto">Hot Dog</h5>					  
-					  </div>				  					  				
-					  <div class="swiper-slide">							
-						<img src="imgs/salchipapas.jpg" >  
-						<h5 class="titulo-producto">Salchipapas</h5>					  
-					  </div>					
+				<div  class="swiper-container mySwiper swiper1">
+					<div id="cafes" class="swiper-wrapper wrapper1">											  									  					 				
 					  <!--
-					  <div class="swiper-slide swiper-disable"></div>				  
-					  <div class="swiper-slide swiper-disable"></div>				  
-					  <div class="swiper-slide swiper-disable"></div>				  
-					  <div class="swiper-slide swiper-disable"></div>				
+					      <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles  ">
+                            <img  src="${task.imagen}" >   
+                            <h5  class="titulo-producto ">${task.name} $${task.price}</h5>					  
+                        </div>
+                        `  			
 					  -->					    					  					  
 					</div>					
 				</div>				
 			</div>
- 		
-		  
+ 			<!-- Swiper  contenedor-->
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Frappes</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper2">
+					<div id="frappes" class="swiper-wrapper">
+					  		  					  
+					  <!--
+					  <div class="swiper-slide desplegar-detalles swiper-disable"></div>				  
+					  <div class="swiper-slide desplegar-detalles swiper-disable"></div>				  
+					  <div class="swiper-slide desplegar-detalles swiper-disable"></div>				  
+					  <div class="swiper-slide desplegar-detalles swiper-disable"></div>				
+					  -->					    					  					  
+					</div>					
+				</div>				
+			</div>			
+			
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Bebidas Calientes</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper3">
+					<div id="bebidasCalientes" class="swiper-wrapper">
+															    					  					  
+					</div>					
+				</div>				
+			</div>			
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Bebidas Frías</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper4">
+					<div id="bebidasFrias" class="swiper-wrapper">
+												  														    					  					  
+					</div>					
+				</div>				
+			</div>
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Malteadas</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper5">
+					<div id="malteadas" class="swiper-wrapper">
+												  														    					  					  
+					</div>					
+				</div>				
+			</div>
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Mega Malteadas</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper6">
+					<div id="megaMalteadas" class="swiper-wrapper">
+												  														    					  					  
+					</div>					
+				</div>				
+			</div>
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Waffles de sal</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper7">
+					<div id="wafflesdeSal" class="swiper-wrapper">
+												  														    					  					  
+					</div>					
+				</div>				
+			</div>
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Waffles Dulces</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper8">
+					<div id="wafflesDulces" class="swiper-wrapper">
+												  														    					  					  
+					</div>					
+				</div>				
+			</div>
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Antojos</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper9">
+					<div id="antojos" class="swiper-wrapper">
+												  														    					  					  
+					</div>					
+				</div>				
+			</div>
+			<div class="contenedor-todo-swiper">
+				<h2 class="titulo-swiper-categoria">Cócteles</h2>
+				 <!-- Swiper -->
+				 <div class="swiper-container mySwiper swiper10">
+					<div id="cocteles" class="swiper-wrapper">
+												  														    					  					  
+					</div>					
+				</div>				
+			</div>
+		  			
+			<div class="cards-container" >
+				<figure class="figure-container refrigerador-class" onclick="abrirCerrarRefri();" >
+					<div class="sona0  div-figure " >						
+							<img src="imgs/refri-cerrado.png" class="refri1">
+							<img src="imgs/refri-abierto.png" class="refri2">						
+						<h1>Refrigerador</h1>
+						<p>Si deseas puedes tomar una cerveza o alguna otra bebida de nuestro 
+							<span class="puntos0  puntos" style="color:rgb(167, 158, 158)">...Leer Más</span>
+							<span class="text0" id="text">
+							refrigerador, estara disponible siempre que quieras tomar o servirte algo,
+							no hay ningun problema, solo recuerda pagarlo ;D .												
+							<span style="color:rgb(163, 161, 161)"><br> <br>Leer Menos</span></p>										
+					</div>
+					
+				</figure>	
+
+				<figure class="figure-container">
+					<div class="sona0 entretenimiento-class div-figure" >
+						<img src="imgs/uno-circle.png" >
+						<img src="imgs/youtube-circle.png" >
+						<h1>Entretenimiento</h1>
+						<p>¿Te aburres esperando? no te preocupes tenemos algunas cosas							
+							<span class="puntos0  puntos2" style="color:rgb(126, 126, 126)">...Leer Más</span>	
+							<span  class="text0" id="text2">
+							que puedes hacer mientras.													
+							Desde nuestro aplicativo web puedes solicitar:<br><br>							
+							UNO:<br>Juego de cartas para divertirse con tus amigos.<br>
+							<br>YouTube Music Premium :<br> Puedes poner 2 canciones por ordenar, crear tu propia listas de reproducción, es genial.
+							<span style="color:rgb(163, 161, 161)"><br> <br>Leer Menos</span></p>														
+											
+					</div>
+				</figure>	
+				
+				<figure class="figure-container">
+					<div   class="sona0 sona3 div-figure"  >
+						<img src="imgs/trucos.png" >
+					<h1>Curiosidades Appiweb Mojitos</h1>
+					<p>Aqui encontraras algunas de las funciones que tiene
+						<span class="puntos0 puntos3" style="color:rgb(126, 126, 126)">...Leer Más</span>	
+						<span class="text0" id="text3">	
+						nuestro sitio web que te facilitaran mas las cosas y tendras una mejor experiencia.
+						<br>
+						<i id="beepc2" style="position: static;" onclick="vistaEscritorio()" class="fas fa-laptop"></i>
+						<br>	
+						si usas este icono que aoarece en la esquina inferir derecha, tendras una vista de escritorio, te ayudara
+						a ver todo desde una perpectiva mas general.		
+						<span style="color:rgb(163, 161, 161)"><br> <br>Leer Menos</span></p>
+					</div>					
+				</figure>																						
+			</div>
 
 			<nav class=" nav-barra-inferior animate__animated animate__fadeIn">
 				<a href = "" class="margen-derecha">Productos</a>
@@ -140,9 +457,24 @@
 		<source src="sounds/cerar-refri.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
 		</audio>
-	
-		<!-- Swiper JS -->						
-		<script src="js/detalles_producto.js"></script>			  
-		<script src="js/jquery.js"></script>  						
+
+		<!-- JQuery -->	
+		<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>		
+		<!-- Swiper JS -->		
+		<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>		  
+		<script src="js/detalles_producto.js"></script>				
+		<script src="js/detalles_carrito.js"></script>	
+		<script src="js/request-app.js"></script>				
+		<script src="js/menu.js"></script>	
+		<script src="js/buttom_menu.js"></script>	
+		<script src="js/jquery.js"></script>  		
+		<script src="js/swiper-slide.js"></script>		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.1/jquery.jgrowl.min.js"></script>
+		<!--Angular module-->		
+		
 	</body>
 </html>

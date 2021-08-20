@@ -25,6 +25,10 @@ $(document).on('click', '.div-detalles-carrito', () =>{
     $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito"); 
 });
 
+$(document).on('click', '#icono-carrito-compras-main', () =>{        
+  $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito"); 
+});
+
 //DETECTAR EL CAMBIO DE CANTIDAD PRODUCTOS celda td
 function cambiosCantidadPedido(){
   //TODO cambiar catidad
@@ -63,17 +67,36 @@ function cambiosCantidadPedido(){
     //productoi eliminado del total a pagar
     //eliminamos del JSON_productos el elementos
     var auxIndexDel = 0;
-    auxIndexDel = (index);
-    alert("ELIMINANDO");
-    alert("eliminando2222 " + auxIndexDel);
-    JSON_productos.nombre[auxIndexDel] = undefined;
-    JSON_productos.precio[auxIndexDel] = undefined;
-    JSON_productos.cantidad[auxIndexDel] = undefined;
-    JSON_productos.variante[auxIndexDel] = undefined;          
-    JSON_productos.adicion[auxIndexDel] = undefined;
-    JSON_productos.descripcion[auxIndexDel] = undefined;
-    JSON_productos.subtotal[auxIndexDel] = undefined;
-    contElementosPedido--;       
+    auxIndexDel = (index-1);    
+    JSON_productos.nombre[auxIndexDel] = "NULL";
+    JSON_productos.precio[auxIndexDel] = "NULL";
+    JSON_productos.cantidad[auxIndexDel] = "NULL";
+    JSON_productos.variante[auxIndexDel] = "NULL";          
+    JSON_productos.adicion[auxIndexDel] = "NULL";
+    JSON_productos.descripcion[auxIndexDel] = "NULL";
+    JSON_productos.subtotal[auxIndexDel] = "NULL";
+    contElementosPedido--;  
+
+    console.log("//////////////*****ELIMINAR*********************////////////////////////////////////*");
+    console.log(contElementosPedido);
+    var j = 0; // recorrer el json
+    for(i = 0; i < contElementosPedido; i++){      
+      if(JSON_productos.nombre[j] == "NULL"){
+       console.log("elemento NULL SALTADo i:" +i+" j: "+ j);
+       i--;
+      }else{
+        console.log("//////////////////////////////////////////////////");
+        console.log("EMPEZAMOOSSS " + i);
+        console.log(JSON_productos.nombre[j]);
+        console.log(JSON_productos.precio[j]);
+        console.log(JSON_productos.cantidad[j]);
+        console.log(JSON_productos.variante[j]);
+        console.log(JSON_productos.adicion[j]);
+        console.log(JSON_productos.descripcion[j]);
+        console.log(JSON_productos.subtotal[j]);      
+      }            
+      j++;        
+    }               
   }
   
   //CONFIRMAR ORDEN
@@ -81,6 +104,9 @@ function cambiosCantidadPedido(){
   var numero_telefono = 573202486769;
   var URL_orden = window.location;
   var cadenaURL = "";
+  var cadenaEncabezado = "";
+  var cadenaListaProductos ="";
+  
   var boton_confirmar_orden = document.querySelector(".btn-confirmar-orden");
   boton_confirmar_orden.addEventListener("click", function(){  
     event.stopPropagation();    
@@ -90,26 +116,34 @@ function cambiosCantidadPedido(){
         var_cantidad_productos = cantidad_productos.value;                                    
         descripcion_producto_vender = document.getElementById("id-detalles-pedido").value;
         cantidad_producto_vender = cantidad_productos.value;            
-        TOTAL_PAGAR_producto_vender = (cantidad_productos.value * precio_producto_vender );  
-    
-        //enlistamos productos desde el carrito 
-
-        cadenaURL = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A🍺🍸🍨%0A%0A"
-        //listado de objetos agregados al carrito en formato JSON
-        +titulo_producto_vender
-        +"%0APRECIO:$ "+precio_producto_vender
-        +"%0VARIANTE:"+variante_selecionada_producto_vender
-        +"%0ADICION:"+adicion_selecionada_producto_vender
-        +"%0ADESCRIPCIÓN:"+descripcion_producto_vender
-        +"%0ACANTIDAD: "+cantidad_producto_vender
-        //calculamos el total a pagar
-        +"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender
-        +"%0A%0A->>Pango pendiente<<-";
-        URL_orden =  window.location= cadenaURL;   
-      }    
+        TOTAL_PAGAR_producto_vender = (cantidad_productos.value * precio_producto_vender );      
+        //enlistamos productos desde el carrito  que estaban en el JSON
+        var numero_mesa = document.querySelector(".numero-mesa").innerHTML;
+        alert(numero_mesa);
+        cadenaEncabezado = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A"+numero_mesa+"%0A🍺🍸🍨%0A%0A";
+        
+        //enlistamos los productos en una cadena desde el JSON_produtos
+        var j = 0; // recorrer el json
+        for(i = 0; i < contElementosPedido; i++){
+          if(JSON_productos.nombre[j] == "NULL"){
+          i--;
+          }else{
+            cadenaListaProductos +=`_______________________%0A${JSON_productos.nombre[j]}%0APRECIO: $${JSON_productos.precio[j]}%0AVARIANTE: ${JSON_productos.variante[j]}%0AADICION: ${JSON_productos.adicion[j]}%0ADESCRIPCIÓN: ${JSON_productos.descripcion[j]}%0ACANTIDAD: ${JSON_productos.cantidad[j]}%0ASUBTOTAL: $${JSON_productos.subtotal[j]}%0A%0A`;              
+          }            
+          j++;                          
+      }   
+      cadenaURL += cadenaEncabezado; 
+      cadenaURL += cadenaListaProductos;
+      cadenaURL +=`_______________________%0ATOTAL A PAGAR: ${document.getElementById("total-pagar-pedido").innerText} %0A%0A->>Pago pendiente<<-`;
+      console.log(cadenaURL);
+      //acion enviar pedido WHapsap
+      URL_orden =  window.location = cadenaURL; 
+      }
+      
     }else{
       $.jGrowl(`¿Vas a comer viento?, Agrega productos al carrito porfavor`);
     }
+    
     
   });
   

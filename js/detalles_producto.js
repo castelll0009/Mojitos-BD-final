@@ -105,19 +105,24 @@ function agregarProductoCarrito(){
           JSON_productos.adicion[counter-1] = $("#adiciones-detalles-producto option:selected").val();
           JSON_productos.descripcion[counter-1] = $('#id-detalles-pedido').val();
           JSON_productos.subtotal[counter-1] = (auxSubtotal);
+          console.log("//////////////*****ELIMINAR*********************////////////////////////////////////*");
+          console.log(contElementosPedido);
+          var j = 0; // recorrer el json
           for(i = 0; i < contElementosPedido; i++){
-            if(JSON_productos.nombre[i] == undefined){
-              //no imprime              
+            if(JSON_productos.nombre[j] == "NULL"){
+            i--;
             }else{
-              console.log("EMPEZAMOOSSS");
-              console.log(JSON_productos.nombre[i]);
-              console.log(JSON_productos.precio[i]);
-              console.log(JSON_productos.cantidad[i]);
-              console.log(JSON_productos.variante[i]);
-              console.log(JSON_productos.adicion[i]);
-              console.log(JSON_productos.descripcion[i]);
-              console.log(JSON_productos.subtotal[i]);
+              console.log("//////////////////////////////////////////////////");
+              console.log("EMPEZAMOOSSS " + i);
+              console.log(JSON_productos.nombre[j]);
+              console.log(JSON_productos.precio[j]);
+              console.log(JSON_productos.cantidad[j]);
+              console.log(JSON_productos.variante[j]);
+              console.log(JSON_productos.adicion[j]);
+              console.log(JSON_productos.descripcion[j]);
+              console.log(JSON_productos.subtotal[j]);      
             }            
+            j++;               
           }          
           /*
           alert(JSON_productos.nombre[counter-1]);

@@ -20,6 +20,14 @@ body{
 	color: white;
 	
 }
+.icono-carrito-compras{
+	position: absolute;	
+	font-size: 1.8em;
+	z-index: 999;
+	top: 5px;
+	color: #ca9203;
+	right: 7px;
+}
 p{
 	font-family: 'Lato', sans-serif;
 	font-weight: lighter;
