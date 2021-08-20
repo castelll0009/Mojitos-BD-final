@@ -512,15 +512,26 @@ $(".swiper3").on(' mouseover touched touchmove', function(e){
 */
 
 //funcion que hace que el swiper clickeado se quede quieto y  mientras los otros se  mueven
+/*
 var cont = 0;
-if(stop_swipers){
-  if(cont < 5)
-  setTimeout(function(){stopSwipers()},1000);  
-  cont++;
-}
+$(".swiper-wrapper").trigger("click", function(){
+  alert("click simulado");
+  if(stop_swipers){
+    if(cont < 5)
+    setTimeout(function(){stopSwipers()},1000);  
+    cont++;
+  }
+});
+*/
  
 var swiper_wrappers = document.querySelectorAll(".swiper-wrapper");
 swiper_wrappers.forEach( (wrapper,index) => {  
+  var cont = 0;
+  if(cont < 1 && stop_swipers == true){
+    $(".wrapper1").trigger("click");
+    cont++;
+  }
+  
   wrapper.addEventListener("click", function(){         
     switch (index) {
       case 0:
@@ -579,8 +590,7 @@ function moverSwipersExcepto(pSwiper){
 
 }   
 
-function stopSwipers(){
-  alert("stoppppp");
+function stopSwipers(){  
   swiper1.autoplay.stop();   
   swiper2.autoplay.stop();  
   swiper3.autoplay.stop();  

@@ -1,9 +1,24 @@
 
+/*
+var JSON_array_productos_vender ={
+  nombre: [""],
+  precio: [""],
+  cantidad: [""],
+  precio: [""],
+  variante: [""],
+  adicion: [""],
+  descripcion: [""],
+  subtotal: [""]
+};
+*/
+const  JSON_array_productos_vender = '{"nombre":[],"precio":[],"cantidad":[],"precio":[],"variante":[],"adicion":[],"descripcion":[],"subtotal":[]}';
+const JSON_productos = JSON.parse(JSON_array_productos_vender);
+
+
 //FUNCION para desplegar los detalles del carrito
 $(document).on('click', '.btn-ver' , function(){                
     //despliegue detalles con toggle          
-    $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito");      
-  
+    $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito");        
 });       
          
 $(document).on('click', '.div-detalles-carrito', () =>{        
@@ -12,7 +27,7 @@ $(document).on('click', '.div-detalles-carrito', () =>{
 
 //DETECTAR EL CAMBIO DE CANTIDAD PRODUCTOS celda td
 function cambiosCantidadPedido(){
-  //TODO
+  //TODO cambiar catidad
   var elem;
   var antCantidad;
   var nuevaCantidad;  
@@ -46,6 +61,14 @@ function cambiosCantidadPedido(){
     $("#fila" + index).remove();     
     //contenedor de elemetos pedidos debe diminuir -1 y ademas se debe desontar el total del
     //productoi eliminado del total a pagar
+    //eliminamos del JSON_productos el elementos
+    JSON_productos.nombre[index-1] = undefined;
+    JSON_productos.precio[index-1] = undefined;
+    JSON_productos.cantidad[index-1] = undefined;
+    JSON_productos.variante[index-1] = undefined;          
+    JSON_productos.adicion[index-1] = undefined;
+    JSON_productos.descripcion[index-1] = undefined;
+    JSON_productos.subtotal[index-1] = undefined;
     contElementosPedido--;       
   }
   
@@ -67,8 +90,17 @@ function cambiosCantidadPedido(){
     
         //enlistamos productos desde el carrito 
 
-        cadenaURL = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A🍺🍸🍨%0A%0A"+titulo_producto_vender+"%0APRECIO:$ "+precio_producto_vender+"%0ADESCRIPCIÓN:"+
-        descripcion_producto_vender+"%0ACANTIDAD: "+cantidad_producto_vender+"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender+"%0A%0A->>Pango pendiente<<-";
+        cadenaURL = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A🍺🍸🍨%0A%0A"
+        //listado de objetos agregados al carrito en formato JSON
+        +titulo_producto_vender
+        +"%0APRECIO:$ "+precio_producto_vender
+        +"%0VARIANTE:"+variante_selecionada_producto_vender
+        +"%0ADICION:"+adicion_selecionada_producto_vender
+        +"%0ADESCRIPCIÓN:"+descripcion_producto_vender
+        +"%0ACANTIDAD: "+cantidad_producto_vender
+        //calculamos el total a pagar
+        +"%0ATOTAL%20A%20PAGAR>> $ "+TOTAL_PAGAR_producto_vender
+        +"%0A%0A->>Pango pendiente<<-";
         URL_orden =  window.location= cadenaURL;   
       }    
     }else{

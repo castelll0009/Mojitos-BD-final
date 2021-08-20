@@ -89,13 +89,40 @@ function agregarProductoCarrito(){
           </td><td> ${precio_pedido}
           </td><td><i onclick="eliminarFilaPedido(${counter})" class="fas fa-trash-alt"></i></td></tr>`);      
           auxCantidad +=  parseInt(cantidad_pedido);        
-          auxTotal += parseInt(cantidad_pedido) * parseInt(precio_pedido);
+          var auxSubtotal = parseInt(cantidad_pedido) * parseInt(precio_pedido);
+          auxTotal += auxSubtotal;
           //calculamos los valores cantidad total y total pagar 
           cantidad_total_productos_vender  = parseInt(auxCantidad);
           total_pagar_pedido = auxTotal;      
           document.getElementById("cantidad-total-pedido").innerHTML = parseInt(cantidad_total_productos_vender);
           document.getElementById("total-pagar-pedido").innerHTML = total_pagar_pedido;          
           $.jGrowl(`Has agregado ${nombre_pedido} al carrito de compras`,{life : 2000});
+          //agregamos el producto al arrayList de productos del carrito json
+          JSON_productos.nombre[counter-1] = nombre_pedido;
+          JSON_productos.precio[counter-1] = precio_pedido;
+          JSON_productos.cantidad[counter-1] = cantidad_pedido;
+          JSON_productos.variante[counter-1] = $("#variantes-detalles-producto option:selected").val();          
+          JSON_productos.adicion[counter-1] = $("#adiciones-detalles-producto option:selected").val();
+          JSON_productos.descripcion[counter-1] = $('#id-detalles-pedido').val();
+          JSON_productos.subtotal[counter-1] = (auxSubtotal);
+          for(i = 0; i < 3; i++){
+            if(JSON_productos.nombre[i] == undefined){
+              i++;
+            }else{
+              console.log("EMPEZAMOOSSS");
+              console.log(JSON_productos.nombre[i]);
+              console.log(JSON_productos.precio[i]);
+              console.log(JSON_productos.cantidad[i]);
+              console.log(JSON_productos.variante[i]);
+              console.log(JSON_productos.adicion[i]);
+              console.log(JSON_productos.descripcion[i]);
+              console.log(JSON_productos.subtotal[i]);
+            }            
+          }          
+          /*
+          alert(JSON_productos.nombre[counter-1]);
+          alert(JSON_productos.subtotal[counter-1]);
+          */
         }else{      
           contElementosPedido--;//producia un error que iba agotando el pedido  
           alert('Limite de productos por factura alcanzado!, puedes crear otro pedido'); 
@@ -108,6 +135,7 @@ function agregarProductoCarrito(){
     }   
     //funcion para   
 }
+
 //CUANDO PRESIOAMOS EN ORDENAR
 boton_comprar.addEventListener("click", function(){  
    //enviamos el pedido a whatsap   
@@ -116,8 +144,7 @@ boton_comprar.addEventListener("click", function(){
    agregarProductoCarrito();
 
     alert("Observa el carrito de compras antes de confirmar tu orden");
-      //boton Confirmar Orden    
-     
+      //boton Confirmar Orden         
  
 
 });

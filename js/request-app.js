@@ -1,7 +1,7 @@
 var titulo_producto_vender;
 var titulo_producto_vender_original;
 var variante_selecionada_producto_vender;
-var variante_selecionada_producto_vender2;
+var adicion_selecionada_producto_vender;
 var cantidad_producto_vender;
 var precio_producto_vender;
 var descripcion_producto_vender;
@@ -52,7 +52,7 @@ $(document).ready(function() {
     var text_adiciones ="";
     var sel_variantes_text = document.querySelector("#sel-variantes-disponibles");
     var sel_adiciones_text = document.querySelector("#sel-variantes-disponibles");
-    $('#task-form').submit(e => {    
+    $('#task-form').submit(e => {        
         e.preventDefault();                   
         var contadorSelect = 0;
         var optionLength = $("#sel-variantes-disponibles option").length; //longuitud de  el select        
@@ -94,10 +94,16 @@ $(document).ready(function() {
         console.log(postData);  //Mostramos el arreglo a subir por  consola
         $.post('backend/task-add.php', postData, (response) => {
         console.log(response); //mostramos el nuevo Json a subir a la base de datos
+        //reseteamos lo campos
         $('#task-form').trigger('reset');     
+        /*
+        $("#sel-variantes-disponibles").find('option').remove();                          
+        $("#sel-adiciones-disponibles").find('option').remove();                          
+        */
+        //enlistamos productos
         fetchTasks(); 
-        });     
-        
+        });             
+        location.reload();
     });
 
     //agregar variantes y adiciones
@@ -295,10 +301,12 @@ $(document).ready(function() {
             //introduciomos los datos de la cadena en el select
             var array_variantes = string_aux_variantes.split(','); //creamos un arreglo [ , , ]  de la cedena separada por comas
             //introduciomos cada posiciones del arreglo a cada select    
-            array_variantes.forEach(element => console.log(element));
-            
+            array_variantes.forEach(element => console.log(element));                        
              //creamos seleccionamos el select y  le creamos options que seran llenadas con los datos del arreglo, siempre que contador sea menor al tamaño del arreglo                        
-             var contadorAux = 0;             
+          
+             //Limpiear Select      Variantes                               
+            $("#variantes-detalles-producto").find('option').remove();                          
+            var contadorAux = 0;  
              while(contadorAux <  array_variantes.length){                 
                 const option = document.createElement('option');
                 const valor = array_variantes[contadorAux]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
@@ -310,7 +318,9 @@ $(document).ready(function() {
              
              var string_aux_adiciones =  task.variantes;             
              var array_adiciones = string_aux_adiciones.split(','); //creamos un arreglo [ , , ]  de la cedena separada por comas             
-             array_adiciones.forEach(element => console.log(element));             
+             array_adiciones.forEach(element => console.log(element));    
+             //Limpiear Select      adiciones   
+            $("#adiciones-detalles-producto").find('option').remove();            
               var contadorAux = 0;             
               while(contadorAux <  array_adiciones.length){
                  const option = document.createElement('option');
