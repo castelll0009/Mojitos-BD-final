@@ -105,9 +105,9 @@ function agregarProductoCarrito(){
           JSON_productos.adicion[counter-1] = $("#adiciones-detalles-producto option:selected").val();
           JSON_productos.descripcion[counter-1] = $('#id-detalles-pedido').val();
           JSON_productos.subtotal[counter-1] = (auxSubtotal);
-          for(i = 0; i < 3; i++){
+          for(i = 0; i < contElementosPedido; i++){
             if(JSON_productos.nombre[i] == undefined){
-              i++;
+              //no imprime              
             }else{
               console.log("EMPEZAMOOSSS");
               console.log(JSON_productos.nombre[i]);

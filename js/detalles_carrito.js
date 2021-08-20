@@ -62,13 +62,17 @@ function cambiosCantidadPedido(){
     //contenedor de elemetos pedidos debe diminuir -1 y ademas se debe desontar el total del
     //productoi eliminado del total a pagar
     //eliminamos del JSON_productos el elementos
-    JSON_productos.nombre[index-1] = undefined;
-    JSON_productos.precio[index-1] = undefined;
-    JSON_productos.cantidad[index-1] = undefined;
-    JSON_productos.variante[index-1] = undefined;          
-    JSON_productos.adicion[index-1] = undefined;
-    JSON_productos.descripcion[index-1] = undefined;
-    JSON_productos.subtotal[index-1] = undefined;
+    var auxIndexDel = 0;
+    auxIndexDel = (index);
+    alert("ELIMINANDO");
+    alert("eliminando2222 " + auxIndexDel);
+    JSON_productos.nombre[auxIndexDel] = undefined;
+    JSON_productos.precio[auxIndexDel] = undefined;
+    JSON_productos.cantidad[auxIndexDel] = undefined;
+    JSON_productos.variante[auxIndexDel] = undefined;          
+    JSON_productos.adicion[auxIndexDel] = undefined;
+    JSON_productos.descripcion[auxIndexDel] = undefined;
+    JSON_productos.subtotal[auxIndexDel] = undefined;
     contElementosPedido--;       
   }
   
