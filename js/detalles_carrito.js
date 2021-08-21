@@ -118,8 +118,7 @@ function cambiosCantidadPedido(){
         cantidad_producto_vender = cantidad_productos.value;            
         TOTAL_PAGAR_producto_vender = (cantidad_productos.value * precio_producto_vender );      
         //enlistamos productos desde el carrito  que estaban en el JSON
-        var numero_mesa = document.querySelector(".numero-mesa").innerHTML;
-        alert(numero_mesa);
+        var numero_mesa = document.querySelector(".numero-mesa").innerHTML;        
         cadenaEncabezado = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A"+numero_mesa+"%0A🍺🍸🍨%0A%0A";
         
         //enlistamos los productos en una cadena desde el JSON_produtos

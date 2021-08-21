@@ -24,10 +24,8 @@
     document.querySelector("#btn-del-variantes").addEventListener("click", function () {        
         x = sel_variantes;
         x.remove(x.selectedIndex);
-        var optionLength = $("#sel-variantes-disponibles option").length; //longuitud de  el select                        
-        alert(optionLength);
-        if(optionLength == 0){
-            alert("asdas");
+        var optionLength = $("#sel-variantes-disponibles option").length; //longuitud de  el select                                
+        if(optionLength == 0){            
             const option = document.createElement('option');
             const valor = "Ninguna"; //le pasamos al option creado el valor escrito en el input
             option.value = valor;
