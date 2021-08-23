@@ -60,8 +60,7 @@ $(document).ready(function() {
             text_variantes   = text_variantes + sel_variantes_text.options[contadorSelect].text + ",";               
             contadorSelect++;         
         }
-        text_variantes = text_variantes.substring(0, text_variantes.length - 1);
-        alert(text_variantes);
+        text_variantes = text_variantes.substring(0, text_variantes.length - 1);        
 
         contadorSelect = 0;
         optionLength = $("#sel-adiciones-disponibles option").length; //longuitud de  el select        
@@ -69,8 +68,7 @@ $(document).ready(function() {
             text_adiciones   = text_adiciones + sel_adiciones.options[contadorSelect].text + ",";                
             contadorSelect++;
         }
-        text_adiciones = text_adiciones.substring(0, text_adiciones.length - 1);
-        alert(text_adiciones);
+        text_adiciones = text_adiciones.substring(0, text_adiciones.length - 1);        
 
       
         const postData = { //objetos que vamos a enviar al servior usando POST             
@@ -88,7 +86,7 @@ $(document).ready(function() {
         
     //    console.log("ruta imagen " + ruta_imagen);
         //console.log(imagen);
-        alert($("#category option:selected").val());
+        //alert($("#category option:selected").val());
         console.log("NOMBRE IMAGEN" +  $('#image').val().replace(/C:\\fakepath\\/i, ''));
         console.log("MOSTRAR ARREGLO A SUBIR POR CONSOLA: ");
         console.log(postData);  //Mostramos el arreglo a subir por  consola
@@ -104,6 +102,7 @@ $(document).ready(function() {
         fetchTasks(); 
         });             
         location.reload();
+        alert("Su producto se creo correctamente");
     });
 
     //agregar variantes y adiciones
@@ -273,24 +272,35 @@ $(document).ready(function() {
     }
 //    var descripcion_productos = document.querySelector("#id-detalles-pedido");
     //DESPLEGAR DETALLES
+    var actualID = 0;
+    var antiguoID = 0;
+    var id= 0;
     $(document).on('click', '.desplegar-detalles' , function(){
-        //reiniciamos la variable cantidad-productos y la descripcion
+        //id producto clickeado
+        id =  $(this).attr("productoId");    
+        actualID = id;                                        
+        $(this).css("border", "2px solid rgb(245, 245, 245)");      
+        $(".swiper-slide").each(function(indice,elemento){
+            //En cada elemento p escribimos el texto            
+                $(elemento).css("border", "none");
+        });  
+        $(this).css("border", "2px solid rgb(245, 245, 245)");      
+
+        if(antiguoID == actualID){
+           //no se borran los datos                                
+        }else{
+        //reiniciamos la variable cantidad-productos y la descripcion                           
         cantidad_productos.value = 1;
-        document.getElementById("id-detalles-pedido").value = "";
-        //despliegue detalles con toggle                
-        //desplejar la sinta desde abajo                   
-            /*var index = $(this).index();
-            console.log(index);
-            $('.desplegar-detalles').eq(index).css({'display': 'none'});
-            */
-            const id =  $(this).attr("productoId");                                           
-            // una vez idetificado el id del elemento clickeado vamos a reemplazar la div-detalles con los elementos del producto clickeado, directamente desde la base de datos            
-            //Modificamos la plantilla que se despliega hacia arriba con los detalles del producto clickeado
-            $.post('backend/task-single.php', {id}, (response) => { //hacer la peticion al archivo task-single.php para obtener los elementos del item co Id especifico
+        document.getElementById("id-detalles-pedido").value = "";                              
+        }      
+
+        // una vez idetificado el id del elemento clickeado vamos a reemplazar la div-detalles con los elementos del producto clickeado, directamente desde la base de datos            
+        //Modificamos la plantilla que se despliega hacia arriba con los detalles del producto clickeado
+        $.post('backend/task-single.php', {id}, (response) => { //hacer la peticion al archivo task-single.php para obtener los elementos del item co Id especifico
             const task = JSON.parse(response); //obtenemos los items en formato JSON
             console.log(task);
             console.log(task.name);
-           
+        
             //entregamos los datos a las etiquetas
             $("#img-detalles-producto").attr("src",task.imagen);            
             $('#titulo-detalles-producto').html(task.name);            
@@ -302,52 +312,64 @@ $(document).ready(function() {
             var array_variantes = string_aux_variantes.split(','); //creamos un arreglo [ , , ]  de la cedena separada por comas
             //introduciomos cada posiciones del arreglo a cada select    
             array_variantes.forEach(element => console.log(element));                        
-             //creamos seleccionamos el select y  le creamos options que seran llenadas con los datos del arreglo, siempre que contador sea menor al tamaño del arreglo                        
-          
-             //Limpiear Select      Variantes                               
+            //creamos seleccionamos el select y  le creamos options que seran llenadas con los datos del arreglo, siempre que contador sea menor al tamaño del arreglo                        
+        
+            //Limpiear Select      Variantes                               
             $("#variantes-detalles-producto").find('option').remove();                          
             var contadorAux = 0;  
-             while(contadorAux <  array_variantes.length){                 
+            while(contadorAux <  array_variantes.length){                 
                 const option = document.createElement('option');
                 const valor = array_variantes[contadorAux]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
                 option.value = valor;
                 option.text = valor;
                 document.querySelector("#variantes-detalles-producto").appendChild(option); //agregamos la n ueva option creada con el valor  al selector                
                 contadorAux++;
-             }
-             
-             var string_aux_adiciones =  task.variantes;             
-             var array_adiciones = string_aux_adiciones.split(','); //creamos un arreglo [ , , ]  de la cedena separada por comas             
-             array_adiciones.forEach(element => console.log(element));    
-             //Limpiear Select      adiciones   
+            }
+            
+            var string_aux_adiciones =  task.variantes;             
+            var array_adiciones = string_aux_adiciones.split(','); //creamos un arreglo [ , , ]  de la cedena separada por comas             
+            array_adiciones.forEach(element => console.log(element));    
+            //Limpiear Select      adiciones   
             $("#adiciones-detalles-producto").find('option').remove();            
-              var contadorAux = 0;             
-              while(contadorAux <  array_adiciones.length){
-                 const option = document.createElement('option');
-                 const valor = array_adiciones[contadorAux]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
-                 option.value = valor;
-                 option.text = valor;
-                 contadorAux++;
-                 document.querySelector("#adiciones-detalles-producto").appendChild(option); //agregamos la n ueva option creada con el valor  al selector                
-              }    
-                   
-             //salvamos las variables para detalles de producots y calcular constos de compra  pedido
+            var contadorAux = 0;             
+            while(contadorAux <  array_adiciones.length){
+                const option = document.createElement('option');
+                const valor = array_adiciones[contadorAux]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
+                option.value = valor;
+                option.text = valor;
+                contadorAux++;
+                document.querySelector("#adiciones-detalles-producto").appendChild(option); //agregamos la n ueva option creada con el valor  al selector                
+            }    
+                
+            //salvamos las variables para detalles de producots y calcular constos de compra  pedido
 
-             titulo_producto_vender =  titulo_producto_vender_original=task.name;                        
-             titulo_producto_vender = titulo_producto_vender.toUpperCase();                                   
-             precio_producto_vender = task.price;       
+            titulo_producto_vender =  titulo_producto_vender_original=task.name;                        
+            titulo_producto_vender = titulo_producto_vender.toUpperCase();                                   
+            precio_producto_vender = task.price;       
             //descripcion_producto_vender = task.description;      
             //una vez cargados los nuevos datos desplegamos la plantilla de detalles                         
-            $(".div-detalles").toggleClass("mostrar-detalles");                           
-            });
-           
-          //calculamos 
-            
-        });                 
-                
-    $(document).on('click', '.div-detalles', () =>{        
-        $(".div-detalles").toggleClass("mostrar-detalles"); 
+            $(".div-detalles").toggleClass("mostrar-detalles");   
+            estadoMostrarDetalles();         
+                             
+        });                     
     });
+    //para ocultar la plantilla de detalles
+    $(document).on('click', '.div-detalles', () =>{        
+        // obtenemos el ID del producto clickeado
+        $(".div-detalles").toggleClass("mostrar-detalles");        
+        estadoMostrarDetalles();     
+    });                 
+       
+    function estadoMostrarDetalles(){
+        var estaOculto = true;
+        if($(".div-detalles").css("margin-bottom") == "-20px"){            
+            estaOculto = false;            
+        } else{            
+            estaOculto = true;
+            antiguoID = id;
+        } 
+        return  estaOculto;
+    }
     
     
 });

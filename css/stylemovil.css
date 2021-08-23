@@ -264,6 +264,7 @@ header{
     }
    
     .container-header{
+        z-index: 999;
         margin-left: -10.5px; 
         padding: 0;           
         width: 100%;        

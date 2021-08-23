@@ -75,13 +75,13 @@
 }
 
 .botones-unidades{   
-    min-width: 23px; 
-    max-width: 23px;
-    min-height: 23px;
-    max-height: 23px;
+    min-width: 35px; 
+    max-width: 35px;
+    min-height: 35px;
+    max-height: 35px;
     transition: all 400ms;
     border-radius: 50%;
-    padding-top: 0px;    
+    padding-top: 5px;    
     padding-bottom: 22px;
     padding-right: 5px;
     padding-left: 5px;
@@ -120,7 +120,7 @@
  
   .cantidad-producto:focus{ outline: none;  }
   .span-cantidad{        
-    
+    margin-right: 2px;
   }
   .btn-accion{
     color: #F5CF91;
