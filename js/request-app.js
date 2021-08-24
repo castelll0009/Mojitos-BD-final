@@ -276,13 +276,15 @@ $(document).ready(function() {
     var antiguoID = 0;
     var id= 0;
     $(document).on('click', '.desplegar-detalles' , function(){
-        //id producto clickeado
-        id =  $(this).attr("productoId");    
+        //sonidoClickProducto();
+        //id producto clickeado        
+        id =  $(this).attr("productoId");                   
+
         actualID = id;                                        
         $(this).css("border", "2px solid rgb(245, 245, 245)");      
-        $(".swiper-slide").each(function(indice,elemento){
-            //En cada elemento p escribimos el texto            
+        $(".swiper-slide").each(function(indice,elemento){                   
                 $(elemento).css("border", "none");
+                //desactivamos el focus de cada elemento
         });  
         $(this).css("border", "2px solid rgb(245, 245, 245)");      
 
@@ -290,8 +292,13 @@ $(document).ready(function() {
            //no se borran los datos                                
         }else{
         //reiniciamos la variable cantidad-productos y la descripcion                           
-        cantidad_productos.value = 1;
-        document.getElementById("id-detalles-pedido").value = "";                              
+        cantidad_productos.value = 1;        
+        document.getElementById("id-detalles-pedido").value = "";       
+        /*    
+        if(!estadoMostrarDetalles){        
+                $(".div-detalles").css("margin-bottom" ,"-20px");
+            }       
+            */
         }      
 
         // una vez idetificado el id del elemento clickeado vamos a reemplazar la div-detalles con los elementos del producto clickeado, directamente desde la base de datos            
@@ -347,18 +354,27 @@ $(document).ready(function() {
             titulo_producto_vender = titulo_producto_vender.toUpperCase();                                   
             precio_producto_vender = task.price;       
             //descripcion_producto_vender = task.description;      
-            //una vez cargados los nuevos datos desplegamos la plantilla de detalles                         
+            //una vez cargados los nuevos datos desplegamos la plantilla de detalles     al dar clieck en algun item                    
             $(".div-detalles").toggleClass("mostrar-detalles");   
-            estadoMostrarDetalles();         
+            if(estadoMostrarDetalles()){ //esta funbcion tiene dependiencias //ADVErTISEMENT
+
+            }else{
+                if(estadoMostrarDetalles){ // SI NO ESTA DESPLEGADO       
+                    setTimeout(function(){ $(".div-detalles").toggleClass("mostrar-detalles");}, 100);                                                    
+                } 
+            }
                              
-        });                     
+        });      
+                
     });
     //para ocultar la plantilla de detalles
     $(document).on('click', '.div-detalles', () =>{        
         // obtenemos el ID del producto clickeado
         $(".div-detalles").toggleClass("mostrar-detalles");        
         estadoMostrarDetalles();     
-    });                 
+    });   
+
+                 
        
     function estadoMostrarDetalles(){
         var estaOculto = true;

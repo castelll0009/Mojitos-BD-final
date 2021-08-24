@@ -87,7 +87,7 @@ function agregarProductoCarrito(){
           </td><td> ${nombre_pedido}
           </td><td  class="cantidadEditable"  onclick="cambiosCantidadPedido()" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">${cantidad_pedido}
           </td><td> ${precio_pedido}
-          </td><td><i onclick="eliminarFilaPedido(${counter})" class="fas fa-trash-alt"></i></td></tr>`);      
+          </td><td><i onclick="eliminarFilaPedido(${counter})" class="icon-basura fas fa-trash-alt"></i></td></tr>`);      
           auxCantidad +=  parseInt(cantidad_pedido);        
           var auxSubtotal = parseInt(cantidad_pedido) * parseInt(precio_pedido);
           auxTotal += auxSubtotal;
