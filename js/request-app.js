@@ -10,6 +10,12 @@ var cantidad_total_productos_vender = 0;
 var total_pagar_pedido;
 var TOTAL_PAGAR_producto_vender;
 
+window.onload = function(){
+    //alert("todan esta  cargado");
+    $("#onload-preloader").fadeOut();
+    $("body").removeClass("hidden-preloader");
+}
+
 $(document).ready(function() {      
     var contador = 0;
     if(contador <1){
