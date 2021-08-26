@@ -17,21 +17,23 @@ function sonidoCerrarRefri(){
 
 var zoom = false;
 function vistaEscritorio(){	
-	if(zoom == false){
-		//vista de escritorio de pedido
-		document.body.style = "zoom: 50%";		
-		beepc.style ="font-size : 3em";		
-		zoom = true;			
-		stop_swipers = true;				
-		
-	}else{
-		//vista normal		
-		document.body.style = "zoom: 100%";		
-		beepc.style ="font-size : 1.5em";
-		stop_swipers = false;
-		zoom = false;		
-	}	
+	if(!preloaderActivo){
+		if(zoom == false){
+			//vista de escritorio de pedido
+			document.body.style = "zoom: 50%";		
+			beepc.style ="font-size : 3em";		
+			zoom = true;			
+			stop_swipers = true;				
+			
+		}else{
+			//vista normal		
+			document.body.style = "zoom: 100%";		
+			beepc.style ="font-size : 1.5em";
+			stop_swipers = false;
+			zoom = false;		
+		}	
 	activarSwiper();	
+	}
 }
 /*///////////FUNCIONES///////////////////////////////////////*/
 /*///////////FUNCIONES///////////////////////////////////////*/

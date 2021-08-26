@@ -157,7 +157,7 @@ boton_comprar.addEventListener("click", function(){
 var contSwiper = 0;
 if(contSwiper < 5){
   if(!stop_swipers){
-    setTimeout(function(){activarSwiper()},5000);
+    setTimeout(function(){activarSwiper()},1000);
     contSwiper++;
   }
  

@@ -600,6 +600,7 @@ function stopSwipers(){
   swiper7.autoplay.stop();  
   swiper8.autoplay.stop();  
   swiper9.autoplay.stop();  
+  swiper9.pagination.init ();  
   swiper10.autoplay.stop();   
 } 
  
