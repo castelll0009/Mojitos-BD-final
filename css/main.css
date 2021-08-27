@@ -92,15 +92,6 @@ body{
 	}
   }
   /*Preloader fin*/
-
-.icono-carrito-compras{
-	position: absolute;	
-	font-size: 1.8em;
-	z-index: 999;
-	top: 5px;
-	color: #ca9203;
-	right: 7px;
-}
 p{
 	font-family: 'Lato', sans-serif;
 	font-weight: lighter;
@@ -111,6 +102,13 @@ p{
 	right: 40px;
 	text-align: right;
 }
+.toggle-numero-mesa{	
+	right: 100px;
+	font-size: 3em;
+	
+}
+
+
 #info-title{	
 	color: #c59e3a;
 	margin-top: 190px;
@@ -179,13 +177,12 @@ main{
 .img-foto{
 	width: 100%;
 	position: fixed;
-	z-index: -2;
-	display: block;
+	z-index: -2;	
 }
 .img-body-textura{		
 	padding-top: 150px;	
 	width: 100%;		
-	opacity: 0.5;	
+	opacity: 0.9;	
 	position: fixed;
 	z-index: -3;
 }
@@ -466,11 +463,11 @@ span{
 	}
 
 	#beepc{						
-		font-size: 1.5em;
+		font-size: 1.7em;
 		color: #D29500;
 		position: fixed;		
-		bottom: 2px ;	
-		right: 7.5px;
+		bottom: 10px ;	
+		right: 10px;
 		opacity: 0.5;		
 		z-index: 30;
 		

@@ -18,6 +18,9 @@ header{
     /*background-color: rgb(9, 11, 19);*/
            
 }
+.toggle-header{    
+    max-height: 80px;  
+}
 
 .container-header{     
     position: relative;           
@@ -269,6 +272,7 @@ header{
         padding: 0;           
         width: 100%;        
     }
+   
     #main-movil {                
 
         padding-top: 10px;

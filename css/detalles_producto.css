@@ -42,7 +42,7 @@
   /*border: solid 1px white;*/
   background-color: #0e0d0d;
 }
-.detalles-izquierda img{    
+.img-detalles-producto{    
   width: 100%; 
   max-width: 180px;
   border-radius: 3px;          
@@ -151,7 +151,7 @@
     color: white;
     font-size: 0.9em;
   }
-  .contenido-personalizable textarea{
+  .descripcion-productos{
     width: 100%;
     background-color: black;
     color: white;
@@ -178,4 +178,81 @@
     padding-right: 10px;
     width: 100%;
     margin: auto;  
+  }
+  .titulo-producto{
+    font-size: 0.9em;
+  }
+  .flecha-atras-detalles{
+    position: absolute;
+    background-color:  rgba(255, 255, 255, 0.212);
+    color: black;    
+    border-radius: 50%;
+    padding: 5px;  
+    border: none;  
+  }
+  /*TOGGLES*/
+  .toggle-titulos-detalles{
+    font-size: 3em;  
+  }
+  .toggle-titulos-detalles{
+
+  }
+  .toggle-detalles-derecha{
+    min-width: 350px;
+    max-width: 350px;
+    font-size: 1.5em;
+  }
+  .toggle-precio-unidades{
+    font-size: 1.2em;
+    margin-top: -11px;
+  }
+  .toggle-botones-unidades{
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    padding-top: 6px;
+    font-size: 1.6em;
+    margin-top: -20px;
+  }
+  .toggle-cantidad-producto{
+    min-height: 40px;
+    min-width: 50px;
+    font-size: 1.2em;
+  }
+  .toggle-btn-accion{
+    font-size: 1.4em;
+  }
+  .toggle-detalles-izquierda{
+    font-size: 1.5em;
+  }
+  .toggle-img-detalles-producto{
+    max-width: 135px;
+  }
+  .toggle-h2{
+    font-size: 2em;
+  }
+  .toggle-swiper-slide-h5{
+    font-size: 1.3em;
+  }
+  .toggle-descripcion-detalle-producto{
+  font-size: 1em;
+  }
+  .toggle-table{
+    font-size: 1.5em;
+  }
+  .toggle-carrito-icon{
+    font-size: 2em;    
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+  .toggle-btn-confirmar-orden{
+    font-size: 1.8em;
+  }
+  .toggle-descripcion-productos{
+    font-size: 1em;
+    max-height: 50px;
+  }
+  .toggle-contenedor-tabla-factura{  
+    padding-bottom: 12px;
   }

@@ -14,7 +14,6 @@ var JSON_array_productos_vender ={
 const  JSON_array_productos_vender = '{"nombre":[],"precio":[],"cantidad":[],"precio":[],"variante":[],"adicion":[],"descripcion":[],"subtotal":[]}';
 const JSON_productos = JSON.parse(JSON_array_productos_vender);
 
-
 //FUNCION para desplegar los detalles del carrito
 $(document).on('click', '.btn-ver' , function(){                
     //despliegue detalles con toggle          

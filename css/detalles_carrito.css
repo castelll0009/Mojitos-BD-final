@@ -18,7 +18,7 @@
   display: block;
   flex-direction: row;
   padding-top: 5px;   
-  padding-bottom: 14px;   
+  padding-bottom: 0px;   
   z-index: 101;    
 }
 .div-detalles-carrito ul{
@@ -162,13 +162,15 @@ tr{
   padding-right: 5px;
   padding-left: 5px;
 }
+/*
 .btn-concretar-orden{    
   position: absolute;
-  right: 150px;
+  left: 5px;
   border: none;    
   color: rgb(255, 255, 255);
   background-color : transparent;  
 }
+*/
 /*Contenedor INDICACIONES FACTURA*/
 .contenedor-indicaciones-factura{
   position: absolute;
@@ -179,4 +181,15 @@ tr{
 div.jGrowl {
   font-size:1.1em;
     
+}
+.icono-carrito-compras{
+	position: absolute;	
+	font-size: 1.8em;
+	z-index: 999;
+	top: 5px;
+	color: #ca9203;
+	right: 7px;
+}
+.flecha-atras-carrito{
+  padding-left: 5px;
 }

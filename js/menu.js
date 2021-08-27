@@ -17,23 +17,48 @@ function sonidoCerrarRefri(){
 
 var zoom = false;
 function vistaEscritorio(){	
+	
 	if(!preloaderActivo){
+		
 		if(zoom == false){
 			//vista de escritorio de pedido
 			document.body.style = "zoom: 50%";		
-			beepc.style ="font-size : 3em";		
+			beepc.style ="font-size : 3.3em; bottom: 20px ;	right: 20px;";		
 			zoom = true;			
-			stop_swipers = true;				
-			
+			//cambiamos  tamaño al iconop del carrito con toogle clas			
+			togglesModoPedido();
+			stop_swipers = true;										
 		}else{
 			//vista normal		
 			document.body.style = "zoom: 100%";		
-			beepc.style ="font-size : 1.5em";
+			beepc.style ="font-size : 1.7em";
 			stop_swipers = false;
+			//$("#icono-carrito-compras-main").classList.add("toggle-carrito-icon");  					
+			togglesModoPedido();
 			zoom = false;		
 		}	
 	activarSwiper();	
 	}
+}
+function togglesModoPedido(){
+	$(".icono-carrito-compras-i").toggleClass("toggle-carrito-icon");	
+	$(".numero-mesa").toggleClass("toggle-numero-mesa");	
+	$("header").toggleClass("toggle-header");	
+	$(".detalles-derecha").toggleClass("toggle-detalles-derecha");	
+	$(".precio-unidades").toggleClass("toggle-precio-unidades");	
+	$(".botones-unidades").toggleClass("toggle-botones-unidades");	
+	$(".cantidad-producto").toggleClass("toggle-cantidad-producto");	
+	$(".btn-accion").toggleClass("toggle-btn-accion");
+	$(".detalles-izquierda").toggleClass("toggle-detalles-izquierda");
+	$(".img-detalles-producto").toggleClass("toggle-img-detalles-producto");	
+	$("h2").toggleClass("toggle-h2");	
+	$(".swiper-slide").children("h5").toggleClass("toggle-swiper-slide-h5");
+	$("#descripcion-detalles-producto").toggleClass("toggle-descripcion-detalles-producto");	
+	$(".table").toggleClass("toggle-table");	
+	$(".btn-confirmar-orden").toggleClass("toggle-btn-confirmar-orden");	
+	$(".descripcion-productos").toggleClass("toggle-descripcion-productos");	
+	$(".contenedor-tabla-factura").toggleClass("toggle-contenedor-tabla-factura");	
+
 }
 /*///////////FUNCIONES///////////////////////////////////////*/
 /*///////////FUNCIONES///////////////////////////////////////*/

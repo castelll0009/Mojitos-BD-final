@@ -3,7 +3,9 @@
   var contElementosPedido = 0;
   var total_pagar_pedido = 0;
   var cantidad_productos = document.querySelector(".cantidad-producto");
-  $(document).ready(function() {        
+
+  $(document).ready(function() {     
+  
     /* Seleccionar descripciones  de productos detener propagacion*/            
     var descripcion_productos = document.querySelector(".descripcion-productos");
     descripcion_productos.addEventListener("click", function(){          
@@ -87,7 +89,7 @@ function agregarProductoCarrito(){
           </td><td> ${nombre_pedido}
           </td><td  class="cantidadEditable"  onclick="cambiosCantidadPedido()" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">${cantidad_pedido}
           </td><td> ${precio_pedido}
-          </td><td><i onclick="eliminarFilaPedido(${counter})" class="icon-basura fas fa-trash-alt"></i></td></tr>`);      
+          </td><td class="td-eliminar-producto" onclick="eliminarFilaPedido(${counter})"><i onclick="eliminarFilaPedido(${counter})" class="icon-basura fas fa-trash-alt"></i></td></tr>`);      
           auxCantidad +=  parseInt(cantidad_pedido);        
           var auxSubtotal = parseInt(cantidad_pedido) * parseInt(precio_pedido);
           auxTotal += auxSubtotal;
@@ -147,11 +149,8 @@ boton_comprar.addEventListener("click", function(){
    //al hacer el pedido se despliega la factura o carrito con el pedido del cliente
    $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito");     
    agregarProductoCarrito();
-
-    alert("Observa el carrito de compras antes de confirmar tu orden");
-      //boton Confirmar Orden         
- 
-
+    //alert("Observa el carrito de compras antes de confirmar tu orden");
+      //boton Confirmar Orden          
 });
 //activamos el swiper slide despues de enlistar los productos, evitamos error de funcionalidad
 var contSwiper = 0;

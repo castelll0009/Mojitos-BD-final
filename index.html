@@ -109,9 +109,8 @@
 						
 					  </table>
 					  
-					  <div class="botones-factura">								  
-						<button class="btn-concretar-orden btn-default" ng-click='agregar()'>
-						  <span class="agregar-mas-carrito"><i class="fas fa-cart-plus"></i></span>
+					  <div class="botones-factura">									  					  
+						<i class="flecha-atras-carrito fas fa-arrow-left"></i>
 						</button>
 						<button type="button" class="btn-confirmar-orden btn-default" >Confirmar Orden <span><i class="fas fa-receipt"></i></span></button>
 					  </div>
@@ -139,8 +138,9 @@
 		<div class="cont-detalles-producto">
 			<!-- Ventana que se despliega hacia arriba mostrando los detalles del producto seleaccionado -->
 			<div class="div-detalles ">				
-				<div class="detalles-izquierda">					
-					<img id="img-detalles-producto" src="imgs/burger.jpg" > 
+				<div class="detalles-izquierda">	
+					<i class="flecha-atras-detalles fas fa-arrow-left"></i>				
+					<img id="img-detalles-producto"  class="img-detalles-producto" src="imgs/burger.jpg" > 
 					<h5  id="titulo-detalles-producto" class="titulo-producto">Hamburguesa</h5>				
 					<p id="descripcion-detalles-producto" >de carne, con lechuga, patacones o pan y las salsas que prefieras.</p>																			
 					<div class="botones-accion-izquierda">
@@ -196,8 +196,7 @@
 			<i id="beepc" onclick="vistaEscritorio()" class="fas fa-laptop"></i>			
 			<header>		
 				<!-- cabecera menu y demas -->				
-				<div class="container-header">
-					<span id="icono-carrito-compras-main" class="icono-carrito-compras"><i class="fas fa-cart-arrow-down"></i></span>
+				<div class="container-header">				
 					<nav id="main-movil" class="main-movil">
 						<div class="container-menu-movil">
 							<!--  <input id="responsive-menu" type="checkbox">
@@ -252,7 +251,8 @@
 					<div  class="container-logo-title">				
 						<img id="zumbido" src="../imgs/logo.png"  onClick="sonidoLogo()" class="no-seleccionable zumbido animate__animated animate__jello animate__fast"   >
 						<h1>Mojito</h1>
-						<h2 class="numero-mesa">MESA 1</h2>
+						<h2 class="numero-mesa">MESA 1 </h2>
+						<span id="icono-carrito-compras-main" class="icono-carrito-compras"><i class="icono-carrito-compras-i fas fa-cart-arrow-down"></i></span>
 					</div>
 	
 					<div class="container-menu">
