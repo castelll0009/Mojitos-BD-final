@@ -280,6 +280,19 @@ $(document).ready(function() {
         });            
 
     }
+
+    //ELIMINAR PRODUCTOS 
+    $(document).on('click', ".task-delete", function(){
+        if(confirm("Estas seguro que deseas borrar este producto")){
+            let element = $(this)[0].parentElement.parentElement;
+            let id = $(element).attr('taskId');
+            //console.log(id);
+            $.post('backend/task-delete.php', {id}, function (response){
+                console.log(response);
+                fetchTasks();
+            })
+        }       
+    });
 //    var descripcion_productos = document.querySelector("#id-detalles-pedido");
     //DESPLEGAR DETALLES
     var actualID = 0;

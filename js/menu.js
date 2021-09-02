@@ -55,7 +55,7 @@ function togglesModoPedido(){
 	$(".swiper-slide").children("h5").toggleClass("toggle-swiper-slide-h5");
 	$("#descripcion-detalles-producto").toggleClass("toggle-descripcion-detalles-producto");	
 	$(".table").toggleClass("toggle-table");	
-	$(".btn-confirmar-orden").toggleClass("toggle-btn-confirmar-orden");	
+	$(".btn-confirmar-orden").addClass("toggle-btn-confirmar-orden");	
 	$(".descripcion-productos").toggleClass("toggle-descripcion-productos");	
 	$(".contenedor-tabla-factura").toggleClass("toggle-contenedor-tabla-factura");	
 

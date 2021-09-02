@@ -1,7 +1,7 @@
-var velo_menu = document.querySelector(".velo-menu");
+/*var velo_menu = document.querySelector(".velo-menu");
 var grad1 = document.querySelector(".grad1");
-document.querySelector("label").addEventListener("click", mostrarVeloMenu);   
    
+
 function mostrarVeloMenu(){
    if(velo_menu.style.display ==  "block"){      
       velo_menu.style = "display : none";  
@@ -10,6 +10,7 @@ function mostrarVeloMenu(){
    }
  
 }
+
 
 var contador = 0;
 $("label").click(function(){  
@@ -26,3 +27,4 @@ $("label").click(function(){
    }
         
 });
+*/

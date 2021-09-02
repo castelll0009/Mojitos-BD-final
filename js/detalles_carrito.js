@@ -118,7 +118,7 @@ function cambiosCantidadPedido(){
         TOTAL_PAGAR_producto_vender = (cantidad_productos.value * precio_producto_vender );      
         //enlistamos productos desde el carrito  que estaban en el JSON
         var numero_mesa = document.querySelector(".numero-mesa").innerHTML;        
-        cadenaEncabezado = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITOS (PEDIDO ONLINE)%0A"+numero_mesa+"%0A🍺🍸🍨%0A%0A";
+        cadenaEncabezado = "https://wa.me/"+numero_telefono+"?text=🍺🍸🍨%0AMOJITO (PEDIDO ONLINE)%0A"+numero_mesa+"%0A🍺🍸🍨%0A%0A";
         
         //enlistamos los productos en una cadena desde el JSON_produtos
         var j = 0; // recorrer el json
@@ -126,7 +126,7 @@ function cambiosCantidadPedido(){
           if(JSON_productos.nombre[j] == "NULL"){
           i--;
           }else{
-            cadenaListaProductos +=`_______________________%0A${JSON_productos.nombre[j]}%0APRECIO: $${JSON_productos.precio[j]}%0AVARIANTE: ${JSON_productos.variante[j]}%0AADICION: ${JSON_productos.adicion[j]}%0ADESCRIPCIÓN: ${JSON_productos.descripcion[j]}%0ACANTIDAD: ${JSON_productos.cantidad[j]}%0ASUBTOTAL: $${JSON_productos.subtotal[j]}%0A%0A`;              
+            cadenaListaProductos +=`_______________________%0A${JSON_productos.nombre[j]}%0APRECIO: $${JSON_productos.precio[j]}%0AOPCIÓN: ${JSON_productos.variante[j]}%0AADICIÓN: ${JSON_productos.adicion[j]}%0ADESCRIPCIÓN: ${JSON_productos.descripcion[j]}%0ACANTIDAD: ${JSON_productos.cantidad[j]}%0ASUBTOTAL: $${JSON_productos.subtotal[j]}%0A%0A`;              
           }            
           j++;                          
       }   

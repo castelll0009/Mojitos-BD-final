@@ -161,6 +161,7 @@ tr{
   right: 10px;
   padding-right: 5px;
   padding-left: 5px;
+  font-size: 1.2em;  
 }
 /*
 .btn-concretar-orden{    
@@ -191,5 +192,11 @@ div.jGrowl {
 	right: 7px;
 }
 .flecha-atras-carrito{
-  padding-left: 5px;
+  padding: 5px;
+  background-color:  rgba(0, 0, 0, 0.212);
+  color: rgb(255, 255, 255);    
+  border-radius: 50%;
+  border: solid 1px rgb(122, 121, 121);
+  margin-left: 15px;
+  
 }

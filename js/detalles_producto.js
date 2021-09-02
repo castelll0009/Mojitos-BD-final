@@ -11,7 +11,7 @@
     descripcion_productos.addEventListener("click", function(){          
       event.stopPropagation();        
          
-  });
+     });
            
 /* Seleccionar variantes de producto detener propagacion*/
 var variantes_productos = document.querySelector(".variantes-producto");
@@ -147,8 +147,9 @@ function agregarProductoCarrito(){
 boton_comprar.addEventListener("click", function(){  
    //enviamos el pedido a whatsap   
    //al hacer el pedido se despliega la factura o carrito con el pedido del cliente
-   $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito");     
-   agregarProductoCarrito();
+   $(".div-detalles-carrito").toggleClass("mostrar-detalles-carrito"); 
+   $(".div-detalles").toggleClass("mostrar-detalles");           
+   //agregarProductoCarrito();
     //alert("Observa el carrito de compras antes de confirmar tu orden");
       //boton Confirmar Orden          
 });
