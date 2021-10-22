@@ -144,6 +144,7 @@ $(document).ready(function() {
                 let template_wafflesDulces_mojitos = '';
                 let template_antojos_mojitos = '';                
                 let template_cocteles_mojitos = '';
+                let template_papicar_mojitos = '';
                 tasks.forEach(task => {
                         //template   for admin , elemntos de la tabla
                     template += `
@@ -249,14 +250,26 @@ $(document).ready(function() {
                                                         </div>
                                                         `  
                                                     }else{
-                                                       //cocteles
-                                                        // si no es ninguna de loas anteriores sabemos  que es un coctel                                                        
-                                                        template_cocteles_mojitos += `
+
+                                                        //cocteles
+                                                        if(task.category == "cocteles"){
+                                                            template_cocteles_mojitos += `
+                                                            <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
+                                                                <img  src="${task.imagen}" > 
+                                                                <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
+                                                            </div>
+                                                            ` 
+                                                        }else{
+                                                        //Pa picar     
+                                                        // si no es ninguna de loas anteriores sabemos  que es un coctel                                                                                                     
+                                                        template_papicar_mojitos += `
                                                         <div productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles">							
                                                             <img  src="${task.imagen}" > 
                                                             <h5 class="titulo-producto">${task.name}<br>$${task.price}</h5>					  
                                                         </div>
                                                         ` 
+
+                                                        }                                                                                                                   
                                                     }
                                                 }
                                             }
@@ -280,6 +293,7 @@ $(document).ready(function() {
                 $('#wafflesDulces').html(template_wafflesDulces_mojitos);                
                 $('#antojos').html(template_antojos_mojitos);                
                 $('#cocteles').html(template_cocteles_mojitos);                
+                $('#papicar').html(template_papicar_mojitos);              
             }
         });            
 
