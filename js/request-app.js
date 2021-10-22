@@ -11,6 +11,7 @@ var total_pagar_pedido;
 var TOTAL_PAGAR_producto_vender;
 
 var preloaderActivo = true;
+let edit = false;
 
 window.onload = function(){
     //alert("todan esta  cargado");
@@ -56,7 +57,7 @@ $(document).ready(function() {
         }
     });       
     
-////////AGREGAR PRODUCTOS A MOJITOS -ADD//// para guardar la ruta de la imagen///
+////////AGREGAR PRODUCTOS A MOJITOS -ADD o editar//// para guardar la ruta de la imagen///
     //reamos las variables que ocntendran las variantes en texo separadas por coma
     var text_variantes ="" ;
     var text_adiciones ="";
@@ -67,7 +68,7 @@ $(document).ready(function() {
         var contadorSelect = 0;
         var optionLength = $("#sel-variantes-disponibles option").length; //longuitud de  el select        
         while(contadorSelect < optionLength){            
-            text_variantes   = text_variantes + sel_variantes_text.options[contadorSelect].text + ",";               
+            text_variantes   = text_variantes + sel_variantes_text.options[contadorSelect].text + ";";               
             contadorSelect++;         
         }
         text_variantes = text_variantes.substring(0, text_variantes.length - 1);        
@@ -75,7 +76,7 @@ $(document).ready(function() {
         contadorSelect = 0;
         optionLength = $("#sel-adiciones-disponibles option").length; //longuitud de  el select        
         while(contadorSelect < optionLength){
-            text_adiciones   = text_adiciones + sel_adiciones.options[contadorSelect].text + ",";                
+            text_adiciones   = text_adiciones + sel_adiciones.options[contadorSelect].text + ";";                
             contadorSelect++;
         }
         text_adiciones = text_adiciones.substring(0, text_adiciones.length - 1);        
@@ -92,17 +93,21 @@ $(document).ready(function() {
             variantes: text_adiciones,          
             id: $('#taskId').val()
         };   
-
+        let url  =  edit === false ? 'backend/task-add.php' : 'backend/task-edit.php';
         
     //    console.log("ruta imagen " + ruta_imagen);
         //console.log(imagen);
         //alert($("#category option:selected").val());
+        /*
         console.log("NOMBRE IMAGEN" +  $('#image').val().replace(/C:\\fakepath\\/i, ''));
         console.log("MOSTRAR ARREGLO A SUBIR POR CONSOLA: ");
         console.log(postData);  //Mostramos el arreglo a subir por  consola
-        $.post('backend/task-add.php', postData, (response) => {
+        */
+        console.log("AAAAAAAAAAAAAAAAAA" + url);
+        $.post(url, postData, (response) => {
         console.log(response); //mostramos el nuevo Json a subir a la base de datos
         //reseteamos lo campos
+        console.log(response);
         $('#task-form').trigger('reset');     
         /*
         $("#sel-variantes-disponibles").find('option').remove();                          
@@ -112,7 +117,7 @@ $(document).ready(function() {
         fetchTasks(); 
         });             
         location.reload();
-        alert("Su producto se creo correctamente");
+        alert("Cambios realizados Exitosamente!");
     });
 
     //agregar variantes y adiciones
@@ -124,10 +129,9 @@ $(document).ready(function() {
             type: 'GET',       
 //            dataType: 'json',
             success: function(response) {
-                console.log("RESPUESTAA tank-list :   " + response);         
+               // console.log("RESPUESTAA tank-list :   " + response);         
                 const tasks = JSON.parse(response);                             
-                //const tasks = response;      
-                console.log("AAAAAAAAAAQUI NO LLEGO NUNCA");
+                //const tasks = response;                      
                 //console.log(tasks);
                 let template = '';
                 let template_cafes_mojitos = '';
@@ -281,7 +285,7 @@ $(document).ready(function() {
 
     }
 
-    //ELIMINAR PRODUCTOS 
+   ////////////// //ELIMINAR PRODUCTOS 
     $(document).on('click', ".task-delete", function(){
         if(confirm("Estas seguro que deseas borrar este producto")){
             let element = $(this)[0].parentElement.parentElement;
@@ -293,6 +297,64 @@ $(document).ready(function() {
             })
         }       
     });
+
+
+    //////////EDITAR PRODUCTOS- cargar datos en el formulario
+    $(document).on('click', ".task-item", function(){
+        let  element = $(this)[0].parentElement.parentElement;
+        let id = $(element).attr("taskId");
+         console.log(id);
+         //primero obtenemos los datos del elemtno clickeado
+         $.post('backend/task-single.php', {id}, function(response){
+             edit = true;
+             console.log(response);
+             const task  = JSON.parse(response);
+             console.log(task);
+             //const task  = response;
+             //entregamos los datos a las etiquetas
+             $(".card-img-top").attr("src",task.imagen);       
+             console.log(task.imagen);                
+             $('#category').val(task.category);              
+             $('#name').val(task.name);            
+             $('#price').val(task.price);
+             $('#description').val(task.description); 
+             $('#taskId').val(task.id);
+            //traspasamos las opciones disponibles
+            var array_opciones = task.pedidos_disponibles.split(';'); //creamos un arreglo [ , , ]  de la cedena separada por comas
+            //introduciomos cada posiciones del arreglo a cada select    
+            //array_opciones.forEach(element => console.log(element));                        
+            //creamos seleccionamos el select y  le creamos options que seran llenadas con los datos del arreglo, siempre que contador sea menor al tamaño del arreglo                                
+            //Limpiear todo Select     opciones                            
+            $("#sel-variantes-disponibles").find('option').remove();                          
+            var auxCont = 0;  
+            while(auxCont <  array_opciones.length){                 
+                const option = document.createElement('option');
+                const valor = array_opciones[auxCont]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
+                option.value = valor;
+                option.text = valor;
+                document.querySelector("#sel-variantes-disponibles").appendChild(option); //agregamos la n ueva option creada con el valor  al selector                
+                auxCont++;
+            }
+            //traspasamos las Adiciones
+            var array_adiciones = task.variantes.split(';'); //creamos un arreglo [ , , ]  de la cedena separada por comas
+            //introduciomos cada posiciones del arreglo a cada select    
+            //array_adiciones.forEach(element => console.log(element));                        
+            //creamos seleccionamos el select y  le creamos options que seran llenadas con los datos del arreglo, siempre que contador sea menor al tamaño del arreglo                                
+            //Limpiear todo Select     opciones                            
+            $("#sel-adiciones-disponibles").find('option').remove();                          
+            var auxCont = 0;  
+            while(auxCont <  array_adiciones.length){                 
+                const option = document.createElement('option');
+                const valor = array_adiciones[auxCont]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
+                option.value = valor;
+                option.text = valor;
+                document.querySelector("#sel-adiciones-disponibles").appendChild(option); //agregamos la n ueva option creada con el valor  al selector                
+                auxCont++;
+            }            
+         })         
+       
+    });
+
 //    var descripcion_productos = document.querySelector("#id-detalles-pedido");
     //DESPLEGAR DETALLES
     var actualID = 0;
@@ -339,12 +401,14 @@ $(document).ready(function() {
             //tenemos que llenar el select  con los datos del mysqul   , recuperamos la cadena en una string         
             var string_aux_variantes =  task.pedidos_disponibles;
             //introduciomos los datos de la cadena en el select
-            var array_variantes = string_aux_variantes.split(','); //creamos un arreglo [ , , ]  de la cedena separada por comas
+            var array_variantes = string_aux_variantes.split(';'); //creamos un arreglo [ , , ]  de la cedena separada por comas
             //introduciomos cada posiciones del arreglo a cada select    
-            array_variantes.forEach(element => console.log(element));                        
+            //array_variantes.forEach(element => console.log(element));                        
             //creamos seleccionamos el select y  le creamos options que seran llenadas con los datos del arreglo, siempre que contador sea menor al tamaño del arreglo                        
         
-            //Limpiear Select      Variantes                               
+            //Limpiear Select      Variantes  
+            //OPCIONES DISPONIBLES insercion  
+            //LO que vamos a hacer: queremos que los productos                            
             $("#variantes-detalles-producto").find('option').remove();                          
             var contadorAux = 0;  
             while(contadorAux <  array_variantes.length){                 
@@ -357,8 +421,8 @@ $(document).ready(function() {
             }
             
             var string_aux_adiciones =  task.variantes;             
-            var array_adiciones = string_aux_adiciones.split(','); //creamos un arreglo [ , , ]  de la cedena separada por comas             
-            array_adiciones.forEach(element => console.log(element));    
+            var array_adiciones = string_aux_adiciones.split(';'); //creamos un arreglo [ , , ]  de la cedena separada por comas             
+            //array_adiciones.forEach(element => console.log(element));    
             //Limpiear Select      adiciones   
             $("#adiciones-detalles-producto").find('option').remove();            
             var contadorAux = 0;             
