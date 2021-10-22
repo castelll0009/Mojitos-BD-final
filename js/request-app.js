@@ -401,12 +401,12 @@ $(document).ready(function() {
             //tenemos que llenar el select  con los datos del mysqul   , recuperamos la cadena en una string         
             var string_aux_variantes =  task.pedidos_disponibles;
             //introduciomos los datos de la cadena en el select
-            var array_variantes = string_aux_variantes.split(';'); //creamos un arreglo [ , , ]  de la cedena separada por comas
+            var array_variantes = string_aux_variantes.split(';'); //creamos un arreglo [ ; ,;]  de la cedena separada por puntoycomas
             //introduciomos cada posiciones del arreglo a cada select    
             //array_variantes.forEach(element => console.log(element));                        
             //creamos seleccionamos el select y  le creamos options que seran llenadas con los datos del arreglo, siempre que contador sea menor al tamaño del arreglo                        
         
-            //Limpiear Select      Variantes  
+            //Limpiear Select Variantes  
             //OPCIONES DISPONIBLES insercion  
             //LO que vamos a hacer: queremos que los productos puedan ser palomeados dependiendo de la cantidad de adiciones permitidas
             //es decir si queremos  un postre en el que podemos elegir 2  frutas , y tenemos mango, banano, fresa, piña etc, se puedan
@@ -418,14 +418,14 @@ $(document).ready(function() {
                 const valor = array_variantes[contadorAux]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
                 option.value = valor;
                 option.text = valor;
-                document.querySelector("#variantes-detalles-producto").appendChild(option); //agregamos la n ueva option creada con el valor  al selector                
+                document.querySelector("#variantes-detalles-producto").appendChild(option); //agregamos la nueva option creada con el valor  al selector                
                 contadorAux++;
             }
             
             var string_aux_adiciones =  task.variantes;             
             var array_adiciones = string_aux_adiciones.split(';'); //creamos un arreglo [ , , ]  de la cedena separada por comas             
             //array_adiciones.forEach(element => console.log(element));    
-            //Limpiear Select      adiciones   
+            //Limpiar Select      adiciones   
             $("#adiciones-detalles-producto").find('option').remove();            
             var contadorAux = 0;             
             while(contadorAux <  array_adiciones.length){

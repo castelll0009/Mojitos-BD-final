@@ -493,6 +493,55 @@ var swiper10 = new Swiper(".swiper10",{
    }
  }, 
 })
+//autoplay swiper10////////////(/////)
+var swiper11 = new Swiper(".swiper11",{
+  slidesPerView: 3,
+  spaceBetween: 15,
+  freeMode: true,    
+  autoplay: true,
+  speed: 3000,
+  stopOnLastSlide : true,
+  breakpoints: {    
+    // when window width is >= 320px
+    350: {
+     slidesPerView: 2,
+     spaceBetween: 15      
+   },
+   // when window width is >= 320px
+   360: {
+     slidesPerView: 2.3,
+     spaceBetween: 15      
+   },
+    // when window width is >= 411px
+   411: {
+     slidesPerView: 2.2,
+     spaceBetween: 15
+   },
+   // when window width is >= 480px
+   467: {
+     slidesPerView: 2.5,
+     spaceBetween: 15
+   },
+   500: {
+     slidesPerView: 2.6,
+     spaceBetween: 20
+   },
+   550: {
+     slidesPerView: 3,
+     spaceBetween: 20
+   },
+   // when window width is >= 640px
+   640: {
+     slidesPerView: 4,
+     spaceBetween: 20
+   },
+   // when window width is >= 640px
+   1000: {
+     slidesPerView: 5,
+     spaceBetween: 20, 
+   }
+ }, 
+})
 /*
 $(".swiper1").on(" mouseover touched touchmove", function(e){  
   swiper1.autoplay.stop();   
@@ -564,6 +613,9 @@ swiper_wrappers.forEach( (wrapper,index) => {
         case 9:
           moverSwipersExcepto(swiper10);  
         break;
+        case 10:
+          moverSwipersExcepto(swiper11);  
+        break;
     
       default:
         break;
@@ -583,6 +635,7 @@ function moverSwipersExcepto(pSwiper){
     swiper8.autoplay.start();  
     swiper9.autoplay.start();  
     swiper10.autoplay.start(); 
+    swiper11.autoplay.start(); 
     pSwiper.autoplay.stop(); 
   }else{    
     stopSwipers();
@@ -602,6 +655,7 @@ function stopSwipers(){
   swiper9.autoplay.stop();  
   swiper9.pagination.init ();  
   swiper10.autoplay.stop();   
+  swiper11.autoplay.stop(); 
 } 
  
 }
