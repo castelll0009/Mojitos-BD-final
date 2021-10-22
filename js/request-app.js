@@ -408,7 +408,9 @@ $(document).ready(function() {
         
             //Limpiear Select      Variantes  
             //OPCIONES DISPONIBLES insercion  
-            //LO que vamos a hacer: queremos que los productos                            
+            //LO que vamos a hacer: queremos que los productos puedan ser palomeados dependiendo de la cantidad de adiciones permitidas
+            //es decir si queremos  un postre en el que podemos elegir 2  frutas , y tenemos mango, banano, fresa, piña etc, se puedan
+            //palomear las que deseamos agregar                           
             $("#variantes-detalles-producto").find('option').remove();                          
             var contadorAux = 0;  
             while(contadorAux <  array_variantes.length){                 

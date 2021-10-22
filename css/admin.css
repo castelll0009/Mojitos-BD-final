@@ -24,7 +24,7 @@ width: 100%;
  
 }
 /* variantes-disponibles*/
-.div-add-variantes, .div-adiciones{
+.div-add-variantes, .div-adiciones , .div-topings{
     flex-direction: row;
     display: flex;
 }
