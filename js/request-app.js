@@ -431,7 +431,7 @@ $(document).ready(function() {
                 const option = document.createElement('option');
                 const valor = array_variantes[contadorAux]; //le pasamos al option creado el valor del arreglo y la posicion correspodientes
                 option.value = valor;
-                option.text = valor;
+                option.text = valor;                
                 document.querySelector("#variantes-detalles-producto").appendChild(option); //agregamos la nueva option creada con el valor  al selector                
                 contadorAux++;
             }
