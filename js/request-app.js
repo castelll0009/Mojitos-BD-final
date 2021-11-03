@@ -103,7 +103,7 @@ $(document).ready(function() {
         console.log("MOSTRAR ARREGLO A SUBIR POR CONSOLA: ");
         console.log(postData);  //Mostramos el arreglo a subir por  consola
         */
-        console.log("AAAAAAAAAAAAAAAAAA" + url);
+        //console.log("AAAAAAAAAAAAAAAAAA" + url);
         $.post(url, postData, (response) => {
         console.log(response); //mostramos el nuevo Json a subir a la base de datos
         //reseteamos lo campos
