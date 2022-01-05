@@ -52,6 +52,9 @@ body {
 }
 .swiper-wrapper{     
 }
+.swiper-wrapper {
+  transition-timing-function: linear;
+}
 
 .swiper-slide:active{        
   border: 2px solid rgb(245, 245, 245);  
