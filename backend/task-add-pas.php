@@ -44,7 +44,7 @@ if(isset($_POST['name'])) {
 
   //$query = "INSERT into productos(imagen, category, name, price, description, pedidos_disponibles, variantes) VALUES ('$imagen' '$task_category','$task_name','$task_price', '$task_description', '$task_pedidos_disponibles', '$task_variantes')";    
   //$ruta_imagen= "EJEMPLO RUTA IMG";
-  $query = "INSERT into productos(imagen, category, name, price, description, pedidos_disponibles, variantes) VALUES ('$ruta_imagen_string', '$task_category','$task_name','$task_price', '$task_description', '$task_pedidos_disponibles', '$task_variantes')";  
+  $query = "INSERT into tbl_pasteleria_productos(imagen, category, name, price, description, pedidos_disponibles, variantes) VALUES ('$ruta_imagen_string', '$task_category','$task_name','$task_price', '$task_description', '$task_pedidos_disponibles', '$task_variantes')";  
   $result = mysqli_query($connection, $query);
 
   if (!$result) {

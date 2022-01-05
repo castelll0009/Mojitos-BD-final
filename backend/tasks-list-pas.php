@@ -1,7 +1,7 @@
 <?php
 
 include('database.php');  
-  $query = "SELECT * from productos";
+  $query = "SELECT * from tbl_pasteleria_productos";
   $result = mysqli_query($connection, $query);
   if(!$result) {
     die('Query Failed'. mysqli_error($connection));

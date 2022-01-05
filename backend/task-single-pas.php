@@ -4,7 +4,7 @@ include('database.php');
 
 if(isset($_POST['id'])) {
   $id = $_POST['id'];
-  $query = "SELECT * from productos WHERE id = $id";  
+  $query = "SELECT * from tbl_pasteleria_productos WHERE id = $id";  
   $result = mysqli_query($connection, $query);
 
   if (!$result) {
