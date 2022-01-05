@@ -23,7 +23,7 @@ body{
     background-position: center;
     background-attachment: fixed;
 	*/
-	color: rgb(255, 255, 255);
+	color: rgb(5, 5, 5);
 	
 }
 .color-titulos{	
@@ -129,6 +129,7 @@ p{
 	/*font-family: 'Kaushan Script', cursive;*/
 }
 .text-introduccion{
+	font-size: 0.9em;
 	letter-spacing :  1.4px;
 	padding-left: 10px;
 	padding-right: 10px;

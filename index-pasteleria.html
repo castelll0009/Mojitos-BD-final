@@ -2,8 +2,9 @@
 <html lang="en">
 	<head>
 		<meta charset= "utf-8">
+		<link rel="stylesheet" href="css/header.css">	
 		<link rel="stylesheet" href="css/swiper-slide.css">	
-		<link rel="stylesheet" href="css/stylemovil.css">	
+		<link rel="stylesheet" href="css/header-pasteleria.css">	
 		<link rel="stylesheet" href="css/detalles_producto.css">			
 		<link rel="stylesheet" href="css/detalles_carrito.css">					
 		
@@ -22,7 +23,7 @@
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 		 -->
 		
-		<link rel="stylesheet" href="css/main.css">		
+		<link rel="stylesheet" href="css/main-pasteleria.css">		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
@@ -38,8 +39,10 @@
 		</div>
 		
 		<div class="container-fotos ">			
-			<img class="img-foto" src="../imgs/portada.png" >
-			<img class="img-body-textura" src="imgs/textura-fondo.png">
+			<img class="img-foto" src="imgs/portada2.png" >
+			<!--
+			<img class="img-body-textura" src="imgs/textura-fondo-pasteleria-angosta.png">
+		-->
 		</div>
 		<!-- CONTENEDOR DETALLES CARRITO FACTURA  desplegable , contenedor de los productos agregados al carrito -->
 		<div  class="cont-detalles-carrito">			
@@ -193,15 +196,15 @@
 		</div>	
 		<main >			
 				
-			<i id="beepc" onclick="vistaEscritorio()" class="fas fa-laptop"></i>			
+			<i id="beepc" onclick="vistaEscritorio()" class="fas fa-laptop color-carrito"></i>			
 			<header>		
 				<!-- cabecera menu y demas -->				
 				<div class="container-header">														
 					<div  class="container-logo-title">				
-						<img id="zumbido" src="../imgs/"  onClick="sonidoLogo()" class="no-seleccionable zumbido animate__animated animate__jello animate__fast"   >
-						<h1>Mojito</h1>
+						<img id="zumbido" src="/imgs/img-logo-pasteleria.png"  onClick="sonidoLogo()" class="no-seleccionable zumbido animate__animated animate__jello animate__fast"   >
+						<h1>Pasteles</h1>
 						<h2 class="numero-mesa">DOMICILIO </h2>
-						<span id="icono-carrito-compras-main" class="icono-carrito-compras"><i class="icono-carrito-compras-i fas fa-cart-arrow-down"></i></span>
+						<span id="icono-carrito-compras-main" class="icono-carrito-compras"><i class="icono-carrito-compras-i fas fa-cart-arrow-down color-carrito"></i></span>
 					</div>						
 				</div>
 			</header>	
@@ -209,22 +212,22 @@
 				<!--
 					<img id="img-home" src= "imgs/fondo-portada.jpg" class="animate__animated animate__fadeIn">	
 				-->				
-				<h1 id="info-title" class=" animate__animated animate__fadeIn"> 
-						<img class="img-logo" src="" alt="">Mojito</h1>		
+				<h1 id="info-title" class="color-titulos animate__animated animate__fadeIn"> 
+						<img class="img-logo" src="" alt="">Sueño Pastelero</h1>		
 				<div id="div-index" class="animate__animated animate__flipInX">
-					<h2 class="fuente-subtitulos" >Sabemos lo que te gusta</h2>
-					<p class="text-introduccion" style="margin-top: 30px;">Acá podrás encontrar nuestro menú, elige lo que desees y date la oportunidad de disfrutar donde quieras.</p>				
+					<h2 class="fuente-subtitulos color-fuente-texto" >Los pasteles mas exquisitos y variados para ti</h2>
+					<p class="text-introduccion" style="margin-top: 30px;">Elige lo que desees de nuestro menu y date la oportunidad de disfrutar, hacemos domicilios para tu comodidad.</p>				
 				</div>					
 			</div>		
-			<h1 class="title-menu" class=" animate__animated animate__fadeIn">Menú</h1> 			
+			<h1 class="title-menu color-titulos" class=" animate__animated animate__fadeIn">Menú</h1> 			
 			<!-- Swiper  contenedor-->
 			<!-- MENU -->
 			<div class="contenedor-todo-swiper">				
 				<!-- FRAPPES -->
-				<h2 class="titulo-swiper-categoria">Cafés</h2>
+				<h2 class="titulo-swiper-categoria">Pasteles sin cubierta</h2>
 				 <!-- Swiper -->
 				<div  class="swiper mySwiper swiper1">
-					<div id="cafes" class="swiper-wrapper wrapper1">											  									  					 				
+					<div id="cat1" class="swiper-wrapper wrapper1">											  									  					 				
 					  <!--
 					      <div  productoId="${task.id}" productoCategory="${task.category}" class="swiper-slide desplegar-detalles  ">
                             <img  src="${task.imagen}" >   
@@ -237,10 +240,10 @@
 			</div>
  			<!-- Swiper  contenedor-->
 			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Frappes</h2>
+				<h2 class="titulo-swiper-categoria">Pasteles con cubierta</h2>
 				 <!-- Swiper -->
 				 <div class="swiper mySwiper swiper2">
-					<div id="frappes" class="swiper-wrapper">
+					<div id="cat2" class="swiper-wrapper">
 					  		  					  
 					  <!--
 					  <div class="swiper-slide desplegar-detalles swiper-disable"></div>				  
@@ -253,87 +256,33 @@
 			</div>			
 			
 			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Bebidas Calientes</h2>
+				<h2 class="titulo-swiper-categoria">Pasteles temáticos</h2>
 				 <!-- Swiper -->
 				 <div class="swiper mySwiper swiper3">
-					<div id="bebidasCalientes" class="swiper-wrapper">
+					<div id="cat3" class="swiper-wrapper">
 															    					  					  
 					</div>					
 				</div>				
 			</div>			
 			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Bebidas Frías</h2>
+				<h2 class="titulo-swiper-categoria">Pasteleres sin hornear</h2>
 				 <!-- Swiper -->
 				 <div class="swiper mySwiper swiper4">
-					<div id="bebidasFrias" class="swiper-wrapper">
+					<div id="cat4" class="swiper-wrapper">
 												  														    					  					  
 					</div>					
 				</div>				
 			</div>
 			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Malteadas</h2>
+				<h2 class="titulo-swiper-categoria">Tarta helada</h2>
 				 <!-- Swiper -->
 				 <div class="swiper mySwiper swiper5">
-					<div id="malteadas" class="swiper-wrapper">
+					<div id="cat5" class="swiper-wrapper">
 												  														    					  					  
 					</div>					
 				</div>				
 			</div>
-			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Mega Malteadas</h2>
-				 <!-- Swiper -->
-				 <div class="swiper mySwiper swiper6">
-					<div id="megaMalteadas" class="swiper-wrapper">
-												  														    					  					  
-					</div>					
-				</div>				
-			</div>
-			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Waffles de sal</h2>
-				 <!-- Swiper -->
-				 <div class="swiper mySwiper swiper7">
-					<div id="wafflesdeSal" class="swiper-wrapper">
-												  														    					  					  
-					</div>					
-				</div>				
-			</div>
-			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Waffles Dulces</h2>
-				 <!-- Swiper -->
-				 <div class="swiper mySwiper swiper8">
-					<div id="wafflesDulces" class="swiper-wrapper">
-												  														    					  					  
-					</div>					
-				</div>				
-			</div>
-			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Antojos</h2>
-				 <!-- Swiper -->
-				 <div class="swiper mySwiper swiper9">
-					<div id="antojos" class="swiper-wrapper">
-												  														    					  					  
-					</div>					
-				</div>				
-			</div>
-			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Cócteles</h2>
-				 <!-- Swiper -->
-				 <div class="swiper mySwiper swiper10">
-					<div id="cocteles" class="swiper-wrapper">
-												  														    					  					  
-					</div>					
-				</div>				
-			</div>
-			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Pa' picar</h2>
-				 <!-- Swiper -->
-				 <div class="swiper mySwiper swiper11">
-					<div id="papicar" class="swiper-wrapper">
-												  														    					  					  
-					</div>					
-				</div>				
-			</div>
-		  			
+
 			<div class="cards-container" >
 				<figure class="figure-container refrigerador-class" onclick="abrirCerrarRefri();" >
 					<div class="sona0  div-figure " >						
@@ -383,7 +332,7 @@
 						<span style="color:rgb(163, 161, 161)"><br> <br>Leer Menos</span></p>
 					</div>					
 				</figure>																						
-			</div>
+			</div>			
 
 			<nav class=" nav-barra-inferior animate__animated animate__fadeIn">
 				<a href = "" class="margen-derecha">Productos</a>
@@ -424,8 +373,8 @@
 		  
 		<script src="js/detalles_producto.js"></script>				
 		<script src="js/detalles_carrito.js"></script>	
-		<script src="js/request-app.js"></script>				
-		<script src="js/menu.js"></script>	
+		<script src="js/request-app-pasteleria.js"></script>				
+		<script src="js/menu-pasteleria.js"></script>	
 		<script src="js/sonidos.js"></script>	
 		<script src="js/buttom_menu.js"></script>	
 		<script src="js/jquery.js"></script>  		

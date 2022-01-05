@@ -4,14 +4,10 @@ function activarSwiper() {
   
 //autoplay swiper1
 const swiper1 = new Swiper(".swiper1",{  
-  slidesPerView: 2,  
-  spaceBetween: 100,
-  efecto: "coverflow",
+  slidesPerView: 3,
+  spaceBetween: 15,
   freeMode: true,    
-  autoplay: {
-    enabled: true,
-    delay: 0,
-  },
+  autoplay: true,
   speed: 3000,  
   breakpoints: {    
     // when window width is >= 320px
