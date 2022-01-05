@@ -4,7 +4,7 @@ include('database.php');
 
 $search = $_POST['search'];
 if(!empty($search)) {
-  $query = "SELECT * FROM productos WHERE name LIKE '$search%'";
+  $query = "SELECT * FROM tbl_pasteleria_productos WHERE name LIKE '$search%'";
   $result = mysqli_query($connection, $query);
   
   if(!$result) {

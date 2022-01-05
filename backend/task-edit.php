@@ -15,7 +15,7 @@
       print "$id $task_name  $ruta_imagen_string $task_nombre_imagen $task_category $task_price $task_pedidos_disponibles $task_variantes";
 
       
-      $query = "UPDATE productos
+      $query = "UPDATE tbl_pasteleria_productos
                   SET imagen = '$ruta_imagen_string', category = '$task_category', name = '$task_name', price ='$task_price',
                   description = '$task_description', pedidos_disponibles = '$task_pedidos_disponibles', variantes = '$task_variantes' 
                   WHERE id = '$id'";                                     
