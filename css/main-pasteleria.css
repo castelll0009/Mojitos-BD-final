@@ -113,6 +113,7 @@ p{
 
 
 #info-title{	
+	display:none;
 	color: #c59e3a;
 	margin-top: 190px;
 	font-size: 5em;	
@@ -296,6 +297,7 @@ h2{
 	animation-delay: 2s;
 }
 #div-index{
+	margin-top: 300px;
 	animation-delay: 1s;	
 }
 .img-tam-mediano{
@@ -342,7 +344,7 @@ h2{
   }
 
 .figure-container{	
-	background-color: rgba(0, 0,  0, 0.7);
+	background-color: rgba(0, 0,  0, 0.7);	
 	position: relative;
 }
 
