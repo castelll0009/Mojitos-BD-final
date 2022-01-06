@@ -1,4 +1,5 @@
 .titulo-swiper-categoria{
-    color: #742936;
-    background-color: rgba(0, 0, 0, 0.171);
+    color: #2e1116;
+  /* background-color: #eacda3c0;*/
+    backdrop-filter:  blur(2px);
 }
