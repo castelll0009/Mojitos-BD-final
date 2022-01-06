@@ -100,7 +100,7 @@ function cambiosCantidadPedido(){
   
   //CONFIRMAR ORDEN
   //variables para crear URL y enviar pedido a Whatsapp
-  var numero_telefono = 573224270136;
+  var numero_telefono = 573202486769;
   var URL_orden = window.location;
   var cadenaURL = "";
   var cadenaEncabezado = "";
