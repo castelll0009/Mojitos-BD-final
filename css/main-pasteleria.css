@@ -146,6 +146,7 @@ h2{
 }
 	
 .titulo-producto{
+	color:white;
 	font-family: 'Lato', sans-serif;
 	font-weight: lighter;	
 }
@@ -183,7 +184,7 @@ main{
 	position: fixed;
 	z-index: -2;	
 }
-.img-body-textura{		
+.img-body-textura{			
 	padding-top: 150px;	
 	width: 100%;		
 	opacity: 0.9;	
@@ -207,7 +208,7 @@ main{
 
 
 a{
-	color:#F2D02F;
+	color:#742936;
 }
 article{	
 	margin-top: 10px;	
@@ -314,10 +315,10 @@ h2{
 .info-container{
 	/* Add the blur effect */	
 	backdrop-filter:  blur(2px);
-    background-color: rgba(0, 0,  0, 0.1);    
+    background-color: rgba(0, 0, 0, 0.021);    
 	/*filter: blur(1px);
 	-webkit-filter: blur(8px);
-	*/
+	*/	
 	text-align: center;
 	margin-top: 120px;
 }
@@ -328,6 +329,7 @@ h2{
 }
 
 .cards-container{	
+	color: white;
 	text-align: center;
 	justify-content: center;
 	width: auto;
@@ -479,7 +481,7 @@ span{
 	
 	#beepc2{						
 		font-size: 1.5em;
-		color: #D29500;			
+		color: #d200c1;			
 		bottom: 2px ;	
 		right: 7.5px;
 		opacity: 0.5;		

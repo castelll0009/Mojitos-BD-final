@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset= "utf-8">
-		<link rel="stylesheet" href="css/header.css">	
-		<link rel="stylesheet" href="css/swiper-slide.css">	
+		<meta charset= "utf-8">		
+		<link rel="stylesheet" href="css/swiper-slide-pasteleria.css">	
+		<link rel="stylesheet" href="css/cards-info.css">	
+		<link rel="stylesheet" href="css/header.css">			
 		<link rel="stylesheet" href="css/header-pasteleria.css">	
 		<link rel="stylesheet" href="css/detalles_producto.css">			
 		<link rel="stylesheet" href="css/detalles_carrito.css">					
@@ -57,7 +58,7 @@
 						  <tr class="tr-tabla-carrito">
 							<th class="th-numero">#</th>
 							<th class="th-producto">Productos</th>
-							<th  class="th-cantidad" style="color:#F5CF91;">Cantidad</span> </th>
+							<th  class="th-cantidad" style="color:#ec0fcf;">Cantidad</span> </th>
 							<th>Precio</th>
 							<th class="th-acction"></th>
 						  </tr>
@@ -265,7 +266,7 @@
 				</div>				
 			</div>			
 			<div class="contenedor-todo-swiper">
-				<h2 class="titulo-swiper-categoria">Pasteleres sin hornear</h2>
+				<h2 class="titulo-swiper-categoria">Pasteles sin hornear</h2>
 				 <!-- Swiper -->
 				 <div class="swiper mySwiper swiper4">
 					<div id="cat4" class="swiper-wrapper">
@@ -286,41 +287,43 @@
 			<div class="cards-container" >
 				<figure class="figure-container refrigerador-class" onclick="abrirCerrarRefri();" >
 					<div class="sona0  div-figure " >						
-							<img src="imgs/refri-cerrado.png" class="refri1">
-							<img src="imgs/refri-abierto.png" class="refri2">						
-						<h1>Refrigerador</h1>
-						<p>Si deseas puedes tomar una cerveza o alguna otra bebida de nuestro 
+							<img src="imgs/pasteles-domicilio1.png" class="refri1">
+							<img src="imgs/pasteles-domicilio2.png" class="refri2">						
+						<h1>Tu pastel a domicilio</h1>
+						<br>
+						<p>Puedes hacer que tu pedido llegue a la puerta de  tu casa
 							<span class="puntos0  puntos" style="color:rgb(167, 158, 158)">...Leer Más</span>
 							<p class="text0" id="text">							
-							refrigerador, estara disponible siempre que quieras tomar o servirte algo,
-							no hay ningun problema, solo recuerda pagarlo ;D .																				
+							Nuestros repartidores llevaran el pastel que usted desee hasta tu casita, fresco y delicioso
+							 o puedes enviárselo 
+							directamente a esa personita espercial.																				
 							<span style="color:rgb(163, 161, 161)"><br> <br>Leer Menos</span></p>										
 					</div>
 					
 				</figure>	
 
-				<figure class="figure-container">
+				<figure class="figure-container" onclick="abrirCerrarCard2();">
 					<div class="sona0 entretenimiento-class div-figure" >
-						<img src="imgs/uno-circle.png" >
-						<img src="imgs/youtube-circle.png" >
-						<h1>Entretenimiento</h1>
-						<p>¿Te aburres esperando? no te preocupes tenemos algunas cosas							
+						<img src="imgs/whatsapp.png" >
+						
+						<h1>Hago mis pedidos por whatsapp?</h1>
+						<br>
+						<p>¿Te parece mas comodo usar tu What? todos los pedidos se enviaran							
 							<span class="puntos0  puntos2" style="color:rgb(126, 126, 126)">...Leer Más</span>	
 							<p  class="text0" id="text2">
-							que puedes hacer mientras.													
-							Desde nuestro aplicativo web puedes solicitar:<br><br>							
-							UNO:<br>Juego de cartas para divertirse con tus amigos.<br>
-							<br>YouTube Music Premium :<br> Puedes poner 2 canciones por ordenar, crear tu propia listas de reproducción, es genial.
+							 al whatsapp de tu proveedor, asi podras tener comunicación directa con él,
+							por si tienes dudas o deseas pedir algo mas personalizado.							
 							<span style="color:rgb(163, 161, 161)"><br> <br>Leer Menos</span></p>														
 											
 					</div>
 				</figure>	
 				
-				<figure class="figure-container">
+				<figure class="figure-container" onclick="abrirCerrarCard3();">
 					<div   class="sona0 sona3 div-figure"  >
 						<img src="imgs/trucos.png" >
-					<h1>Curiosidades Appiweb Mojito</h1>
-					<p>Aqui encontraras algunas de las funciones que tiene
+					<h1>Curiosidades de nuestro  Appiweb</h1>
+					<br>
+					<p>Aqui encontraras algunas de las funciones que tiene este sitio
 						<span class="puntos0 puntos3" style="color:rgb(126, 126, 126)">...Leer Más</span>	
 						<p class="text0" id="text3">	
 						nuestro sitio web que te facilitaran mas las cosas y tendras una mejor experiencia.
@@ -338,9 +341,9 @@
 				<a href = "" class="margen-derecha">Productos</a>
 				<a href = "" class="margen-derecha" class="margen-derecha">Contactos</a>
 				<a href = "" class="margen-derecha">Acerca de</a>
-				<a href = "https://www.facebook.com/mojitoocafebar" class="margen-derecha">Redes Sociales</a>	
+				<a href = "" class="margen-derecha">Redes Sociales</a>	
 				<a href = "https://www.instagram.com/castelll0009">Instragram</a>		
-				<a style="background-color: rgb(236, 132, 72); border-radius: 5px; padding-left: 8px; padding-right: 8px; color: beige;"  href = "https://drive.google.com/file/d/1NDsNjMkE4laC038JCCZmbtsV9ulMIvaF/view?usp=sharing">CV-Developer</a>	
+				<a style="background-color: rgb(235, 8, 186); border-radius: 5px; padding-left: 8px; padding-right: 8px; color: beige;"  href = "https://drive.google.com/file/d/1NDsNjMkE4laC038JCCZmbtsV9ulMIvaF/view?usp=sharing">CV-Developer</a>	
 			</nav>				
 			
 		</main>	  		
@@ -352,6 +355,14 @@
 			<source src="sounds/abrir-lata-recortado.mp3" type="audio/mpeg">
 			Your browser does not support the audio element.
 		</audio>
+		<audio id="sonido-terminar-pedido">	  
+			<source src="sounds/cerrar-guantera.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
+		<audio id="sonido-pedido">	  
+			<source src="sounds/se-fue-pedido.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio>
 		<audio id="sonido-click-producto">	  
 			<source src="sounds/click-suave.mp3" type="audio/mpeg">
 			Your browser does not support the audio element.
@@ -360,6 +371,10 @@
 		<source src="sounds/cerar-refri.mp3" type="audio/mpeg">
 		Your browser does not support the audio element.
 		</audio>
+		<audio id="sonido-whatsapp-apple">	  
+			<source src="sounds/whatsapp-apple.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+			</audio>
 
 		<!-- JQuery -->	
 		<script

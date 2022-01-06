@@ -1,6 +1,6 @@
 var sound = document.getElementById("sonido-logo");
-var abrir_refri = document.getElementById("sonido-refri");
-var cerrar_refri = document.getElementById("sonido-cerrar-refri");
+var sonido_timbre = document.getElementById("sonido-pedido");
+var cerrar_refri = document.getElementById("sonido-terminar-pedido");
 var beepc = document.querySelector("#beepc");
 var var_header= document.querySelector("header");
 
@@ -9,7 +9,7 @@ function sonidoLogo() {
 	sound.play();			
 }	
 function sonidoRefri(){
-	abrir_refri.play();
+	sonido_timbre.play();
 }
 function sonidoCerrarRefri(){
 	cerrar_refri.play();
@@ -80,6 +80,28 @@ function abrirCerrarRefri(){
 	refri2.classList.toggle("aparecerRefri"); // Aparece refri2	
 }
 
+var sonido_whatsapp_apple = document.getElementById("sonido-whatsapp-apple");
+var cardCerrada = true; 
+function abrirCerrarCard2(){
+	if(cardCerrada){	
+		sonido_whatsapp_apple.play();
+		cardCerrada = false;
+	}else{
+		cerrar_refri.play();
+		cardCerrada = true;
+	
+	}	
+}
+cardCerrada = true; 
+function abrirCerrarCard3(){
+	if(cardCerrada){			
+		cardCerrada = false;
+	}else{
+		cerrar_refri.play();
+		cardCerrada = true;
+	
+	}	
+}
 
 /*cambiar la apariencia de la barra superiro al mover la rueda del mouse hacia abajo*/
 window.onscroll = function() {
