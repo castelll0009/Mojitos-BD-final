@@ -6,15 +6,15 @@
         'blzwwwafrtnoulyompah-mysql.services.clever-cloud.com', 'uflmxyisjbdu7w7l', 'k5ulb9EJWmdqIgYLjNHF', 'blzwwwafrtnoulyompah'
         */
         //conexion Base de datos hosgatos
-        '162.241.61.135', 'mojitosc_castelll0009','Castillo1997177-','mojitosc_mojitos-db'
+        '162.241.2.168','forcesta_castelll0009','Castillo1997177-','forcesta_forcestaff-db'
     );
 
-    /*
+    
     if($connection){
         echo "database is connected";
     }   else{
         echo "no se pudo conectar a la BD";
     }
-    */
+    
 
 ?>
